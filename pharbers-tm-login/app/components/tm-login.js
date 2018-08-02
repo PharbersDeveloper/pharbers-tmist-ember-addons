@@ -1,0 +1,1 @@
+export { default } from 'pharbers-tm-login/components/tm-login';

@@ -1,0 +1,148 @@
+.overview {
+	text-align: center;
+
+	.block {
+		position: relative;
+		top: 70px;
+		z-index: 2;
+		display: inline-block;
+		margin: 0 8px;
+		width: 200px;
+		height: 100px;
+		border-radius: 5px;
+		font-family: PingFangTC-Regular;
+		background: #FFFFFF;
+		box-shadow: 0 4px 6px 0 rgba(161,161,161,0.56);
+
+		.head {
+			font-size: 12px;
+			color: #4A4A4A;
+			letter-spacing: 1px;
+			text-align: left;
+			padding: 10px;
+		}
+
+		.data {
+			font-size: 18px;
+			color: #4A4A4A;
+			letter-spacing: 1.5px;
+			padding-top: 10px;
+
+			span {
+				margin-right: 10px;
+				color: #50E3C2;
+			}
+
+			span.up {
+				color: #50E3C2;
+			}
+
+			span.down {
+				color: #D0021B;
+			}
+		}
+	}
+}
+// .block {
+// 	display: inline-block;
+// 	padding: 5px;
+// 	position: relative;
+// 	z-index: 2;
+// 	top: 70px;
+// 	vertical-align: top;
+// 	margin: 0 8px;
+// 	width: 200px;
+// 	height: 100px;
+// 	background: #FFFFFF;
+// 	box-shadow: 0 4px 6px 0 rgba(161,161,161,0.56);
+// 	border-radius: 5px;
+//
+// 	.head {
+// 		margin: 0;
+// 		padding: 0;
+// 		height: 20px;
+// 		line-height: 20px;
+// 		font-family: PingFangTC-Regular;
+// 		font-size: 14px;
+// 		color: #4A4A4A;
+// 		letter-spacing: 1px;
+// 		text-align: left;
+// 		float: left;
+// 	}
+//
+// 	.data {
+// 		font-family: PingFangTC-Regular;
+// 		font-size: 18px;
+// 		color: #4A4A4A;
+// 		letter-spacing: 1.5px;
+// 		padding-top: 10px;
+// 		clear: both;
+//
+// 		span {
+// 			margin-right: 10px;
+// 		}
+//
+// 		span.up {
+// 			color: #50E3C2;
+// 		}
+//
+// 		span.down {
+// 			color: #D0021B;
+// 		}
+// 	}
+//
+
+.small {
+	font-family: PingFangTC-Regular;
+	font-size: 12px;
+	color: #9B9B9B;
+	letter-spacing: 1.12px;
+	text-align: left;
+	display: inline-block;
+	margin: 10px;
+}
+//
+
+.center {
+	margin: 0;
+	padding: 10px 0;
+	clear: both;
+	text-align: center;
+	font-family: "Microsoft YaHei";
+	font-size: 14px;
+	color: #4A4A4A;
+	letter-spacing: 0.27px;
+}
+//
+
+.tab {
+	margin: 0 auto;
+	width: 165px;
+	height: 25px;
+	line-height: 26px;
+	opacity: 0.67;
+	background: #E6EBF0;
+	border-radius: 100px;
+
+	p {
+		display: inline-block;
+		padding: 0 10px;
+	}
+
+	.share {
+		float: left;
+	}
+
+	.num {
+		float: right;
+	}
+
+	span.up {
+		color: #50E3C2;
+	}
+
+	span.down {
+		color: #D0021B;
+	}
+}
+// }

@@ -1,0 +1,1 @@
+export { default } from 'pharbers-tm-hospital-detail/components/hospital-detail';

@@ -1,0 +1,1 @@
+export { default, numberFormat } from 'pharbers-tm-hospital-list/module/helpers/number-format';

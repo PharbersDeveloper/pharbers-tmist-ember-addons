@@ -1,0 +1,27 @@
+{{yield}}
+{{#each data as |card|}}
+	<div local-class="ability-card">
+		<div local-class="a-inside level">
+			<p local-class="level-title">{{card.title}}</p>
+			<div local-class="circle">
+				<div local-class="c-inside">
+					{{card.level}}
+				</div>
+			</div>
+		</div>
+		<div local-class="a-inside desc">
+			{{#each card.desc as |desc|}}
+				<ul local-class="total">
+					<li local-class="title">{{desc.title}}</li>
+					<li local-class="content">
+						<ul>
+							{{#each desc.content as |content|}}
+								<li>{{content}}</li>
+							{{/each}}
+						</ul>
+					</li>
+				</ul>
+			{{/each}}
+		</div>
+	</div>
+{{/each}}

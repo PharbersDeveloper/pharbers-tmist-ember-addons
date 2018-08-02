@@ -1,0 +1,12 @@
+@import 'bootstrap';
+
+$default-radius: 3px;
+
+.hosp-item {
+	display: inline-block;
+	margin-right: 20px;
+	width: 260px;
+	height: 100%;
+	border-radius: $default-radius;
+	background-color: #FFF;
+}

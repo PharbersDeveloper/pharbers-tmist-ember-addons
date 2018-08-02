@@ -1,0 +1,1 @@
+export { default } from 'pharbers-tm-result/components/result-container';

@@ -1,0 +1,20 @@
+@import 'bootstrap';
+
+.title-bar {
+  flex: 0 0 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #FFF;
+  background-image: linear-gradient(90deg, #4B6693 0%, #8F9CC3 100%);
+
+  span:first-child {
+    margin: 0 15px;
+    font-family: PingFangTC-Regular;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  span:last-child {
+    float: right;
+  }
+}

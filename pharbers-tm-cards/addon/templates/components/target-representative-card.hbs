@@ -1,0 +1,17 @@
+{{yield}}
+{{#each data as |item|}}
+	<div local-class="representative" class="container" {{action 'showMore' item.id}}>
+		<div local-class="name" class="col-md-4">
+			<img local-class="avatar" src= {{item.avatar}} alt="user avatar">
+			<span local>{{item.name}}</span>
+		</div>
+		<div class="col-md-8">
+			{{#each item.showinfo as |info|}}
+				<div local-class="info">
+					<p>{{info.key}}</p>
+					<p>{{info.value}}</p>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+{{/each}}
