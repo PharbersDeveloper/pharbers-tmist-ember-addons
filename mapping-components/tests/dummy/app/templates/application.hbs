@@ -1,0 +1,8 @@
+<h2 id="title">Welcome to Ember</h2>
+{{#mapping-components as |api|}}
+    {{#if api.sya.value}}
+      {{api.sya.value}}
+    {{/if}}
+{{/mapping-components}}
+
+{{outlet}}
