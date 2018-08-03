@@ -1,9 +1,7 @@
 {{#each data as |item|}}
     <div local-class="hosp-item" {{action 'linkPage' item.id}}>
         {{#mapping-components item.component_data as |componentName component|}}
-            {{!-- {{log componentName}} --}}
-            {{!-- {{log component}} --}}
-            {{component.component}}
+            {{component.component }}
         {{/mapping-components}}
     </div>
 {{/each}}

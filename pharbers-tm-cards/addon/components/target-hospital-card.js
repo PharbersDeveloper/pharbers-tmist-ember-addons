@@ -4,5 +4,5 @@ import styles from '../styles/target-hospital-card';
 
 export default Component.extend({
 	layout,
-	styles
+	styles,
 });
