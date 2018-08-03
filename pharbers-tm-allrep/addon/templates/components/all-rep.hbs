@@ -1,7 +1,8 @@
 {{yield}}
-<div local-class="all-reps">
-    <p local-class="title">{{allReps.title}}</p>
-    {{#each allReps.reps as |item|}}
-        {{target-representative-card data=item showMore=(action 'showMore')}}
-    {{/each}}
-</div>
+
+    <div local-class="all-reps">
+        <p local-class="title">{{allReps.title}}</p>
+        {{#each allReps.reps as |item|}}
+            {{target-representative-card data=item showMore=(action 'showMore')}}
+        {{/each}}
+    </div>

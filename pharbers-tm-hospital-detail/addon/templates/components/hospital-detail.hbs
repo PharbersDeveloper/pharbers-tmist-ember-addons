@@ -1,7 +1,5 @@
 {{!-- {{yield}} --}}
-{{!-- {{log hospital.component_data}} --}}
+{{log hospital}}
 {{#mapping-components hospital.component_data as |componentName component|}}
-    {{!-- {{log componentName}} --}}
-    {{!-- {{log component}} --}}
     {{component.component}}
 {{/mapping-components}}

@@ -29,7 +29,6 @@
                     {{/each}}
                 </div>
                 <div local-class="compare">
-
                     {{#bs-tab customTabs=true tagName="" as |tab| }}
                         {{#bs-nav type="pills" local-class="left-tabs" stacked=true as |nav|}}
                             {{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.detail.id)}}
@@ -67,27 +66,27 @@
                 <div local-class="inputarea">
                     <div local-class="input-left">
                         <p>指标设定</p>
-                        <p>{{input type="text"}}元</p>
+                        <p>{{input type="text"}}<span>元</span></p>
                     </div>
                     <div local-class="input-right">
                         <p>指标增长</p>
-                        <p>{{targetIncrease}}</p>
+                        <p>0</p>
                     </div>
                 </div>
                 <div local-class="inputarea">
                     <div local-class="input-left">
                         <p>预算分配</p>
-                        <p>{{input type="text" value=testValue}}元</p>
+                        <p>{{input type="text" value=testValue}}<span>元</span></p>
                     </div>
                     <div local-class="input-right">
                         <p>预算所占%</p>
-                        <p>{{budgetCompute}}</p>
+                        <p>0</p>
                     </div>
                 </div>
                 <div local-class="inputarea">
                     <div local-class="input-left">
                         <p>时间分配</p>
-                        <p>{{input type="text"}}天</p>
+                        <p>{{input type="text"}}<span>天</span></p>
                     </div>
 
                 </div>

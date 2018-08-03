@@ -2,7 +2,7 @@
     <div local-class="menu menu-left">
         <span>通知</span>
         <span>信息库</span>
-        <span>当前部署分析</span>
+        <span>团队培养</span>
     </div>
     <div local-class="menu menu-right">
         {{#bs-dropdown tagName="span" local-class="budget" as |bb|}}
@@ -11,7 +11,7 @@
                 {{#menu.item local-class='budget-tip' }}
                     <div local-class="triangle"></div>
                     <div local-class="rectangle">
-                        <p local-class="budget-text"> <span>预算</span> <span>{{number-format budget.used}}/{{number-format budget.total}}</span> <span>{{budgetPerc}}%</span> </p>
+                        <p local-class="budget-text"> <span>预算</span> <span>{{number-format data.budget.used}}/{{number-format data.budget.total}}</span> <span>{{budgetPerc}}%</span> </p>
                         <div local-class="self-progress" class="progress">
                             {{#bs-progress as |p|}}
                                 {{p.bar value=budgetPerc local-class="self-progress-bar"}}

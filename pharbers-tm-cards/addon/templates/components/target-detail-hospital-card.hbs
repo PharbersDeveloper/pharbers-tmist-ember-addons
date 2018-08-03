@@ -22,33 +22,17 @@
 	</div>
 </div>
 <div local-class="info-right" class="col-md-4 col-sm-4">
-	<div local-class="sign-person" >
-		<div local-class="sign-title" >
+	<div local-class="sign-person">
+		<div local-class="sign-title">
 			<p>人员分配 <span>-请分配代表负责该医院</span> </p>
 		</div>
 		<div local-class="sign-choose">
-			{{#bs-dropdown tagName="span" local-class="choose" as |dd|}}
-				{{#dd.toggle}} <span class="caret"></span>{{/dd.toggle}}
-				{{#dd.menu as |menu|}}
-                {{#each data.represents as |value|}}
-                {{#menu.item}}
-                    <p>{{value}}</p>
-                {{/menu.item}}
-                {{menu.divider}}
-                {{/each}}
-					{{!-- {{#menu.item}}
-						<p>AAAA</p>
-					{{/menu.item}}
-					{{menu.divider}}
-					{{#menu.item}}
-						<p>BBB</p>
-					{{/menu.item}}
-					{{menu.divider}}
-					{{#menu.item}}
-						<p>CCC</p>
-					{{/menu.item}} --}}
-				{{/dd.menu}}
-			{{/bs-dropdown}}
+			<select local-class="choose" name="">
+				<option value="none" selected disabled>选择代表</option>
+				{{#each data.represents as |item|}}
+					<option value={{item}}>{{item}}</option>
+				{{/each}}
+			</select>
 		</div>
 	</div>
 </div>

@@ -10,12 +10,12 @@
 			{{#if (eq itemData.type 'percent')}}
 				<p local-class="data">
 					{{#if (eq itemData.ext.change 'up')}}
-						<span class="glyphicon glyphicon-triangle-top" local-class="up"></span>
+						<span class="glyphicon glyphicon-triangle-top" local-class="up icon"></span>
 					{{/if}}
 					{{#if (eq itemData.ext.change 'down')}}
-						<span class="glyphicon glyphicon-triangle-bottom" local-class="down"></span>
+						<span class="glyphicon glyphicon-triangle-bottom" local-class="down icon"></span>
 					{{/if}}
-					{{number-to-percent itemData.value}}%</p>
+					<span local-class="value">{{number-to-percent itemData.value}}%</span></p>
 			{{/if}}
 			{{#if (eq itemData.type 'info')}}
 				<p local-class="center">{{itemData.value}}</p>
