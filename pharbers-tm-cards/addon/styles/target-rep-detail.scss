@@ -1,4 +1,5 @@
 .rep-detail {
+	display: inline-block;
 	padding: 10px 0;
 	width: 840px;
 	height: 620px;
@@ -20,6 +21,11 @@
 			font-size: 14px;
 			letter-spacing: 2px;
 			color: #4A90E2;
+
+			span {
+				padding-right: 10px;
+				cursor: pointer;
+			}
 		}
 
 		.avatar {

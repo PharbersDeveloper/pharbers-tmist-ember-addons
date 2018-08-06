@@ -1,0 +1,29 @@
+{{yield}}
+<div local-class="drug-item container">
+	<div local-class="c-inside left">
+		<div local-class="left-middle">
+			<img src= {{item.avatar}} alt="">
+			<p>{{item.name}}</p>
+		</div>
+
+	</div>
+	<div local-class="c-inside right">
+		<p local-class="title">{{item.class}}</p>
+		<p local-class="feature">
+			<span>产品特点：</span>
+			<span>{{item.feature}}</span>
+		</p>
+		<p local-class="heal">
+			<span>治疗领域：</span>
+			{{#each item.heal as |item|}}
+				<span local-class="heal">{{item}}</span>
+			{{/each}}
+		</p>
+		<p local-class="department">
+			<span>目标科室：</span>
+			{{#each item.department as |item|}}
+				<span local-class="depart">{{item}}</span>
+			{{/each}}
+		</p>
+	</div>
+</div>

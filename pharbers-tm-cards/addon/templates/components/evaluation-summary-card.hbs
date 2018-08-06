@@ -1,0 +1,15 @@
+{{yield}}
+{{#each data as |summary|}}
+	<div local-class="summary-card">
+		<div local-class="s-inside title">
+			<p>{{summary.title}}</p>
+		</div>
+		<div local-class="s-inside desc">
+			<ul local-class="sum-desc">
+				{{#each summary.desc as |desc|}}
+					<li local-class="content">{{desc}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+{{/each}}

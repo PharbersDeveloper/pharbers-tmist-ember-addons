@@ -15,6 +15,7 @@
 			img {
 				width: 90px;
 				height: 90px;
+				border-radius: 50%;
 			}
 		}
 
@@ -34,6 +35,9 @@
 		}
 
 		.department {
+			height: 20px;
+			overflow: hidden;
+
 			span {
 				display: inline-block;
 				vertical-align: top;

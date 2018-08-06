@@ -1,53 +1,58 @@
 {{yield}}
-<div local-class="rep-detail">
-    <div local-class="left inside">
-        <p local-class="back"> <a href={{data.back}}>&lt;返回</a> </p>
-        <p local-class="avatar">
-            <img src={{data.avatar}} alt="">
-            <p>{{data.name}}</p>
-        </p>
-        <p local-class="self">
-            {{#each data.self as |item|}}
-                <span>{{item}}/</span>
-            {{/each}}
+{{#if (eq show false)}}
+	<div local-class="rep-detail">
+		<div local-class="left inside">
+			<p local-class="back">
+				{{!-- <a href={{data.back}}>&lt;返回</a>  --}}
+				<span {{action 'hideDetail'}}>&lt;&nbsp;返回</span>
+			</p>
+			<p local-class="avatar">
+				<img src= {{data.avatar}} alt="">
+				<p>{{data.name}}</p>
+			</p>
+			<p local-class="self">
+				{{#each data.self as |item|}}
+					<span>{{item}}/</span>
+				{{/each}}
 
-        </p>
-        <div local-class="square">
-            {{#each data.square as |item|}}
-            <p>
-                <span>{{item.title}}：</span>
-                {{#each item.value as |val|}}
-                    <span>{{val}}</span>
-                {{/each}}
-            </p>
+			</p>
+			<div local-class="square">
+				{{#each data.square as |item|}}
+					<p>
+						<span>{{item.title}}：</span>
+						{{#each item.value as |val|}}
+							<span>{{val}}</span>
+						{{/each}}
+					</p>
 
-            {{/each}}
-        </div>
-        <div local-class="scores">
-            {{#each data.scores as |item|}}
-            <div local-class="s-inside">
-                <p>{{item.title}}</p>
-                <p>{{item.score}}</p>
-            </div>
-            {{/each}}
-        </div>
-    </div>
-    <div local-class="right inside">
-        <div local-class="input-area">
-            <p>协助拜访</p>
-            <p local-class="input-text">{{input type="text" value="0" local-class="t-input"}}<span local-class="day">天</span></p>
-        </div>
-        <div local-class="input-area">
-            <p>脱岗产品培训</p>
-            <p local-class="input-text">{{input type="text" value="0" local-class="t-input"}}<span local-class="day">天</span></p>
-        </div>
-        <div local-class="input-area">
-            <p>1V1能力辅导</p>
-            <p local-class="input-text">{{input type="text" value="0" local-class="t-input"}}<span local-class="day">天</span></p>
-        </div>
-        <div local-class="input-area">
-            <p>团建/例会</p>
-            <p local-class="input-text"><span local-class="daysnum">23</span><span local-class="day">天</span></p>
-        </div>
-    </div>
-</div>
+				{{/each}}
+			</div>
+			<div local-class="scores">
+				{{#each data.scores as |item|}}
+					<div local-class="s-inside">
+						<p>{{item.title}}</p>
+						<p>{{item.score}}</p>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+		<div local-class="right inside">
+			<div local-class="input-area">
+				<p>协助拜访</p>
+				<p local-class="input-text">{{input type="text" value="0" local-class="t-input"}}<span local-class="day">天</span></p>
+			</div>
+			<div local-class="input-area">
+				<p>脱岗产品培训</p>
+				<p local-class="input-text">{{input type="text" value="0" local-class="t-input"}}<span local-class="day">天</span></p>
+			</div>
+			<div local-class="input-area">
+				<p>1V1能力辅导</p>
+				<p local-class="input-text">{{input type="text" value="0" local-class="t-input"}}<span local-class="day">天</span></p>
+			</div>
+			<div local-class="input-area">
+				<p>团建/例会</p>
+				<p local-class="input-text"><span local-class="daysnum">23</span><span local-class="day">天</span></p>
+			</div>
+		</div>
+	</div>
+{{/if}}

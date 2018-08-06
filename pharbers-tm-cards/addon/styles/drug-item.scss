@@ -1,0 +1,108 @@
+.container {
+	position: relative;
+	margin-bottom: 15px;
+	width: 1060px;
+	min-height: 165px;
+	font-size: 0;
+	background-color: #FBFBFB;
+
+	.c-inside {
+		display: inline-block;
+		vertical-align: top;
+
+		&.left {
+			position: absolute;
+			width: 150px;
+			height: 100%;
+			text-align: center;
+			background-image: linear-gradient(-90deg, rgba(75,102,147,.27) 0%, rgba(143,156,195,.27) 100%);
+
+			.left-middle {
+				position: absolute;
+				width: 100%;
+				height: 110px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+
+			img {
+				width: 80px;
+				height: 80px;
+			}
+
+			p {
+				margin: 2px 0;
+				line-height: 20px;
+				font-size: 16px;
+				color: #4A90E2;
+				letter-spacing: 2.29px;
+				text-align: center;
+			}
+		}
+
+		&.right {
+			margin-left: 150px;
+			width: 910px;
+			height: auto;
+			padding: 15px 15px 0;
+			font-size: 14px;
+
+			p {
+				margin-bottom: 15px;
+			}
+
+			.title {
+				line-height: 20px;
+				font-size: 14px;
+				color: #4A90E2;
+				letter-spacing: 3.5px;
+			}
+
+			.feature {
+				line-height: 20px;
+				font-size: 14px;
+				color: #485465;
+				letter-spacing: 1.5px;
+			}
+
+			.department,
+			.heal {
+				span {
+					display: inline-block;
+					vertical-align: top;
+					height: 25px;
+					line-height: 25px;
+				}
+
+				span:first-child {
+					font-size: 14px;
+					color: #485465;
+					letter-spacing: 1.5px;
+				}
+
+				span:not(:first-child) {
+					display: inline-block;
+					min-width: 70px;
+					max-width: 100px;
+					overflow-x: hidden;
+					height: 25px;
+					line-height: 25px;
+					text-align: center;
+					font-size: 14px;
+					color: #FFFFFF;
+					letter-spacing: 1.5px;
+					border-radius: 3px;
+				}
+			}
+
+			.heal span:not(:first-child) {
+				background: #8AE8D3;
+			}
+
+			.department span:not(:first-child) {
+				background: #FFD58F;
+			}
+		}
+	}
+}

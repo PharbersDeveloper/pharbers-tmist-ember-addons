@@ -8,7 +8,4 @@ export default Component.extend({
 	tagName: 'div',
 	localClassNames: 'basic-info',
 	classNames: ['container'],
-	init() {
-		this._super(...arguments);
-	},
 });

@@ -2,19 +2,19 @@
 <div local-class="info-left" class="col-md-8 col-sm-8">
 	<div class="row">
 		<div class="col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-			<img src= {{data.avatar}} alt="">
+			<img src={{data.hosp_image}} alt="">
 		</div>
 		<div class="col-md-10 col-sm-10 col-xs-10" local-class="overview">
 			<p local-class="title"><span>{{data.name}}</span> <span>{{data.level}}</span> </p>
 			<p local-class="department">
 				<span>重点科室：</span>
-				{{#each data.departments as |value|}}
+				{{#each (string-to-array data.department ';') as |value|}}
 					<span>{{value}}</span>
 				{{/each}}
 			</p>
 			<p local-class="outpatient">
 				<span>特色门诊：</span>
-				{{#each data.outpatients as |value|}}
+				{{#each (string-to-array data.featured_outpatient ';') as |value|}}
 					<span>{{value}}</span>
 				{{/each}}
 			</p>
@@ -30,7 +30,7 @@
 			<select local-class="choose" name="">
 				<option value="none" selected disabled>选择代表</option>
 				{{#each data.represents as |item|}}
-					<option value={{item}}>{{item}}</option>
+					<option value={{item.id}}>{{item.rep_name}}</option>
 				{{/each}}
 			</select>
 		</div>
