@@ -60,6 +60,21 @@
 			}
 
 			.feature {
+				span {
+					display: inline-block;
+					vertical-align: top;
+				}
+
+				span:first-child {
+					width: 80px;
+					// height: auto;
+				}
+
+				span:last-child {
+					width: 680px;
+					line-height: 25px;
+				}
+				width: 860px;
 				line-height: 20px;
 				font-size: 14px;
 				color: #485465;

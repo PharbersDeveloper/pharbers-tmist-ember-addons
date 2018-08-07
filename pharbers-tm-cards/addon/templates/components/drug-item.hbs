@@ -25,5 +25,8 @@
 				<span local-class="depart">{{item}}</span>
 			{{/each}}
 		</p>
+		{{#bs-button local-class="drugDetail" onClick=(action "drugDetail" item.id)}}
+			查看详情
+		{{/bs-button}}
 	</div>
 </div>
