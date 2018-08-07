@@ -7,8 +7,11 @@ export default Component.extend({
 		tagName: 'div',
 		styles,
 		actions: {
+			changeData(data) {
+				// window.console.info(data);
+			},
 			linkPage(hid) {
-				this.sendAction('linkPage', hid)
+				// this.sendAction('linkPage', hid)
 			}
 		}
 	})

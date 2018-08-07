@@ -9,11 +9,11 @@
     <p local-class="highlight"> <span>特色科室</span> <span>{{data.department}}</span> </p>
     <p local-class="highlight"> <span>病床数量</span> <span>{{number-format data.beds}}</span> </p>
     <p local-class="highlight"> <span>门诊人次/年</span> <span>{{number-format data.outpatient}}</span> </p>
-    <p local-class="highlight"> <span>手术台数/年</span> <span>{{number-format data.surgery}}</span> </p>
+    {{!-- <p local-class="highlight"> <span>手术台数/年</span> <span>{{number-format data.surgery}}</span> </p> --}}
+    <p local-class="highlight"> <span>测试输入</span> <span>{{input value=businessInputs.surgery}}</span> </p>
     <div local-class="user-info">
         {{#each data.representives as |item|}}
             <p>{{item.name}}</p>
-            {{!-- <img src= {{item.avatar}} alt=""> --}}
             <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-hospital-list-ember-addon/hosp_seller.png" alt="">
         {{/each}}
     </div>
