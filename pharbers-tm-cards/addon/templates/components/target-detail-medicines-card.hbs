@@ -1,96 +1,104 @@
-{{yield}}
 {{!-- <div local-class="medicine-info"> --}}
-{{log data}}
-    {{#each data as |medic|}}
+{{!-- {{log data}} --}}
+{{#each data as |medic|}}
+	<div local-class="medicine medicine-component">
+		<div local-class="medicine-left">
+			<p local-class="title">{{medic.prod_category}}</p>
+			<div local-class="properties">
+				{{#each medic.overview as |ov|}}
+					<div local-class="property">
+						{{#if (eq ov.key '增长潜力')}}
+							<p>{{ov.key}}</p>
+							<p>{{number-to-percent ov.value}}%</p>
+							{{else if (eq ov.key '上期增长')}}
+							<p>{{ov.key}}</p>
+							<p>{{number-to-percent ov.value}}%</p>
+							{{else if (eq ov.key '份额')}}
+							<p>{{ov.key}}</p>
+							<p>{{number-to-percent ov.value}}%</p>
+							{{else if (eq ov.key '上期贡献率')}}
+							<p>{{ov.key}}</p>
+							<p>{{number-to-percent ov.value}}%</p>
+						{{else}}
+							<p>{{ov.key}}</p>
+							<p>{{number-format ov.value}}</p>
+						{{/if}}
 
-        <div local-class="medicine medicine-component">
-            <div local-class="medicine-left">
-                <p local-class="title">{{medic.name}}</p>
-                <div local-class="properties">
-                    {{#each medic.overview as |ov|}}
-                        <div local-class="property">
-                            {{#if (eq ov.key '增长潜力')}}
-                                <p>{{ov.key}}</p>
-                                <p>{{number-to-percent ov.value}}%</p>
-                                {{else if (eq ov.key '上期增长')}}
-                                <p>{{ov.key}}</p>
-                                <p>{{number-to-percent ov.value}}%</p>
-                                {{else if (eq ov.key '份额')}}
-                                <p>{{ov.key}}</p>
-                                <p>{{number-to-percent ov.value}}%</p>
-                                {{else if (eq ov.key '上期贡献率')}}
-                                <p>{{ov.key}}</p>
-                                <p>{{number-to-percent ov.value}}%</p>
-                            {{else}}
-                                <p>{{ov.key}}</p>
-                                <p>{{number-format ov.value}}</p>
-                            {{/if}}
-                        </div>
-                    {{/each}}
-                </div>
-                <div local-class="compare">
-                    {{#bs-tab customTabs=true tagName="" as |tab| }}
-                        {{#bs-nav type="pills" local-class="left-tabs" stacked=true as |nav|}}
-                            {{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.detail.id)}}
-                                <a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.detail.id}}><span class="badge">{{badge}}</span></a>
-                            {{/nav.item}}
-                            {{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.history.id)}}
-                                <a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.history.id}}></a>
-                            {{/nav.item}}
-                            {{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.competitionproducts.id)}}
-                                <a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.competitionproducts.id}}></a>
-                            {{/nav.item}}
-                        {{/bs-nav}}
+					</div>
+				{{/each}}
+			</div>
+			<div local-class="compare">
 
-                        <div class="tab-content" local-class="right-content">
-                            {{#tab.pane local-class="medicine-detail" elementId=medic.detail.id title="Tab 1" }}
-                                <p><span></span>药品详情</p>
-                                {{!-- {{self-table model=medic.detail.value}} --}}
-                            {{/tab.pane}}
+				{{#bs-tab customTabs=true tagName="" as |tab| }}
+					{{#bs-nav type="pills" local-class="left-tabs" stacked=true as |nav|}}
+						{{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.detail.id)}}
+							<a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.detail.id}}>
+							{{!-- {{fa-icon "line-chart"}} --}}
+							<span class="badge">{{badge}}</span>
+						</a>
+						{{/nav.item}}
+						{{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.history.id)}}
+							<a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.history.id}}>
+							{{!-- {{fa-icon "history"}} --}}
+						</a>
+						{{/nav.item}}
+						{{#nav.item local-class="tab" active=(bs-eq tab.activeId medic.compete_goods.id)}}
+							<a local-class="tabsa" href= {{medic.href}} class="nav-link" role="tab" {{action tab.select medic.compete_goods.id}}>
+							{{!-- {{fa-icon "list"}} --}}
+						</a>
+						{{/nav.item}}
+					{{/bs-nav}}
 
-                            {{#tab.pane local-class="medicine-detail" elementId=medic.history.id title="Tab 2" }}
-                                <p><span></span>历史部署</p>
-                                {{!-- {{self-table model=medic.history.value columns=columnsHospital}} --}}
-                            {{/tab.pane}}
+					<div class="tab-content" local-class="right-content">
+						{{#tab.pane local-class="medicine-detail" elementId=medic.detail.id title="Tab 1" }}
+							<p><span></span>药品详情</p>
+							{{detail-table }}
+						{{/tab.pane}}
 
-                            {{#tab.pane local-class="medicine-detail" elementId=medic.competitionproducts.id title="Tab 3" }}
-                                <p><span></span>竞品销售分析</p>
-                                {{!-- {{self-table model=columnsProductsValue columns=columnsProducts}} --}}
-                            {{/tab.pane}}
-                        </div>
-                    {{/bs-tab}}
+						{{#tab.pane local-class="medicine-detail" elementId=medic.history.id title="Tab 2" }}
+							<p><span></span>历史部署</p>
+							{{detail-table }}
+						{{/tab.pane}}
 
-                </div>
-            </div>
-            <div local-class="medicine-right">
-                <div local-class="inputarea">
-                    <div local-class="input-left">
-                        <p>指标设定</p>
-                        <p>{{input type="text"}}<span>元</span></p>
-                    </div>
-                    <div local-class="input-right">
-                        <p>指标增长</p>
-                        <p>0</p>
-                    </div>
-                </div>
-                <div local-class="inputarea">
-                    <div local-class="input-left">
-                        <p>预算分配</p>
-                        <p>{{input type="text" value=testValue}}<span>元</span></p>
-                    </div>
-                    <div local-class="input-right">
-                        <p>预算所占%</p>
-                        <p>0</p>
-                    </div>
-                </div>
-                <div local-class="inputarea">
-                    <div local-class="input-left">
-                        <p>时间分配</p>
-                        <p>{{input type="text"}}<span>天</span></p>
-                    </div>
+						{{#tab.pane local-class="medicine-detail" elementId=medic.compete_goods.id title="Tab 3" }}
+							<p><span></span>竞品销售分析</p>
+							{{detail-table }}
+						{{/tab.pane}}
+					</div>
+				{{/bs-tab}}
 
-                </div>
-            </div>
-        </div>
-    {{/each}}
+			</div>
+		</div>
+		<div local-class="medicine-right">
+			<div local-class="inputarea">
+				<div local-class="input-left">
+					<p>指标设定</p>
+					<p>{{input type="text" disabled="true"}}<span>元</span></p>
+				</div>
+				<div local-class="input-right">
+					<p>指标增长</p>
+					<p>0</p>
+				</div>
+			</div>
+			<div local-class="inputarea">
+				<div local-class="input-left">
+					<p>预算分配</p>
+					<p>{{input type="text" disabled="true"}}<span>元</span></p>
+				</div>
+				<div local-class="input-right">
+					<p>预算所占%</p>
+					<p>0</p>
+				</div>
+			</div>
+			<div local-class="inputarea">
+				<div local-class="input-left">
+					<p>时间分配</p>
+					<p>{{input type="text" disabled="true"}}<span>天</span></p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+{{/each}}
 {{!-- </div> --}}

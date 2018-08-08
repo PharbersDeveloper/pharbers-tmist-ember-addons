@@ -4,7 +4,7 @@ import styles from '../styles/hospital-list';
 
 export default Component.extend({
         layout,
-        tagName: 'div',
+        tagName: '',
         styles,
         actions: {
             changeData(data) {

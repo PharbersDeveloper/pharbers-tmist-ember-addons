@@ -26,34 +26,12 @@ export default Component.extend({
         }
         return newManpower;
     }),
-    init() {
-        this._super(...arguments);
-        // this.data = {
-        //     "budget": {
-        //         "used": 6000,
-        //         "total": 8000,
-        //     },
-        //     "manpower": [{
-        //         "name": "代表一",
-        //         "total": 30,
-        //         "used": 10
-        //     }, {
-        //         "name": "代表2",
-        //         "total": 30,
-        //         "used": 23
-        //     }, {
-        //         "name": "代表3",
-        //         "total": 30,
-        //         "used": 13
-        //     }, {
-        //         "name": "代表4",
-        //         "total": 30,
-        //         "used": 5
-        //     }, {
-        //         "name": "代表5",
-        //         "total": 30,
-        //         "used": 28
-        //     }],
-        // }
-    },
+    actions: {
+        submit(text) {
+            this.sendAction('submit', text)
+        },
+        onclick() {
+            this.sendAction('onclick');
+        }
+    }
 });

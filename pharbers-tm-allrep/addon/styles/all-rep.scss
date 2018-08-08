@@ -1,15 +1,16 @@
 .all-reps {
     vertical-align: top;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 20px;
     width: 840px;
-    height: auto;
+    height: 100%;
     min-height: 620px;
     border-radius: 2px;
     background-color: #F9F9F9;
 
     .title {
-        padding: 5px;
+        // padding: 5px;
+        margin-bottom: 10px;
         line-height: 20px;
         font-size: 14px;
         letter-spacing: 2px;

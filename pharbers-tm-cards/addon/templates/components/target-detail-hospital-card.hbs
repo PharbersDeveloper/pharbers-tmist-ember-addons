@@ -5,7 +5,7 @@
 			<img src={{data.hosp_image}} alt="">
 		</div>
 		<div class="col-md-10 col-sm-10 col-xs-10" local-class="overview">
-			<p local-class="title"><span>{{data.name}}</span> <span>{{data.level}}</span> </p>
+			<p local-class="title"><span>{{data.hosp_name}}</span> <span>{{data.hosp_category}}/{{data.hosp_level}}</span> </p>
 			<p local-class="department">
 				<span>重点科室：</span>
 				{{#each (string-to-array data.department ';') as |value|}}
