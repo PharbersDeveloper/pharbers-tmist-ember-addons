@@ -1,5 +1,4 @@
 @import 'bootstrap';
-
 $default-radius: 3px;
 
 .hosp-item {
@@ -10,4 +9,5 @@ $default-radius: 3px;
 	height: 100%;
 	border-radius: $default-radius;
 	background-color: #FFF;
+	cursor: pointer;
 }

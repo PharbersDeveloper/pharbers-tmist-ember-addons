@@ -2,19 +2,19 @@
 <div local-class="info-left" class="col-md-8 col-sm-8">
 	<div class="row">
 		<div class="col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-			<img src= {{data.avatar}} alt="">
+			<img src={{data.hosp_image}} alt="">
 		</div>
 		<div class="col-md-10 col-sm-10 col-xs-10" local-class="overview">
-			<p local-class="title"><span>{{data.name}}</span> <span>{{data.level}}</span> </p>
+			<p local-class="title"><span>{{data.hosp_name}}</span> <span>{{data.hosp_category}}/{{data.hosp_level}}</span> </p>
 			<p local-class="department">
 				<span>重点科室：</span>
-				{{#each data.departments as |value|}}
+				{{#each (string-to-array data.department ';') as |value|}}
 					<span>{{value}}</span>
 				{{/each}}
 			</p>
 			<p local-class="outpatient">
 				<span>特色门诊：</span>
-				{{#each data.outpatients as |value|}}
+				{{#each (string-to-array data.featured_outpatient ';') as |value|}}
 					<span>{{value}}</span>
 				{{/each}}
 			</p>
@@ -22,33 +22,17 @@
 	</div>
 </div>
 <div local-class="info-right" class="col-md-4 col-sm-4">
-	<div local-class="sign-person" >
-		<div local-class="sign-title" >
+	<div local-class="sign-person">
+		<div local-class="sign-title">
 			<p>人员分配 <span>-请分配代表负责该医院</span> </p>
 		</div>
 		<div local-class="sign-choose">
-			{{#bs-dropdown tagName="span" local-class="choose" as |dd|}}
-				{{#dd.toggle}} <span class="caret"></span>{{/dd.toggle}}
-				{{#dd.menu as |menu|}}
-                {{#each data.represents as |value|}}
-                {{#menu.item}}
-                    <p>{{value}}</p>
-                {{/menu.item}}
-                {{menu.divider}}
-                {{/each}}
-					{{!-- {{#menu.item}}
-						<p>AAAA</p>
-					{{/menu.item}}
-					{{menu.divider}}
-					{{#menu.item}}
-						<p>BBB</p>
-					{{/menu.item}}
-					{{menu.divider}}
-					{{#menu.item}}
-						<p>CCC</p>
-					{{/menu.item}} --}}
-				{{/dd.menu}}
-			{{/bs-dropdown}}
+			<select local-class="choose" name="">
+				<option value="none" selected disabled>选择代表</option>
+				{{#each data.represents as |item|}}
+					<option value={{item.id}}>{{item.rep_name}}</option>
+				{{/each}}
+			</select>
 		</div>
 	</div>
 </div>

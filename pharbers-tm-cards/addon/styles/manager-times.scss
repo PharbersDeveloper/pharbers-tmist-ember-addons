@@ -1,11 +1,14 @@
 .manager-times {
+	display: inline-block;
+	vertical-align: top;
 	width: 260px;
+	height: 100%;
 	padding: 15px 20px;
 	background: #F9F9F9;
 	border-radius: 2px;
 
 	.title {
-		margin: 10px 0;
+		margin-bottom: 10px;
 		height: 20px;
 		line-height: 20px;
 		font-size: 14px;

@@ -5,4 +5,6 @@ import styles from '../styles/result-container';
 export default Component.extend({
     layout,
     styles
-});
+}).reopenClass({
+    positionalParams: ['result']
+})

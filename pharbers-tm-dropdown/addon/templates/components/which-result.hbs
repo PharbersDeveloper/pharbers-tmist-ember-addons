@@ -1,29 +1,14 @@
 {{!-- <div local-class="select"> --}}
 {{#bs-dropdown local-class="title" tagName="span" as |dd|}}
-    {{#dd.toggle}}{{choose.current}}<span class="caret"></span>{{/dd.toggle}}
+    {{#dd.toggle}}{{data.current}}<span class="caret"></span>{{/dd.toggle}}
     {{#dd.menu local-class="ull" as |menu|}}
-        {{#each choose.selected as |selected|}}
+        {{#each data.selected as |selected|}}
             {{#menu.item}}
-                {{!-- {{#menu.link-to selected.url}}{{selected.text}}{{/menu.link-to}} --}}
-                <a href={{selected.url}}>{{selected.text}}</a>
+                {{#menu.link-to selected.url}}{{selected.text}}{{/menu.link-to}}
+                {{!-- <a href={{selected.url}}>{{selected.text}}</a> --}}
             {{/menu.item}}
             {{menu.divider}}
         {{/each}}
-        {{!-- {{#menu.item}}
-            {{#menu.link-to ""}}医院-产品销售报告{{/menu.link-to}}
-        {{/menu.item}}
-        {{menu.divider}}
-        {{#menu.item}}
-            {{#menu.link-to ""}}代表-产品销售报告{{/menu.link-to}}
-        {{/menu.item}}
-        {{menu.divider}}
-        {{#menu.item}}
-            {{#menu.link-to ""}}资源投入与产出{{/menu.link-to}}
-        {{/menu.item}}
-        {{menu.divider}}
-        {{#menu.item}}
-            {{#menu.link-to ""}}代表指标与资源{{/menu.link-to}}
-        {{/menu.item}} --}}
     {{/dd.menu}}
 {{/bs-dropdown}}
 {{!-- </div> --}}

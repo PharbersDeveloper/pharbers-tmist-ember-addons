@@ -6,7 +6,6 @@ export default Component.extend({
 	layout,
 	styles,
 	tagName: '',
-
 	actions: {
 		show(rid) {
 			this.sendAction('showMore', rid)

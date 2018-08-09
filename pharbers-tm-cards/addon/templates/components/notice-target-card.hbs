@@ -1,0 +1,24 @@
+{{yield}}
+{{#each data as |item|}}
+<div local-class="notice-card">
+    <div local-class="n-inside left">
+        <div local-class="left-middle">
+            <img src={{item.avatar}} alt="">
+            <p>{{item.class}}</p>
+            <p>{{item.name}}</p>
+        </div>
+
+    </div>
+    <div local-class="n-inside right">
+        <div local-class="right-mission inside">
+            <p local-class="title">指标任务</p>
+            <p local-class="value">{{item.missionValue}}</p>
+        </div>
+        <div local-class="right-desc inside">
+            <p local-class="title">指标任务说明</p>
+            <p local-class="desc">{{item.desc}}
+            </p>
+        </div>
+    </div>
+</div>
+{{/each}}

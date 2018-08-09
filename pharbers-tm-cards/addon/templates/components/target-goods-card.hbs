@@ -1,12 +1,17 @@
 <div local-class="medicine-container">
     {{#each data.medicines as |medic|}}
         <div local-class="medicine-item">
-            <p local-class="title">{{medic.prod_category}}</p>
-            <p local-class="potential"><span>药品潜力</span><span>{{number-format medic.potential}}</span></p>
+            <p local-class="title">{{medic.name}}</p>
+            <p local-class="potential">
+                <span>药品潜力</span>
+                <span>{{number-format medic.potential}}</span>
+            </p>
             <div local-class="parameter">
                 <div local-class="sell-money param-item">
                     <p>上期销售额</p>
+                    {{!-- <p>{{number-format medic.previoussales}}</p> --}}
                     <p>{{number-format medic.sales}}</p>
+
                 </div>
                 <div local-class="contribution param-item">
                     <p>贡献率</p>

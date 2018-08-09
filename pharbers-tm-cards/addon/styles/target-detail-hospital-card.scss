@@ -15,10 +15,13 @@
 			img {
 				width: 90px;
 				height: 90px;
+				border-radius: 50%;
 			}
 		}
 
 		.title {
+			margin-bottom: 14px;
+
 			span:first-child {
 				font-size: 18px;
 				color: #EDEDED;
@@ -34,6 +37,10 @@
 		}
 
 		.department {
+			margin-bottom: 12px;
+			height: 20px;
+			overflow: hidden;
+
 			span {
 				display: inline-block;
 				vertical-align: top;
@@ -84,49 +91,6 @@
 				background-color: #8AE8D3;
 			}
 		}
-
-		.tab-container {
-			display: flex;
-			justify-content: space-around;
-			font-size: 0;
-		}
-
-		.news,
-		.policy {
-			font-size: 16px;
-		}
-
-		.tab-content {
-			flex: 1;
-			text-align: center;
-			height: 40px;
-
-			p {
-				font-size: 12px;
-				height: 17px;
-				line-height: 17px;
-			}
-
-			p:first-child {
-				font-size: 12px;
-				margin-bottom: 5px;
-			}
-
-			p:last-child {
-				font-size: 12px;
-			}
-
-			span {
-				display: inline-block;
-				margin-top: 7px;
-				width: 50px;
-				height: 25px;
-				line-height: 25px;
-				font-size: 12px;
-				border-radius: 100px;
-				background-color: #4D8DD8;
-			}
-		}
 	}
 
 	.info-right {
@@ -141,6 +105,7 @@
 			background-color: #F9F9F9;
 
 			.sign-title {
+				margin-bottom: 8px;
 				font-family: PingFangTC-Regular;
 				font-size: 0;
 
@@ -162,14 +127,43 @@
 			}
 
 			.sign-choose {
-				text-align: right;
+				//用div的样式代替select的样式
+				margin-left: 80px;
+				position: relative;
+				width: 174px;
+				height: 30px;
+				border-radius: 5px;
+				color: #575757;
 
 				.choose {
-					display: inline-block;
-					width: 174px;
+					//清除select的边框样式
+					border: none;
+					//清除select聚焦时候的边框颜色
+					outline: none;
+					//将select的宽高等于div的宽高
+					width: 100%;
 					height: 30px;
-					background: #D8D8D8;
-					border-radius: 2px;
+					line-height: 30px;
+					//隐藏select的下拉图标
+					appearance: none;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					//通过padding-left的值让文字居中
+					padding-left: 60px;
+					background-color: rgba(216,216,216,.37);
+				}
+
+				&:after {
+					content: "";
+					width: 14px;
+					height: 8px;
+					background: url("https://i.loli.net/2018/08/08/5b6a8854012ac.png") no-repeat center;
+					//通过定位将图标放在合适的位置
+					position: absolute;
+					right: 20px;
+					top: 45%;
+					//给自定义的图标实现点击下来功能
+					pointer-events: none;
 				}
 			}
 		}

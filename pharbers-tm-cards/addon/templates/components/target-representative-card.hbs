@@ -1,6 +1,6 @@
 {{yield}}
 	<div local-class="representative"  {{action 'show' data.id}}>
-		<div class="container">
+		<div class="row">
 			<div local-class="name" class="col-md-4">
 				<img local-class="avatar" src= {{data.avatar}} alt="user avatar">
 				<span local>{{data.name}}</span>
@@ -14,5 +14,4 @@
 				{{/each}}
 			</div>
 		</div>
-
 	</div>
