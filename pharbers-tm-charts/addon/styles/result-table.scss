@@ -1,0 +1,20 @@
+.table-container {
+    padding: 80px 20px 20px;
+    margin: 0 auto;
+    overflow-y: auto;
+    flex: 1;
+    width: 100%;
+    min-height: 485px;
+    border-radius: 0 0 6px 6px;
+    background: #FFFFFF;
+    box-shadow: 0 3px 14px 0 rgba(184,184,184,0.50);
+    font-family: PingFangTC-Regular;
+
+    :global(.lt-row) {
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+        letter-spacing: 1.62px;
+        color: #3D3D3D;
+    }
+}
