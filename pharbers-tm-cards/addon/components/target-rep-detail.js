@@ -7,9 +7,8 @@ export default Component.extend({
 	styles,
 	tagName: '',
 	actions: {
-		hideDetail() {
-			this.sendAction('hideDetail')
+		backList() {
+			this.sendAction('backList')
 		}
 	},
-
 });

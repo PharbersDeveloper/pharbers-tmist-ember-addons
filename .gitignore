@@ -1,7 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 #idea
-/.idea
+/.idea/
+/*/.idea/
 
 # compiled output
 /*/dist/

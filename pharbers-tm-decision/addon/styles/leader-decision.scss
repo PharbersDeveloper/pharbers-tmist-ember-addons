@@ -1,0 +1,33 @@
+.close {
+	height: 50px;
+	img {
+		margin-top: 10px;
+		display: block;
+		float: right;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+	}
+}
+.content {
+	height: 100%;
+}
+.all-reps {
+	vertical-align: top;
+	//display: inline-block;
+	padding: 15px 20px;
+	//width: 840px;
+	height: 100%;
+	min-height: 620px;
+	border-radius: 2px;
+	background-color: #F9F9F9;
+
+	.title {
+		// padding: 5px;
+		margin-bottom: 10px;
+		line-height: 20px;
+		font-size: 14px;
+		letter-spacing: 2px;
+		color: #4A90E2;
+	}
+}

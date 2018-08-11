@@ -1,58 +1,59 @@
-{{yield}}
-{{#if (eq show false)}}
-	<div local-class="rep-detail">
-		<div local-class="left inside">
-			<p local-class="back">
-				{{!-- <a href={{data.back}}>&lt;返回</a>  --}}
-				<span {{action 'hideDetail'}}>&lt;&nbsp;返回</span>
-			</p>
-			<p local-class="avatar">
-				<img src= {{data.avatar}} alt="">
-				<p>{{data.name}}</p>
-			</p>
-			<p local-class="self">
-				{{#each data.self as |item|}}
-					<span>{{item}}/</span>
-				{{/each}}
+<div local-class="rep-detail">
+	<div local-class="left inside">
+		<p local-class="back">
+			<span {{action 'backList'}}>&lt;&nbsp;返回</span>
+		</p>
+		{{#each data as |item|}}
+			{{#if (eq item.id rid)}}
+				<p local-class="avatar">
+					<img src= {{item.lable.rep_image}} alt="">
+				<p>{{item.lable.name}}</p>
+				</p>
+				<p local-class="self">
+					<span>{{item.lable.age}}岁/</span>
+					<span>{{item.lable.education}}/</span>
+					<span>{{item.lable.specialities}}/</span>
+					<span>{{item.lable.working_hours}}年工作经验/</span>
+					<span>入职{{item.lable.entry_hours}}年</span>
+				</p>
+				<div local-class="square">
+					{{#each item.self_business as |sb|}}
+						<p>
+							<span>{{sb.title}}：</span>
+							{{#each sb.value as |val|}}
+								<span>{{val}}</span>
+							{{/each}}
+						</p>
+					{{/each}}
+				</div>
+				<div local-class="scores">
+					{{#each item.score as |sc|}}
+						<div local-class="s-inside">
+							<p>{{sc.title}}</p>
+							<p>{{sc.score}}</p>
+						</div>
+					{{/each}}
+				</div>
+			{{/if}}
 
-			</p>
-			<div local-class="square">
-				{{#each data.square as |item|}}
-					<p>
-						<span>{{item.title}}：</span>
-						{{#each item.value as |val|}}
-							<span>{{val}}</span>
-						{{/each}}
-					</p>
-
-				{{/each}}
-			</div>
-			<div local-class="scores">
-				{{#each data.scores as |item|}}
-					<div local-class="s-inside">
-						<p>{{item.title}}</p>
-						<p>{{item.score}}</p>
-					</div>
-				{{/each}}
-			</div>
+		{{/each}}
+	</div>
+	<div local-class="right inside">
+		<div local-class="input-area">
+			<p>协助拜访</p>
+			<p local-class="input-text">{{input type="number" local-class="t-input"}}<span local-class="day">天</span></p>
 		</div>
-		<div local-class="right inside">
-			<div local-class="input-area">
-				<p>协助拜访</p>
-				<p local-class="input-text">{{input type="text" disabled="true" local-class="t-input"}}<span local-class="day">天</span></p>
-			</div>
-			<div local-class="input-area">
-				<p>脱岗产品培训</p>
-				<p local-class="input-text">{{input type="text" disabled="true"  local-class="t-input"}}<span local-class="day">天</span></p>
-			</div>
-			<div local-class="input-area">
-				<p>1V1能力辅导</p>
-				<p local-class="input-text">{{input type="text" disabled="true"  local-class="t-input"}}<span local-class="day">天</span></p>
-			</div>
-			<div local-class="input-area">
-				<p>团建/例会</p>
-				<p local-class="input-text"><span local-class="daysnum">23</span><span local-class="day">天</span></p>
-			</div>
+		<div local-class="input-area">
+			<p>脱岗产品培训</p>
+			<p local-class="input-text">{{input type="number"  local-class="t-input"}}<span local-class="day">天</span></p>
+		</div>
+		<div local-class="input-area">
+			<p>1V1能力辅导</p>
+			<p local-class="input-text">{{input type="number"  local-class="t-input"}}<span local-class="day">天</span></p>
+		</div>
+		<div local-class="input-area">
+			<p>团建/例会</p>
+			<p local-class="input-text"><span local-class="daysnum">23</span><span local-class="day">天</span></p>
 		</div>
 	</div>
-{{/if}}
+</div>
