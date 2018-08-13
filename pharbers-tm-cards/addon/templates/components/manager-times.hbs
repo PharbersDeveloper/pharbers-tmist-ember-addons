@@ -1,23 +1,17 @@
 <div local-class="manager-times" class="col-md-3">
     <p local-class="title">经理时间分配</p>
-    <div local-class="input-area">
-        <p>KPI分析</p>
-        <p local-class="input-text">{{input type="number" local-class="t-input"}}<span local-class="day">天</span></p>
-    </div>
-    <div local-class="input-area">
-        <p>团建/例会</p>
-        <p local-class="input-text">{{input type="number" local-class="t-input"}}<span local-class="day">天</span></p>
-    </div>
-    <div local-class="input-area">
-        <p>行政事务</p>
-        <p local-class="input-text">{{input type="number" local-class="t-input"}}<span local-class="day">天</span></p>
-    </div>
+    {{#each manager_time_inputs.managerArraryObject as |item|}}
+        <div local-class="input-area">
+            <p>{{item.lable}}</p>
+            <p local-class="input-text">{{input type="number" local-class="t-input" value=item.value}}<span local-class="day">天</span></p>
+        </div>
+    {{/each}}
     <div local-class="input-area">
         <p>1V1能力辅导</p>
-        <p local-class="input-text"><span local-class="daysnum">23</span><span local-class="day">天</span></p>
+        <p local-class="input-text"><span local-class="daysnum">{{coach}}</span><span local-class="day">天</span></p>
     </div>
     <div local-class="input-area">
         <p>协助拜访</p>
-        <p local-class="input-text"><span local-class="daysnum">23</span><span local-class="day">天</span></p>
+        <p local-class="input-text"><span local-class="daysnum">{{assist}}</span><span local-class="day">天</span></p>
     </div>
 </div>

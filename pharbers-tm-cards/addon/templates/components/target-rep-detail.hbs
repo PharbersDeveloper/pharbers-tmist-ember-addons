@@ -12,9 +12,9 @@
 				<p local-class="self">
 					<span>{{item.lable.age}}岁/</span>
 					<span>{{item.lable.education}}/</span>
-					<span>{{item.lable.specialities}}/</span>
-					<span>{{item.lable.working_hours}}年工作经验/</span>
-					<span>入职{{item.lable.entry_hours}}年</span>
+					<span>{{item.lable.profe_bg}}/</span>
+					<span>{{item.lable.service_year}}年工作经验/</span>
+					<span>入职{{item.lable.entry_time}}年</span>
 				</p>
 				<div local-class="square">
 					{{#each item.self_business as |sb|}}
@@ -30,7 +30,7 @@
 					{{#each item.score as |sc|}}
 						<div local-class="s-inside">
 							<p>{{sc.title}}</p>
-							<p>{{sc.score}}</p>
+							<p>{{sc.value}}</p>
 						</div>
 					{{/each}}
 				</div>
@@ -39,21 +39,15 @@
 		{{/each}}
 	</div>
 	<div local-class="right inside">
-		<div local-class="input-area">
-			<p>协助拜访</p>
-			<p local-class="input-text">{{input type="number" local-class="t-input"}}<span local-class="day">天</span></p>
-		</div>
-		<div local-class="input-area">
-			<p>脱岗产品培训</p>
-			<p local-class="input-text">{{input type="number"  local-class="t-input"}}<span local-class="day">天</span></p>
-		</div>
-		<div local-class="input-area">
-			<p>1V1能力辅导</p>
-			<p local-class="input-text">{{input type="number"  local-class="t-input"}}<span local-class="day">天</span></p>
-		</div>
+		{{#each manager_rep_time_inputs.managerRepArraryObject as |item|}}
+			<div local-class="input-area">
+				<p>{{item.lable}}</p>
+				<p local-class="input-text">{{input type="number" local-class="t-input" value=item.value}}<span local-class="day">天</span></p>
+			</div>
+		{{/each}}
 		<div local-class="input-area">
 			<p>团建/例会</p>
-			<p local-class="input-text"><span local-class="daysnum">23</span><span local-class="day">天</span></p>
+			<p local-class="input-text"><span local-class="daysnum">{{teamBuilding}}</span><span local-class="day">天</span></p>
 		</div>
 	</div>
 </div>
