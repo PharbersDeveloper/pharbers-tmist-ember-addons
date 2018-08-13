@@ -1,0 +1,1 @@
+export { default } from 'pharbers-tm-decision/components/leader-decision';
