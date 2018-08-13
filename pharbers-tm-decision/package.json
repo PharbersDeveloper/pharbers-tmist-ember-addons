@@ -29,8 +29,7 @@
 		"ember-css-modules": "^0.7.10",
 		"ember-css-modules-sass": "^1.0.0",
 		"ember-sass-bootstrap": "^0.2.0",
-		"ember-truth-helpers": "^2.0.0",
-		"mapping-components": "1.0.0"
+		"ember-truth-helpers": "^2.0.0"
 	},
 	"devDependencies": {
 		"broccoli-asset-rev": "^2.7.0",
