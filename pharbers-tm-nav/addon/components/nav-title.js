@@ -4,4 +4,6 @@ import styles from '../styles/nav-title';
 export default Component.extend({
   layout,
   styles
+}).reopenClass({
+    positionalParams: ['month']
 });
