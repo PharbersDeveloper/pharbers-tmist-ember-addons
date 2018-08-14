@@ -31,7 +31,6 @@ const managerTime = EmberObject.extend({
 export default Component.extend({
 	init() {
 		this._super(...arguments);
-		this.set('uuid', '1001010000001101010');
 		this.set('manager_time_inputs', managerTime.create({uuid: this.uuid}));
 		try {
 			const reducer = (accumulator, currentValue) => accumulator + currentValue;

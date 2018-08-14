@@ -49,9 +49,7 @@ const managerRepTime = EmberObject.extend({
 export default Component.extend({
 	init() {
 		this._super(...arguments);
-		this.set('uuid', '1001010000001101010');
 		this.set('manager_rep_time_inputs', managerRepTime.create({uuid: this.uuid, rid: this.rid, data: this.data}));
-
 		let managerObj = JSON.parse(localStorage.getItem('manager_time'));
 		let team_building = managerObj.values.find(function(elem){
 			return elem.key === "team_building";
