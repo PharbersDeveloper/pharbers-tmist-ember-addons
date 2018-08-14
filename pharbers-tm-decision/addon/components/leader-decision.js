@@ -45,5 +45,5 @@ export default Component.extend({
 	}
 
 }).reopenClass({
-	positionalParams: ['data']
+	positionalParams: ['data', 'uuid']
 });
