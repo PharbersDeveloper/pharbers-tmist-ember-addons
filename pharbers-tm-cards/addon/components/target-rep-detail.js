@@ -17,9 +17,7 @@ const managerRepTime = EmberObject.extend({
 		let data = this.data;
 		try {
 			let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
-
 			if(repObj.uuid === uuid) {
-
 				let values = repObj.values.find(function(elem){
 					return elem.repId === rid
 				})
@@ -58,7 +56,7 @@ export default Component.extend({
 		let team_building = managerObj.values.find(function(elem){
 			return elem.key === "team_building";
 		});
-		this.set('teamBuilding', team_building.value)
+		this.set('teamBuilding', team_building.value || 0)
 	},
 	layout,
 	styles,

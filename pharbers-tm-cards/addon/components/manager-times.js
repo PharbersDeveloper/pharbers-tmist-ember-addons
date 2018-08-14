@@ -18,7 +18,11 @@ const managerTime = EmberObject.extend({
 				this.set('managerArraryObject', obj.values)
 			}
 		} catch (e) {
-			window.console.error('manager_time is not found')
+			let object = {
+				uuid: this.uuid,
+				values: this.managerArraryObject
+			}
+			localStorage.setItem('manager_time', JSON.stringify(object));
 		}
 	},
 
@@ -29,20 +33,27 @@ export default Component.extend({
 		this._super(...arguments);
 		this.set('uuid', '1001010000001101010');
 		this.set('manager_time_inputs', managerTime.create({uuid: this.uuid}));
-		const reducer = (accumulator, currentValue) => accumulator + currentValue;
-		let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
-		let coach = repObj.values.map(function(elem){
-			return parseInt(elem.attrs.find(function(ele){
-				return ele.key === 'coach'
-			}).value || 0)
-		}).reduce(reducer);
-		let assist = repObj.values.map(function(elem){
-			return parseInt(elem.attrs.find(function(ele){
-				return ele.key === 'assist'
-			}).value || 0)
-		}).reduce(reducer);
-		this.set('coach', coach);
-		this.set('assist', assist);
+		try {
+			const reducer = (accumulator, currentValue) => accumulator + currentValue;
+			let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
+			let coach = repObj.values.map(function(elem){
+				return parseInt(elem.attrs.find(function(ele){
+					return ele.key === 'coach'
+				}).value || 0)
+			}).reduce(reducer);
+			let assist = repObj.values.map(function(elem){
+				return parseInt(elem.attrs.find(function(ele){
+					return ele.key === 'assist'
+				}).value || 0)
+			}).reduce(reducer);
+			this.set('coach', coach);
+			this.set('assist', assist);
+		} catch (e) {
+			this.set('coach', 0);
+			this.set('assist', 0);
+		}
+
+
 	},
 	layout,
 	styles,
