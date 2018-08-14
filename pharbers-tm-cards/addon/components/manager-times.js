@@ -1,20 +1,20 @@
 import Component from '@ember/component';
-import EmberObject, { observer }from '@ember/object';
+import EmberObject, { observer } from '@ember/object';
 import { once } from '@ember/runloop';
 import layout from '../templates/components/manager-times';
 import styles from '../styles/manager-times';
 
 const managerTime = EmberObject.extend({
 	managerArraryObject: [
-		{lable: "KPI分析", key: "kpi", value: ""},
-		{lable: "团建/例会", key: "team_building", value: ""},
-		{lable: "行政事务", key: "administrative", value: ""}
+		{ lable: "KPI分析", key: "kpi", value: "" },
+		{ lable: "团建/例会", key: "team_building", value: "" },
+		{ lable: "行政事务", key: "administrative", value: "" }
 	],
 	init() {
 		this._super(...arguments);
 		try {
 			let obj = JSON.parse(localStorage.getItem('manager_time'));
-			if(obj.uuid === this.uuid) {
+			if (obj.uuid === this.uuid) {
 				this.set('managerArraryObject', obj.values)
 			}
 		} catch (e) {

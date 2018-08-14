@@ -13,4 +13,9 @@ export default Component.extend({
     //         "selected": [{ "url": "", "text": "aaaaaaa" }, { "url": "", "text": "bbbbbbbbb" }, { "url": "", "text": "ddddddddddd" }, { "url": "", "text": "dedefderd" }]
     //     }
     // },
+    actions: {
+        onclick(type, id) {
+            this.sendAction('onclick', type, id)
+        }
+    }
 });

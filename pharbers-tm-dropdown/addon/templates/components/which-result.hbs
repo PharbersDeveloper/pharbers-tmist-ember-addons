@@ -3,9 +3,12 @@
     {{#dd.toggle}}{{data.current}}<span class="caret"></span>{{/dd.toggle}}
     {{#dd.menu local-class="ull" as |menu|}}
         {{#each data.selected as |selected|}}
-            {{#menu.item}}
+            {{!-- {{#menu.item}}
                 {{#menu.link-to selected.url}}{{selected.text}}{{/menu.link-to}}
-                {{!-- <a href={{selected.url}}>{{selected.text}}</a> --}}
+            {{/menu.item}}
+            {{menu.divider}} --}}
+            {{#menu.item}}
+                <span {{action 'onclick' selected.type selected.columns_id}}>{{selected.text}}</span>
             {{/menu.item}}
             {{menu.divider}}
         {{/each}}

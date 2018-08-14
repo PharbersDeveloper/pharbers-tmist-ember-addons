@@ -7,7 +7,7 @@ import nf from '../helpers/number-format';
 const thcObject = EmberObject.extend({
 	init() {
 		this._super(...arguments);
-		this.set('surgery', nf.compute(this.get('data.surgery_yearly')))
+		this.set('surgery_yearly', nf.compute(this.get('data.surgery_yearly')))
 	},
 });
 

@@ -1,8 +1,8 @@
 {{yield}}
-<div local-class="hosp-detail" class="container">
+<div local-class="reports" class="container">
 	<div local-class="total-info" class="row">
 		{{#mapping-components result.component_data as |componentName component|}}
-			{{component.component}}
+			{{component.component onclick=(action "onclick")}}
 		{{/mapping-components}}
 	</div>
 </div>
