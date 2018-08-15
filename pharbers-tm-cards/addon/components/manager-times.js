@@ -3,29 +3,13 @@ import EmberObject, { observer }from '@ember/object';
 import { once } from '@ember/runloop';
 import layout from '../templates/components/manager-times';
 import styles from '../styles/manager-times';
+import ManagerDecisionMixin from '../mixin/manager-decision';
 
-const managerTime = EmberObject.extend({
-	managerArraryObject: [
-		{lable: "KPI分析", key: "kpi", value: ""},
-		{lable: "团建/例会", key: "team_building", value: ""},
-		{lable: "行政事务", key: "administrative", value: ""}
-	],
+const managerTime = EmberObject.extend(ManagerDecisionMixin, {
 	init() {
 		this._super(...arguments);
-		try {
-			let obj = JSON.parse(localStorage.getItem('manager_time'));
-			if(obj.uuid === this.uuid) {
-				this.set('managerArraryObject', obj.values)
-			}
-		} catch (e) {
-			let object = {
-				uuid: this.uuid,
-				values: this.managerArraryObject
-			}
-			localStorage.setItem('manager_time', JSON.stringify(object));
-		}
+		this.initManagerArrary(this.uuid);
 	},
-
 });
 
 export default Component.extend({

@@ -3,45 +3,12 @@ import EmberObject, { observer }from '@ember/object';
 import { once } from '@ember/runloop';
 import layout from '../templates/components/target-rep-detail';
 import styles from '../styles/target-rep-detail';
+import ManagerDecisionMixin from '../mixin/manager-decision';
 
-const managerRepTime = EmberObject.extend({
-	managerRepArraryObject: [
-		{lable: "协助拜访", key: "assist", value: ""},
-		{lable: "脱岗产品培训", key: "product_training", value: ""},
-		{lable: "1V1能力辅导", key: "coach", value: ""}
-	],
+const managerRepTime = EmberObject.extend(ManagerDecisionMixin, {
 	init() {
 		this._super(...arguments);
-		let rid = this.rid;
-		let uuid = this.uuid;
-		let data = this.data;
-		try {
-			let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
-			if(repObj.uuid === uuid) {
-				let values = repObj.values.find(function(elem){
-					return elem.repId === rid
-				})
-				if(values) {
-					this.set('managerRepArraryObject', values.attrs)
-				}
-			}
-		} catch (e) {
-			let init = data.map(function(elem) {
-				return {
-					repId: elem.id,
-					attrs: [
-						{lable: "协助拜访", key: "assist", value: ""},
-						{lable: "脱岗产品培训", key: "product_training", value: ""},
-						{lable: "1V1能力辅导", key: "coach", value: ""}
-					]
-				}
-			});
-			let object = {
-				uuid: uuid,
-				values: init
-			}
-			localStorage.setItem('manager_rep_time', JSON.stringify(object));
-		}
+		this.initManagerRepArrary(this.data, this.uuid, this.rid)
 	},
 
 });
