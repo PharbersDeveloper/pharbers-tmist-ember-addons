@@ -1,5 +1,3 @@
-{{!-- <div local-class="medicine-info"> --}}
-{{!-- {{log data}} --}}
 {{#each data as |medic|}}
 	<div local-class="medicine medicine-component">
 		<div local-class="medicine-left">
@@ -70,35 +68,49 @@
 			</div>
 		</div>
 		<div local-class="medicine-right">
-			<div local-class="inputarea">
+
+			{{#each hosp_medic_input.hospitalMedicArrayObject as |item|}}
+				<div local-class="inputarea">
+					<div local-class="input-left">
+						<p>{{item.lable}}</p>
+						<p>{{input type="text" value=item.value}}<span>元</span></p>
+					</div>
+					<div local-class="input-right">
+						<p>{{item.sublable}}</p>
+						<p>{{item.subvalue}}</p>
+					</div>
+				</div>
+			{{/each}}
+			{{!-- <div local-class="inputarea">
 				<div local-class="input-left">
 					<p>指标设定</p>
-					<p>{{input type="text" disabled="true"}}<span>元</span></p>
+					<p>{{input type="text" value=item.target}}<span>元</span></p>
 				</div>
 				<div local-class="input-right">
 					<p>指标增长</p>
-					<p>0</p>
+					<p>{{item.targetGrowth}}</p>
 				</div>
-			</div>
-			<div local-class="inputarea">
+			</div> --}}
+
+			{{!-- <div local-class="inputarea">
 				<div local-class="input-left">
 					<p>预算分配</p>
-					<p>{{input type="text" disabled="true"}}<span>元</span></p>
+					<p>{{input type="text" value=item.budget}}<span>元</span></p>
 				</div>
 				<div local-class="input-right">
 					<p>预算所占%</p>
-					<p>0</p>
+					<p>{{item.budgetPercent}}</p>
 				</div>
 			</div>
 			<div local-class="inputarea">
 				<div local-class="input-left">
 					<p>时间分配</p>
-					<p>{{input type="text" disabled="true"}}<span>天</span></p>
+					<p>{{input type="text" value=item.assign}}<span>天</span></p>
 				</div>
 
-			</div>
+			</div> --}}
+
 		</div>
 	</div>
 
 {{/each}}
-{{!-- </div> --}}

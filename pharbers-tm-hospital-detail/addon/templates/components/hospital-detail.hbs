@@ -1,4 +1,11 @@
 {{yield}}
-{{#mapping-components hospital.component_data as |componentName component|}}
-    {{component.component}}
+{{#mapping-components data.component_data as |componentName component|}}
+    {{!-- {{component.component }} --}}
+    {{#if (eq componentName.componentName "target-detail-hospital-card")}}
+        {{component.component}}
+    {{/if}}
+    {{#if (eq componentName.componentName "target-detail-medicines-card")}}
+        {{component.component }}
+    {{/if}}
+    {{!-- {{component.component }} --}}
 {{/mapping-components}}

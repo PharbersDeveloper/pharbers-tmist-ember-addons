@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import EmberObject, { observer }from '@ember/object';
+import EmberObject, { observer } from '@ember/object';
 import { once } from '@ember/runloop';
 import layout from '../templates/components/manager-times';
 import styles from '../styles/manager-times';
