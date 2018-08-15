@@ -14,20 +14,22 @@
 		vertical-align: top;
 	}
 
+	.back {
+		padding: 0 20px;
+		font-size: 14px;
+		letter-spacing: 2px;
+		color: #4A90E2;
+
+		span {
+			padding-right: 10px;
+			cursor: pointer;
+		}
+	}
+
+
 	.left {
 		width: 578px;
 
-		.back {
-			padding: 0 20px;
-			font-size: 14px;
-			letter-spacing: 2px;
-			color: #4A90E2;
-
-			span {
-				padding-right: 10px;
-				cursor: pointer;
-			}
-		}
 
 		.avatar {
 			text-align: center;
