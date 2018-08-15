@@ -1,66 +1,43 @@
 import Component from '@ember/component';
-import EmberObject, { observer }from '@ember/object';
+import EmberObject, { observer, computed }from '@ember/object';
 import { once } from '@ember/runloop';
 import layout from '../templates/components/target-rep-detail';
 import styles from '../styles/target-rep-detail';
+import ManagerDecisionMixin from '../mixin/manager-decision';
 
-const managerRepTime = EmberObject.extend({
-	managerRepArraryObject: [
-		{lable: "协助拜访", key: "assist", value: ""},
-		{lable: "脱岗产品培训", key: "product_training", value: ""},
-		{lable: "1V1能力辅导", key: "coach", value: ""}
-	],
+const managerRepTime = EmberObject.extend(ManagerDecisionMixin, {
 	init() {
 		this._super(...arguments);
-		let rid = this.rid;
-		let uuid = this.uuid;
-		let data = this.data;
-		try {
-			let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
-			if(repObj.uuid === uuid) {
-				let values = repObj.values.find(function(elem){
-					return elem.repId === rid
-				})
-				if(values) {
-					this.set('managerRepArraryObject', values.attrs)
-				}
-			}
-		} catch (e) {
-			let init = data.map(function(elem) {
-				return {
-					repId: elem.id,
-					attrs: [
-						{lable: "协助拜访", key: "assist", value: ""},
-						{lable: "脱岗产品培训", key: "product_training", value: ""},
-						{lable: "1V1能力辅导", key: "coach", value: ""}
-					]
-				}
-			});
-			let object = {
-				uuid: uuid,
-				values: init
-			}
-			localStorage.setItem('manager_rep_time', JSON.stringify(object));
-		}
+		this.set('managerRepArraryObject', [
+			{lable: "协助拜访", key: "assist", value: ""},
+			{lable: "脱岗产品培训", key: "product_training", value: ""},
+			{lable: "1V1能力辅导", key: "coach", value: ""}
+		])
+		this.initManagerRepArrary(this.data, this.uuid, this.rid)
 	},
 
 });
 
 export default Component.extend({
+	managerRepTimeInputs: {},
 	init() {
 		this._super(...arguments);
-		this.set('manager_rep_time_inputs', managerRepTime.create({uuid: this.uuid, rid: this.rid, data: this.data}));
+		let obj = managerRepTime.create({uuid: this.uuid, rid: this.rid, data: this.data});
+
+		let key = 'managerRepTimeInputs.' + this.rid
+		this.set(key, obj);
+
 		let managerObj = JSON.parse(localStorage.getItem('manager_time'));
 		let team_building = managerObj.values.find(function(elem){
 			return elem.key === "team_building";
 		});
 		this.set('teamBuilding', team_building.value || 0)
+
+		let okeys = 'managerRepTimeInputs.' + this.rid + '.managerRepArraryObject.@each.value';
+		this.addObserver(okeys, function(){ once(this, 'execute') })
 	},
 	layout,
 	styles,
-	watchData: observer('manager_rep_time_inputs.managerRepArraryObject.@each.value', function() {
-		once(this, 'execute');
-	}),
 	execute() {
 		let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
 		let rid = this.rid;
@@ -70,7 +47,7 @@ export default Component.extend({
 			})
 			values.pushObject({
 				repId: this.rid,
-				attrs: this.manager_rep_time_inputs.managerRepArraryObject
+				attrs: this.get('managerRepTimeInputs.'+this.rid).managerRepArraryObject
 			})
 			let object = {
 				uuid: this.uuid,
