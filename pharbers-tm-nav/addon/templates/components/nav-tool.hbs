@@ -1,8 +1,11 @@
 {{yield}}
 <div local-class="menu menu-left">
-    <span>通知</span>
-    <span>信息库</span>
-    <span {{action "onclick"}}>团队培养</span>
+    {{!-- <span>通知</span> --}}
+    {{!-- <span>信息库</span> --}}
+    {{!-- <span {{action "onclick"}}>团队培养</span> --}}
+    {{#each navs as |tool|}}
+        <span {{action "onclick" tool.id}}>{{tool.text}}</span>
+    {{/each}}
 </div>
 <div local-class="menu menu-right">
     {{#bs-dropdown tagName="span" local-class="budget" as |bb|}}

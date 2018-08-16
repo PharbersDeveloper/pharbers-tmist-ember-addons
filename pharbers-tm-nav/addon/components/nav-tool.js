@@ -26,12 +26,20 @@ export default Component.extend({
         }
         return newManpower;
     }),
+    init() {
+        this._super(...arguments);
+        this.navs = [
+            { "id": 'notice', "text": "通知" },
+            { "id": 'infobase', "text": "信息库" },
+            { "id": "decision", "text": "团队培养" }
+        ];
+    },
     actions: {
         submit(text) {
             this.sendAction('submit', text)
         },
-        onclick() {
-            this.sendAction('onclick');
+        onclick(id) {
+            this.sendAction('onclick', id);
         }
     }
 });

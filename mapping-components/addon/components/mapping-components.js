@@ -4,6 +4,7 @@ import layout from '../templates/components/mapping-components';
 
 export default Component.extend({
 		layout,
+		tagName: "",
 		result: computed('data', function() {
 			let reVal = this.get('data')
 				.map(function(ele) {
