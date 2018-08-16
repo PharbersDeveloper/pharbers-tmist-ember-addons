@@ -1,11 +1,8 @@
-{{yield}}
 {{#mapping-components data.component_data as |componentName component|}}
-    {{!-- {{component.component }} --}}
     {{#if (eq componentName.componentName "target-detail-hospital-card")}}
         {{component.component}}
     {{/if}}
     {{#if (eq componentName.componentName "target-detail-medicines-card")}}
-        {{component.component }}
+        {{component.component hospital_id=data.id uuid=uuid}}
     {{/if}}
-    {{!-- {{component.component }} --}}
 {{/mapping-components}}
