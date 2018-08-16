@@ -8,7 +8,7 @@
     {{/each}}
 </div>
 <div local-class="menu menu-right">
-    {{#bs-dropdown tagName="span" local-class="budget" as |bb|}}
+    {{#bs-dropdown onShow=(action 'reCalc') tagName="span" local-class="budget" as |bb|}}
         {{#bb.toggle}}预算 <span class="caret"></span>{{/bb.toggle}}
         {{#bb.menu local-class='tips-container' as |menu|}}
             {{#menu.item local-class='budget-tip' }}
@@ -24,7 +24,7 @@
             {{/menu.item}}
         {{/bb.menu}}
     {{/bs-dropdown}}
-    {{#bs-dropdown tagName="span" local-class="human" as |dd|}}
+    {{#bs-dropdown onShow=(action 'reCalcMan') tagName="span" local-class="human" as |dd|}}
         {{#dd.toggle}}人力 <span class="caret"></span>{{/dd.toggle}}
         {{#dd.menu local-class='tips-container' as |menu|}}
             {{#menu.item local-class='human-tip' }}

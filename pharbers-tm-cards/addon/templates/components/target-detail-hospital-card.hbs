@@ -2,7 +2,7 @@
 <div local-class="info-left" class="col-md-8 col-sm-8 col-xs-8">
 	<div class="row">
 		<div class="col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-			<img src={{data.hosp_image}} alt="">
+			<img src= {{data.hosp_image}} alt="">
 		</div>
 		<div class="col-md-10 col-sm-10 col-xs-10" local-class="overview">
 			<p local-class="title"><span>{{data.hosp_name}}</span> <span>{{data.hosp_category}}/{{data.hosp_level}}</span> </p>
@@ -27,10 +27,12 @@
 			<p>人员分配 <span>-请分配代表负责该医院</span> </p>
 		</div>
 		<div local-class="sign-choose">
-			<select local-class="choose" name="">
-				<option value="none" selected disabled>选择代表</option>
+			<select local-class="choose" onchange= {{action 'chooseRep' value="target.value"}}>
+				<option value="none" selected disabled>{{existRep}}</option>
 				{{#each data.represents as |item|}}
-					<option value={{item.id}}>{{item.rep_name}}</option>
+					{{#if (not-eq existRep item.rep_name)}}
+						<option value={{item.rep_name}} >{{item.rep_name}}</option>
+					{{/if}}
 				{{/each}}
 			</select>
 		</div>
