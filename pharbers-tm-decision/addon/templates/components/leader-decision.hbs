@@ -15,6 +15,7 @@
 			{{else}}
 				{{#if (eq componentName.componentName 'target-rep-detail')}}
 					{{component.component rid=select_repid
+										  rname=select_repname
 										  teamBuilding=team_building
 										  uuid=uuid
 										  backList=(action 'backList')

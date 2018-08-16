@@ -11,7 +11,8 @@ export default Component.extend({
 	tagName: "",
 	repId: '',
 	actions: {
-		details(rid) {
+		details(rid, name) {
+			this.set('select_repname', name);
 			this.set('select_repid', rid);
 			this.set('isShowList', false);
 		},

@@ -42,12 +42,16 @@ export default Component.extend({
 	execute() {
 		let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
 		let rid = this.rid;
+		let _rname = this.rname;
 		if (repObj.uuid === this.uuid) {
+
 			let values = repObj.values.filter(function(elem) {
 				return elem.repId !== rid
 			})
+
 			values.pushObject({
 				repId: this.rid,
+				repName: this.rname,
 				attrs: this.get('managerRepTimeInputs.' + this.rid).managerRepArraryObject
 			})
 			let object = {

@@ -3,14 +3,17 @@
     {{#dd.toggle}}{{data.current}}<span class="caret"></span>{{/dd.toggle}}
     {{#dd.menu local-class="ull" as |menu|}}
         {{#each data.selected as |selected|}}
-            {{!-- {{#menu.item}}
-                {{#menu.link-to selected.url}}{{selected.text}}{{/menu.link-to}}
-            {{/menu.item}}
-            {{menu.divider}} --}}
+    
+            {{#if (not-eq data.current selected.text)}}
             {{#menu.item}}
                 <span {{action 'onclick' selected.type selected.columns_id}}>{{selected.text}}</span>
             {{/menu.item}}
             {{menu.divider}}
+            {{/if}}
+            {{!-- {{#menu.item}}
+                <span {{action 'onclick' selected.type selected.columns_id}}>{{selected.text}}</span>
+            {{/menu.item}}
+            {{menu.divider}} --}}
         {{/each}}
     {{/dd.menu}}
 {{/bs-dropdown}}

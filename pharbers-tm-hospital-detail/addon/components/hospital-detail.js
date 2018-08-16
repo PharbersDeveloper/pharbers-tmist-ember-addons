@@ -6,7 +6,12 @@ export default Component.extend({
         layout,
         styles,
         classNames: ['container'],
-        localClassNames: 'hosp-detail'
+        localClassNames: 'hosp-detail',
+        actions: {
+            chooseRep(name) {
+                this.sendAction('chooseRep', name);
+            }
+        }
     })
     .reopenClass({
         positionalParams: ['data']
