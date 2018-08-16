@@ -69,47 +69,20 @@
 		</div>
 		<div local-class="medicine-right">
 
-			{{#each hosp_medic_input.hospitalMedicArrayObject as |item|}}
-				<div local-class="inputarea">
-					<div local-class="input-left">
-						<p>{{item.lable}}</p>
-						<p>{{input type="text" value=item.value}}<span>元</span></p>
-					</div>
-					<div local-class="input-right">
-						<p>{{item.sublable}}</p>
-						<p>{{item.subvalue}}</p>
-					</div>
-				</div>
+			{{#each values as |item|}}
+			 	{{#if (eq medic.id item.medicid)}}
+					<div local-class="inputarea">
+					  <div local-class="input-left">
+						  <p>{{item.lable}}</p>
+						  <p>{{input type="text" value=item.value}}<span>{{item.unit}}</span></p>
+					  </div>
+					  <div local-class="input-right">
+						  <p>{{item.computed_field}}</p>
+						  <p>{{item.computedVal}}</p>
+					  </div>
+				  </div>
+			 	{{/if}}
 			{{/each}}
-			{{!-- <div local-class="inputarea">
-				<div local-class="input-left">
-					<p>指标设定</p>
-					<p>{{input type="text" value=item.target}}<span>元</span></p>
-				</div>
-				<div local-class="input-right">
-					<p>指标增长</p>
-					<p>{{item.targetGrowth}}</p>
-				</div>
-			</div> --}}
-
-			{{!-- <div local-class="inputarea">
-				<div local-class="input-left">
-					<p>预算分配</p>
-					<p>{{input type="text" value=item.budget}}<span>元</span></p>
-				</div>
-				<div local-class="input-right">
-					<p>预算所占%</p>
-					<p>{{item.budgetPercent}}</p>
-				</div>
-			</div>
-			<div local-class="inputarea">
-				<div local-class="input-left">
-					<p>时间分配</p>
-					<p>{{input type="text" value=item.assign}}<span>天</span></p>
-				</div>
-
-			</div> --}}
-
 		</div>
 	</div>
 
