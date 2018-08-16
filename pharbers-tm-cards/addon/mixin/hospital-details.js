@@ -12,7 +12,7 @@ export default Mixin.create({
                 uuid: uuid,
                 values: []
             }
-            localStorage.setItem('hospital_medicines', object);
+            localStorage.setItem('hospital_medicines', JSON.stringify(object));
         }
         let medicines = localStorage.getItem('hospital_medicines');
         if(medicines == null || medicines == undefined) {
