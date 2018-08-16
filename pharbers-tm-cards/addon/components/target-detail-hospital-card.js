@@ -7,5 +7,5 @@ export default Component.extend({
 	styles,
 	tagName: 'div',
 	localClassNames: 'basic-info',
-	classNames: ['container'],
+	classNames: ['row'],
 });

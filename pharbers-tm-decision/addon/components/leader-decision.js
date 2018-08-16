@@ -8,6 +8,7 @@ export default Component.extend({
 	isShowList: true,
 	layout,
 	styles,
+	tagName: "",
 	repId: '',
 	actions: {
 		details(rid) {
@@ -21,7 +22,7 @@ export default Component.extend({
 			this.sendAction('close')
 		},
 		managerTime(data) {
-			let reval = data.find(function(elem){
+			let reval = data.find(function(elem) {
 				return elem.key === "team_building";
 			});
 			this.set('team_building', reval.value)
@@ -29,13 +30,13 @@ export default Component.extend({
 		managerTimeRep() {
 			const reducer = (accumulator, currentValue) => accumulator + currentValue;
 			let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
-			let coach = repObj.values.map(function(elem){
-				return parseInt(elem.attrs.find(function(ele){
+			let coach = repObj.values.map(function(elem) {
+				return parseInt(elem.attrs.find(function(ele) {
 					return ele.key === 'coach'
 				}).value || 0)
 			}).reduce(reducer);
-			let assist = repObj.values.map(function(elem){
-				return parseInt(elem.attrs.find(function(ele){
+			let assist = repObj.values.map(function(elem) {
+				return parseInt(elem.attrs.find(function(ele) {
 					return ele.key === 'assist'
 				}).value || 0)
 			}).reduce(reducer);

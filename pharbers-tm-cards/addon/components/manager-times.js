@@ -15,17 +15,17 @@ const managerTime = EmberObject.extend(ManagerDecisionMixin, {
 export default Component.extend({
 	init() {
 		this._super(...arguments);
-		this.set('manager_time_inputs', managerTime.create({uuid: this.uuid}));
+		this.set('manager_time_inputs', managerTime.create({ uuid: this.uuid }));
 		try {
 			const reducer = (accumulator, currentValue) => accumulator + currentValue;
 			let repObj = JSON.parse(localStorage.getItem('manager_rep_time'));
-			let coach = repObj.values.map(function(elem){
-				return parseInt(elem.attrs.find(function(ele){
+			let coach = repObj.values.map(function(elem) {
+				return parseInt(elem.attrs.find(function(ele) {
 					return ele.key === 'coach'
 				}).value || 0)
 			}).reduce(reducer);
-			let assist = repObj.values.map(function(elem){
-				return parseInt(elem.attrs.find(function(ele){
+			let assist = repObj.values.map(function(elem) {
+				return parseInt(elem.attrs.find(function(ele) {
 					return ele.key === 'assist'
 				}).value || 0)
 			}).reduce(reducer);
@@ -40,6 +40,7 @@ export default Component.extend({
 	},
 	layout,
 	styles,
+	tagName: '',
 	watchData: observer('manager_time_inputs.managerArraryObject.@each.value', function() {
 		once(this, 'execute');
 	}),
