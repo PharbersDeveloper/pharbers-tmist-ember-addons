@@ -62,5 +62,5 @@ export default Component.extend({
 	styles,
 	tagName: 'div',
 	localClassNames: 'medicine-info',
-	classNames: ['container'],
+	classNames: ['row'],
 });
