@@ -151,10 +151,9 @@
 					//通过padding-left的值让文字居中
 					padding-left: 60px;
 					background-color: rgba(216,216,216,.37);
-
-					option:default {
-						display: none;
-					}
+					// option:default {
+					// 	display: none;
+					// }
 				}
 
 				&:after {

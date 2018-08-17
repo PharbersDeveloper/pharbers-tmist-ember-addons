@@ -79,11 +79,13 @@ export default Component.extend({
 			medicines.values.clear();
 			medicines.values = object
 		}
-		localStorage.setItem('hospital_medicines', JSON.stringify(medicines))
+		localStorage.setItem('hospital_medicines', JSON.stringify(medicines));
+		this.sendAction('getRep')
 	},
 	layout,
 	styles,
 	tagName: 'div',
 	localClassNames: 'medicine-info',
 	classNames: ['row'],
+
 });

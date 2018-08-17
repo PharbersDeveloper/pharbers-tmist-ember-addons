@@ -28,12 +28,41 @@
 		</div>
 		<div local-class="sign-choose">
 			<select local-class="choose" onchange= {{action 'chooseRep' value="target.value"}}>
-				<option value="none" selected disabled>{{existRep}}</option>
-				{{#each data.represents as |item|}}
-					{{#if (not-eq existRep item.rep_name)}}
-						<option value={{item.rep_name}} >{{item.rep_name}}</option>
+				<option value="none" selected=true disabled>请选择人员</option>
+				{{!-- <option value="none"  disabled>dddddd</option> --}}
+				{{#each rightTotalRep as |item|}}
+					{{#if (eq existRep.id item.id)}}
+						<option selected value={{item.id}} >
+							{{item.name}}
+						</option>
+					{{else}}
+						<option value={{item.id}} >
+							{{item.name}}
+						</option>
 					{{/if}}
 				{{/each}}
+				{{!-- {{#each totalRepresents as |item|}}
+					{{#each data.represents as |rep|}}
+					  	{{#if (eq rep.id item.id)}}
+						  <option selected value={{item.id}} >
+							  {{item.name}}
+						  </option>
+						{{/if}}
+					{{/each}}
+					{{#if (not data.represents)}}
+						<option value={{item.id}} >
+							{{item.name}}
+						</option>
+					{{else}}
+					{{#each data.represents as |rep|}}
+						{{#if (not-eq rep.id item.id)}}
+						  <option value={{item.id}} >
+							  {{item.name}}
+						  </option>
+						{{/if}}
+					{{/each}}
+					{{/if}}
+				{{/each}} --}}
 			</select>
 		</div>
 	</div>

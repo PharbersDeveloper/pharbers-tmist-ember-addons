@@ -2,8 +2,20 @@ import Component from '@ember/component';
 import layout from '../templates/components/nav-tool';
 import styles from '../styles/nav-tool';
 import { computed } from '@ember/object';
+import { inject } from '@ember/service';
 
 export default Component.extend({
+    ajax: inject(),
+    getAjaxOpt(data) {
+        return {
+            method: 'POST',
+            dataType: 'json',
+            cache: false,
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            Accpt: 'application/json'
+        }
+    },
     layout,
     styles,
     tagName: 'div',
@@ -19,6 +31,7 @@ export default Component.extend({
         for (let i = 0, len = manpower.length; i < len; i++) {
             let percentObject = {};
             percentObject.name = manpower[i].name;
+            percentObject.id = manpower[i].id;
             percentObject.used = manpower[i].used;
             percentObject.total = manpower[i].total;
             percentObject.percent = ((manpower[i].used / manpower[i].total) * 100).toFixed(0);
@@ -44,11 +57,119 @@ export default Component.extend({
             { "id": 'infobase', "text": "信息库" },
             { "id": "decision", "text": "团队培养" }
         ];
-        // this.hMInputs = JSON.parse(localStorage.getItem('hospital_medicines'));
+        // console.log(this.uuid);
     },
     actions: {
         submit(text) {
-            this.sendAction('submit', text)
+            // this.sendAction('submit', text);
+            let allHospMedics = JSON.parse(localStorage.getItem('hospital_medicines'));
+            let managerTime = JSON.parse(localStorage.getItem('manager_time'));
+            let repTime = JSON.parse(localStorage.getItem('manager_rep_time'));
+            console.log(allHospMedics);
+            let manager = {};
+            let rep_manager = [];
+            let task = [];
+            managerTime.values.map((ele) => {
+                if (ele.key === "kpi") {
+                    Ember.set(manager, 'kpi_analysis', +ele.value)
+                } else if (ele.key === "team_building") {
+                    Ember.set(manager, 'team_meet', +ele.value)
+                } else if (ele.key === "administrative") {
+                    Ember.set(manager, 'admin_work', +ele.value)
+                }
+                const reducer = (accumulator, currentValue) => accumulator + currentValue;
+                let coach = repTime.values.map(function(elem) {
+                    return parseInt(elem.attrs.find(function(ele) {
+                        return ele.key === 'coach'
+                    }).value || 0)
+                }).reduce(reducer);
+                let assist = repTime.values.map(function(elem) {
+                    return parseInt(elem.attrs.find(function(ele) {
+                        return ele.key === 'assist'
+                    }).value || 0)
+                }).reduce(reducer);
+                Ember.set(manager, 'sales_train', coach)
+                Ember.set(manager, 'field_work', assist)
+            })
+            // console.log(manager);
+            let teamMeet = manager.team_meet;
+            repTime.values.map((ele) => {
+                let rep = {};
+                Ember.set(rep, 'rep_id', ele.repId);
+                ele.attrs.map((attr) => {
+                    if (attr.key == "assist") {
+                        // 协助拜访
+                        Ember.set(rep, 'field_work', +attr.value);
+                    } else if (attr.key == "product_training") {
+                        // 脱岗产品培训
+                        Ember.set(rep, 'product_train', +attr.value);
+                    } else {
+                        //  key:coach。能力辅导
+                        Ember.set(rep, 'sales_train', +attr.value);
+                    }
+                })
+                Ember.set(rep, 'team_meet', teamMeet);
+                rep_manager.pushObject(rep);
+            });
+            // console.log(rep_manager);
+            allHospMedics.values.map((ele) => {
+                if (ele.hasOwnProperty('medicines')) {
+                    ele.medicines.map((medic) => {
+                        let hosp = {};
+                        Ember.set(hosp, "dest_id", ele.hospital_id);
+                        Ember.set(hosp, "rep_id", ele.represent);
+                        Ember.set(hosp, "goods_id", medic.medicid);
+                        medic.attrs.map((attr) => {
+                            if (attr.key == "indicators_setting") {
+                                // 指标设定
+                                Ember.set(hosp, 'user_input_target', +attr.value);
+                                Ember.set(hosp, 'target_growth', +attr.computedVal);
+
+                            } else if (attr.key == "budget_setting") {
+                                // 预算分配
+                                Ember.set(hosp, 'user_input_money', +attr.value);
+                                Ember.set(hosp, 'budget_proportion', +attr.computedVal);
+
+                            } else {
+                                // key: time_setting;
+                                Ember.set(hosp, "user_input_day", +attr.value);
+                            }
+                        })
+                        task.pushObject(hosp);
+                    })
+                }
+
+            })
+            // console.log(task)
+            let condition = {
+                "token": this.cookies,
+                "timestamp": 1530689119000,
+                "version": {
+                    "major": 1,
+                    "minor": 0
+                },
+                "data": {
+                    "type": "task_allot",
+                    "condition": {
+                        "uuid": this.uuid
+                    }
+                },
+                "task": task,
+                "manager": manager,
+                "rep_manage": rep_manager,
+            }
+            // console.log(condition)
+            this.get('ajax')
+                .request('/api/proposal/task/allot', this.getAjaxOpt(condition))
+                .then((res) => {
+                    if (res.status === "ok") {
+                        console.log(res.result.data.attribute)
+                        // return res.result.data.attribute;
+                    } else {
+                        console.log(res.error)
+                        // return res.error.message
+                    }
+                })
         },
         onclick(id) {
             this.sendAction('onclick', id);
@@ -81,21 +202,7 @@ export default Component.extend({
             let totalTeamBuilding = 0;
             let managerUsed = 0;
             if (allHospMedics != null || allHospMedics != undefined) {
-                /*let usedBudget = JSON.parse(allHospMedics).values.map((ele) => {
-                    oldManpower.map((mp) => {
-                        if (mp.name === ele.represent) {
-                            let used = 0;
-                            ele.medicines.map((mele) => {
-                                mele.attrs.map((iele) => {
-                                    if (iele.key === "time_setting" && iele.value !== "") {
-                                        used += +iele.value;
-                                    }
-                                })
-                            });
-                            Ember.set(mp, 'used', used)
-                        }
-                    })
-                })*/
+
                 JSON.parse(allHospMedics).values.map((ele) => {
                     if (ele.represent != "") {
                         if (ele.medicines != undefined) {
@@ -104,8 +211,8 @@ export default Component.extend({
                                     if (iele.key === "time_setting" && iele.value !== "") {
                                         let repre = {
                                             "used": +iele.value,
-                                            "name": ele.represent,
-                                            "id": ""
+                                            // "name": ele.represent,
+                                            "id": ele.represent
                                         }
                                         hMused.pushObject(repre)
                                     }
@@ -136,19 +243,22 @@ export default Component.extend({
                         }
                     })
                     Ember.set(repused, 'used', used);
-                    Ember.set(repused, 'name', ele.repName);
+                    // Ember.set(repused, 'name', ele.repName);
                     Ember.set(repused, 'id', ele.repId);
                     hMused.pushObject(repused)
                 })
             };
             let repre = this.groupBy(hMused, function(item) {
-                return [item.name]
+                // return [item.name];
+                return [item.id];
             });
             const reducer = (prev, curre) => prev.used + curre.used;
 
             for (let i = 0, len = repre.length; i < len; i++) {
                 oldManpower.map((ele) => {
-                    if (ele.name == repre[i][0].name) {
+                    // if (ele.name == repre[i][0].name) {
+                    if (ele.id == repre[i][0].id) {
+
                         if (repre[i].length == 1) {
                             Ember.set(ele, 'used', repre[i][0].used + totalTeamBuilding)
                         } else {

@@ -10,6 +10,24 @@ export default Component.extend({
 	styles,
 	tagName: "",
 	repId: '',
+	initManagerArrary(uuid) {
+		let managerTime = localStorage.getItem('manager_time');
+		if (managerTime == null || managerTime == undefined) {
+			let object = {
+				uuid: uuid,
+				values: this.managerArraryObject
+			}
+			localStorage.setItem('manager_time', JSON.stringify(object));
+		} else {
+			if (JSON.parse(managerTime).uuid === uuid) {
+				this.set('managerArraryObject', JSON.parse(managerTime).values)
+			}
+		}
+	},
+	init() {
+		this._super(...arguments);
+		this.initManagerArrary(this.uuid)
+	},
 	actions: {
 		details(rid, name) {
 			this.set('select_repname', name);

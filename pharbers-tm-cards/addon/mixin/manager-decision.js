@@ -6,11 +6,6 @@ export default Mixin.create({
 		{ lable: "团建/例会", key: "team_building", value: "" },
 		{ lable: "行政事务", key: "administrative", value: "" }
 	],
-	// managerRepArraryObject: [
-	// 	{lable: "协助拜访", key: "assist", value: ""},
-	// 	{lable: "脱岗产品培训", key: "product_training", value: ""},
-	// 	{lable: "1V1能力辅导", key: "coach", value: ""}
-	// ],
 	initManagerArrary(uuid) {
 		let managerTime = localStorage.getItem('manager_time');
 		if (managerTime == null || managerTime == undefined) {
@@ -54,6 +49,24 @@ export default Mixin.create({
 				if (values) {
 					this.set('managerRepArraryObject', values.attrs)
 				}
+			} else {
+				let managerRepArraryObject = [
+					{ lable: "协助拜访", key: "assist", value: "" },
+					{ lable: "脱岗产品培训", key: "product_training", value: "" },
+					{ lable: "1V1能力辅导", key: "coach", value: "" }
+				]
+				let rep_array = data.map(function(elem) {
+					return {
+						repId: elem.id,
+						repName: elem.lable.name,
+						attrs: managerRepArraryObject
+					}
+				});
+				let object = {
+					uuid: uuid,
+					values: rep_array
+				}
+				localStorage.setItem('manager_rep_time', JSON.stringify(object));
 			}
 		}
 	}

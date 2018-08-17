@@ -46,21 +46,21 @@
 						</a>
 						{{/nav.item}}
 					{{/bs-nav}}
-
+					{{log medic.detail.table}}
 					<div class="tab-content" local-class="right-content">
 						{{#tab.pane local-class="medicine-detail" elementId=medic.detail.id title="Tab 1" }}
 							<p><span></span>药品详情</p>
-							{{detail-table }}
+							{{detail-table data=medic.detail.value}}
 						{{/tab.pane}}
 
 						{{#tab.pane local-class="medicine-detail" elementId=medic.history.id title="Tab 2" }}
 							<p><span></span>历史部署</p>
-							{{detail-table }}
+							{{detail-table  data=medic.history.value}}
 						{{/tab.pane}}
 
 						{{#tab.pane local-class="medicine-detail" elementId=medic.compete_goods.id title="Tab 3" }}
 							<p><span></span>竞品销售分析</p>
-							{{detail-table }}
+							{{detail-table  data=medic.compete_goods.value}}
 						{{/tab.pane}}
 					</div>
 				{{/bs-tab}}

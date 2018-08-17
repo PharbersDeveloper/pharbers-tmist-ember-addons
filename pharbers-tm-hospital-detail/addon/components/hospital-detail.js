@@ -10,6 +10,13 @@ export default Component.extend({
         actions: {
             chooseRep(name) {
                 this.sendAction('chooseRep', name);
+            },
+            getRep() {
+                console.log('11111111111');
+                //     console.log(this.data)
+                //     this.data.component_data.map((ele) {
+                //         if(ele.key == "target-detail")
+                //     })
             }
         }
     })
