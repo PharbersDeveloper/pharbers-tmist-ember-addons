@@ -1,32 +1,33 @@
 {{yield}}
 <div local-class="drug-item container">
-	<div local-class="c-inside left">
-		<div local-class="left-middle">
-			<img src= {{item.avatar}} alt="">
-			<p>{{item.name}}</p>
-		</div>
-
-	</div>
 	<div local-class="c-inside right">
-		<p local-class="title">{{item.class}}</p>
+		<p local-class="title">{{data.name}}-{{data.class}}</p>
 		<p local-class="feature">
-			<span>产品特点：</span>
-			<span>{{item.feature}}</span>
+			{{#bs-button tagName='p' local-class="point"}}
+				{{data.feature}}
+				{{#bs-popover triggerEvents="hover" title=data.name local-class="popover-medic"}}
+				<div local-class="c-inside right">
+					<p local-class="subtitle">{{data.class}}</p>
+					<p local-class="feature">
+						<span>产品特点：</span>
+						<p >{{data.feature}}</p>
+					</p>
+					<p local-class="heal">
+						<span>治疗领域：</span>
+						{{#each data.heal as |area|}}
+							<span local-class="heal">{{area}}</span>
+						{{/each}}
+					</p>
+					<p local-class="department">
+						<span>目标科室：</span>
+						{{#each data.department as |data|}}
+							<span local-class="depart">{{data}}</span>
+						{{/each}}
+					</p>
+				</div>
+				{{/bs-popover}}
+			{{/bs-button}}
 		</p>
-		<p local-class="heal">
-			<span>治疗领域：</span>
-			{{#each item.heal as |item|}}
-				<span local-class="heal">{{item}}</span>
-			{{/each}}
-		</p>
-		<p local-class="department">
-			<span>目标科室：</span>
-			{{#each item.department as |item|}}
-				<span local-class="depart">{{item}}</span>
-			{{/each}}
-		</p>
-		{{#bs-button local-class="drugDetail" onClick=(action "drugDetail" item.id)}}
-			查看详情
-		{{/bs-button}}
+
 	</div>
 </div>
