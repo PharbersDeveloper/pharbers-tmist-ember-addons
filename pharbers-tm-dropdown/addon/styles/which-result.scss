@@ -1,6 +1,7 @@
 @import "bootstrap";
 
 .select {
+    margin-left: 20px;
     color: #fff;
     cursor: pointer;
 
@@ -21,9 +22,12 @@
 
         .ull {
             height: auto !important;
+            padding-bottom: 0;
+            text-align: center;
+            color: #000;
 
-            a {
-                color: #000;
+            :global(.divider):last-child {
+                margin-bottom: 0;
             }
         }
     }
@@ -43,7 +47,7 @@
             text-align: left;
             margin-left: -30px;
             padding: 5px 0;
-
+            // color: #000;
             a {
                 color: #000;
                 text-decoration: none;

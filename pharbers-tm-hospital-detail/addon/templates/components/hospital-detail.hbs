@@ -1,5 +1,8 @@
-{{!-- {{yield}} --}}
-{{log hospital}}
-{{#mapping-components hospital.component_data as |componentName component|}}
-    {{component.component}}
+{{#mapping-components data.component_data as |componentName component|}}
+    {{#if (eq componentName.componentName "target-detail-hospital-card")}}
+        {{component.component hospital_id=data.id uuid=uuid totalRepresents=totalRepresents chooseRep=(action 'chooseRep')}}
+    {{/if}}
+    {{#if (eq componentName.componentName "target-detail-medicines-card")}}
+        {{component.component hospital_id=data.id uuid=uuid allBudget=allBudget getRep=(action 'getRep')}}
+    {{/if}}
 {{/mapping-components}}

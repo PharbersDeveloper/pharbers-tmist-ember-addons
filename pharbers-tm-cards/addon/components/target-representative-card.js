@@ -7,8 +7,8 @@ export default Component.extend({
 	styles,
 	tagName: '',
 	actions: {
-		show(rid) {
-			this.sendAction('showMore', rid)
+		details(rid, name) {
+			this.sendAction('details', rid, name)
 		}
 	}
 });

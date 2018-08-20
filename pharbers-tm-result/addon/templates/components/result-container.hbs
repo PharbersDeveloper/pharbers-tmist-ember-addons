@@ -1,15 +1,8 @@
 {{yield}}
-<div local-class="hosp-detail" class="container">
-	<div local-class="basic-info" class="row">
+<div local-class="reports" class="container">
+	<div local-class="total-info" class="row">
 		{{#mapping-components result.component_data as |componentName component|}}
-			{{component.component}}
+			{{component.component onclick=(action "onclick")}}
 		{{/mapping-components}}
-	</div>
-	<div local-class="medicine-info">
-		<div local-class="medicine">
-			<div local-class="right-content">
-				{{!-- {{self-table model=columnsHospitalValue columns=columnsHospital selfheight='480px'}} --}}
-			</div>
-		</div>
 	</div>
 </div>

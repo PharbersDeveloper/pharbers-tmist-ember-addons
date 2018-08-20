@@ -1,6 +1,5 @@
-{{yield}}
 {{#if isShowList}}
-    <div local-class="all-reps">
+    <div local-class="all-reps" class="col-md-9">
         <p local-class="title">{{allReps.title}}</p>
         {{#each allReps.reps as |item|}}
             {{target-representative-card data=item showMore=(action 'showMore')}}

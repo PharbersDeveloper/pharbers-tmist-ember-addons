@@ -1,11 +1,11 @@
 {{yield}}
-<div local-class="info-left" class="col-md-8 col-sm-8">
+<div local-class="info-left" class="col-md-8 col-sm-8 col-xs-8">
 	<div class="row">
 		<div class="col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-			<img src={{data.hosp_image}} alt="">
+			<img src= {{data.hosp_image}} alt="">
 		</div>
 		<div class="col-md-10 col-sm-10 col-xs-10" local-class="overview">
-			<p local-class="title"><span>{{data.name}}</span> <span>{{data.level}}</span> </p>
+			<p local-class="title"><span>{{data.hosp_name}}</span> <span>{{data.hosp_category}}/{{data.hosp_level}}</span> </p>
 			<p local-class="department">
 				<span>重点科室：</span>
 				{{#each (string-to-array data.department ';') as |value|}}
@@ -21,17 +21,48 @@
 		</div>
 	</div>
 </div>
-<div local-class="info-right" class="col-md-4 col-sm-4">
+<div local-class="info-right" class="col-md-4 col-sm-4 col-xs-4">
 	<div local-class="sign-person">
 		<div local-class="sign-title">
 			<p>人员分配 <span>-请分配代表负责该医院</span> </p>
 		</div>
 		<div local-class="sign-choose">
-			<select local-class="choose" name="">
-				<option value="none" selected disabled>选择代表</option>
-				{{#each data.represents as |item|}}
-					<option value={{item.id}}>{{item.rep_name}}</option>
+			<select local-class="choose" onchange= {{action 'chooseRep' value="target.value"}}>
+				<option value="none" selected=true disabled>请选择人员</option>
+				{{!-- <option value="none"  disabled>dddddd</option> --}}
+				{{#each rightTotalRep as |item|}}
+					{{#if (eq existRep.id item.id)}}
+						<option selected value={{item.id}} >
+							{{item.name}}
+						</option>
+					{{else}}
+						<option value={{item.id}} >
+							{{item.name}}
+						</option>
+					{{/if}}
 				{{/each}}
+				{{!-- {{#each totalRepresents as |item|}}
+					{{#each data.represents as |rep|}}
+					  	{{#if (eq rep.id item.id)}}
+						  <option selected value={{item.id}} >
+							  {{item.name}}
+						  </option>
+						{{/if}}
+					{{/each}}
+					{{#if (not data.represents)}}
+						<option value={{item.id}} >
+							{{item.name}}
+						</option>
+					{{else}}
+					{{#each data.represents as |rep|}}
+						{{#if (not-eq rep.id item.id)}}
+						  <option value={{item.id}} >
+							  {{item.name}}
+						  </option>
+						{{/if}}
+					{{/each}}
+					{{/if}}
+				{{/each}} --}}
 			</select>
 		</div>
 	</div>

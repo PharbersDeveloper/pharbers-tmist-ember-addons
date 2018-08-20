@@ -1,0 +1,18 @@
+{{yield}}
+{{#light-table table height=selfheight responsive=true tableClassNames='result-table' as |t|}}
+    {{t.head onColumnClick=(action 'onColumnClick') fixed=true}}
+
+    {{#t.body as |body|}}
+        {{#if isLoading}}
+            {{#body.loader}}
+                Loading...
+            {{/body.loader}}
+        {{/if}}
+
+        {{#if table.isEmpty}}
+            {{#body.no-data}}
+                No data found.
+            {{/body.no-data}}
+        {{/if}}
+    {{/t.body}}
+{{/light-table}}

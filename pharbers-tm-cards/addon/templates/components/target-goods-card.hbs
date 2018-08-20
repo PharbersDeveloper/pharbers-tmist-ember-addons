@@ -1,7 +1,7 @@
 <div local-class="medicine-container">
     {{#each data.medicines as |medic|}}
         <div local-class="medicine-item">
-            <p local-class="title">{{medic.name}}</p>
+            <p local-class="title">{{medic.prod_category}}</p>
             <p local-class="potential">
                 <span>药品潜力</span>
                 <span>{{number-format medic.potential}}</span>

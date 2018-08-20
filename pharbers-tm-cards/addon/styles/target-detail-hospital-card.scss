@@ -20,6 +20,8 @@
 		}
 
 		.title {
+			margin-bottom: 14px;
+
 			span:first-child {
 				font-size: 18px;
 				color: #EDEDED;
@@ -35,6 +37,7 @@
 		}
 
 		.department {
+			margin-bottom: 12px;
 			height: 20px;
 			overflow: hidden;
 
@@ -88,49 +91,6 @@
 				background-color: #8AE8D3;
 			}
 		}
-
-		.tab-container {
-			display: flex;
-			justify-content: space-around;
-			font-size: 0;
-		}
-
-		.news,
-		.policy {
-			font-size: 16px;
-		}
-
-		.tab-content {
-			flex: 1;
-			text-align: center;
-			height: 40px;
-
-			p {
-				font-size: 12px;
-				height: 17px;
-				line-height: 17px;
-			}
-
-			p:first-child {
-				font-size: 12px;
-				margin-bottom: 5px;
-			}
-
-			p:last-child {
-				font-size: 12px;
-			}
-
-			span {
-				display: inline-block;
-				margin-top: 7px;
-				width: 50px;
-				height: 25px;
-				line-height: 25px;
-				font-size: 12px;
-				border-radius: 100px;
-				background-color: #4D8DD8;
-			}
-		}
 	}
 
 	.info-right {
@@ -145,6 +105,7 @@
 			background-color: #F9F9F9;
 
 			.sign-title {
+				margin-bottom: 8px;
 				font-family: PingFangTC-Regular;
 				font-size: 0;
 
@@ -172,6 +133,7 @@
 				width: 174px;
 				height: 30px;
 				border-radius: 5px;
+				color: #575757;
 
 				.choose {
 					//清除select的边框样式
@@ -188,13 +150,17 @@
 					-moz-appearance: none;
 					//通过padding-left的值让文字居中
 					padding-left: 60px;
+					background-color: rgba(216,216,216,.37);
+					// option:default {
+					// 	display: none;
+					// }
 				}
 
 				&:after {
 					content: "";
 					width: 14px;
 					height: 8px;
-					background: url("http://bpic.588ku.com/element_pic/01/36/28/62573c0ec083bee.jpg") no-repeat center;
+					background: url("https://i.loli.net/2018/08/08/5b6a8854012ac.png") no-repeat center;
 					//通过定位将图标放在合适的位置
 					position: absolute;
 					right: 20px;

@@ -4,7 +4,12 @@ import styles from '../styles/result-container';
 
 export default Component.extend({
     layout,
-    styles
+    styles,
+    actions: {
+        onclick(type, id) {
+            this.sendAction('onclick', type, id);
+        }
+    }
 }).reopenClass({
     positionalParams: ['result']
 })

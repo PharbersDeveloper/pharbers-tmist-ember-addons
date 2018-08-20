@@ -135,10 +135,15 @@
         span {
             font-size: 12px;
             margin: 0 12px;
+            cursor: wait;
         }
 
         span:first-child {
             margin-left: 0;
+        }
+
+        span:last-child {
+            cursor: pointer;
         }
     }
 

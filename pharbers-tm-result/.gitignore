@@ -1,4 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+.DS_Store
+
+#idea
+/.idea/
 
 # compiled output
 /dist
