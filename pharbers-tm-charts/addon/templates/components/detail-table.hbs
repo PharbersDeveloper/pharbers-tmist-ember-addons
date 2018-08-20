@@ -1,5 +1,5 @@
 {{yield}}
-{{#light-table table height=selfheight tableClassNames='result-table' as |t|}}
+{{#light-table table height=selfheight responsive=true tableClassNames='result-table' as |t|}}
     {{t.head onColumnClick=(action 'onColumnClick') fixed=true}}
 
     {{#t.body as |body|}}

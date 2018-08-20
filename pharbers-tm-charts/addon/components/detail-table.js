@@ -11,7 +11,7 @@ export default Component.extend({
     styles,
     localClassNames: 'table-container',
     classNames: ['table-center'],
-    selfheight: '180px',
+    selfheight: "100px",
     sort: '',
     dir: 'asc',
     // sortedModel: computed.sort('model', 'sortBy').readOnly(),

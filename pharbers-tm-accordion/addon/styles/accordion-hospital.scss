@@ -1,0 +1,306 @@
+.hosp-item {
+    // height: 125px;
+    margin: 0;
+    border-radius: 6px 6px 0 0;
+    // background-image: linear-gradient(110deg, #4D608F 0%, #8F9CC3 100%);
+    box-shadow: 0 3px 14px 0 rgba(166,166,166,0.50);
+
+    .info {
+        padding-left: 15px;
+        width: 100%;
+        // min-width: 1200px;
+        color: #EDEDED;
+        font-size: 0;
+        background-image: linear-gradient(110deg, #4D608F 0%, #8F9CC3 100%);
+        // background-color: transparent !important;
+        .avatar {
+            img {
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+            }
+        }
+
+        .title {
+            margin-bottom: 14px;
+
+            span:first-child {
+                font-size: 18px;
+                color: #EDEDED;
+                letter-spacing: 3px;
+            }
+
+            span:not(:first-child) {
+                margin-left: 10px;
+                font-size: 12px;
+                color: #FFFFFF;
+                letter-spacing: 1.6px;
+            }
+        }
+
+        .department {
+            margin-bottom: 12px;
+            height: 20px;
+            overflow: hidden;
+
+            span {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            span:first-child {
+                font-size: 14px;
+                letter-spacing: 1.5px;
+            }
+
+            span:not(:first-child) {
+                margin: 0 5px;
+                height: 20px;
+                line-height: 20px;
+                width: 70px;
+                overflow: hidden;
+                overflow: hidden;
+                text-align: center;
+                font-size: 12px;
+                color: #FFFFFF;
+                letter-spacing: 1.5px;
+                background-color: #75A9E5;
+            }
+        }
+
+        .outpatient {
+            span {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            span:first-child {
+                font-size: 14px;
+                letter-spacing: 1.5px;
+            }
+
+            span:not(:first-child) {
+                margin: 0 5px;
+                height: 20px;
+                line-height: 20px;
+                width: 70px;
+                overflow: hidden;
+                overflow: hidden;
+                text-align: center;
+                font-size: 12px;
+                color: #FFFFFF;
+                letter-spacing: 1.5px;
+                background-color: #8AE8D3;
+            }
+        }
+    }
+
+    .medicine-info {
+        padding: 22px 25px 0;
+        margin: 0;
+        overflow-y: auto;
+        font-size: 0;
+        border-radius: 0 0 6px 6px;
+        background: #FFFFFF;
+        box-shadow: 0 3px 14px 0 rgba(184,184,184,0.50);
+
+        .medicine {
+            margin-bottom: 20px;
+            padding: 15px 0;
+            width: 100%;
+            border-radius: 9px;
+            background-color: #F6F7F9;
+
+            .medicine-area {
+                padding-left: 15px;
+
+                .title {
+                    margin-bottom: 10px;
+                    font-size: 18px;
+                    letter-spacing: 2.5px;
+                    color: #52545D;
+                }
+
+                .properties {
+                    display: flex;
+                    justify-content: flex-start;
+                    padding-left: 15px;
+                    text-align: center;
+
+                    .property {
+                        margin-right: 50px;
+
+                        p:first-child {
+                            margin-bottom: 4px;
+                            height: 14px;
+                            line-height: 14px;
+                            font-size: 12px;
+                            letter-spacing: 0.95px;
+                            color: #52545D;
+                        }
+
+                        p:last-child {
+                            height: 20px;
+                            line-height: 20px;
+                            font-size: 14px;
+                            letter-spacing: 1.56px;
+                            color: #52545D;
+                        }
+                    }
+                }
+
+                .compare {
+                    margin: 12px 15px 0;
+                    // height: 240px;
+                    border-radius: 4px;
+                }
+            }
+
+            .input-area {
+                margin: 20px 0 0;
+                padding: 0 25px;
+                height: 70px;
+
+                .part-input {
+                    margin: 0 auto 15px;
+                    padding: 10px 12px;
+                    // width: 80%;
+                    height: 70px;
+                    border-radius: 3px;
+                    background: #F0F2FF;
+                    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+
+                    div {
+                        display: inline-block;
+                        vertical-align: top;
+                        font-size: 12px;
+
+                        &.input-left {
+                            width: 120px;
+
+                            p:first-child {
+                                margin-right: 20px;
+                                text-align: center;
+                            }
+
+                            span {
+                                margin-left: 5px;
+                                padding-top: 4px;
+                            }
+                        }
+
+                        &.input-right {
+                            p:last-child {
+                                padding-top: 7px;
+                                text-align: center;
+                                font-size: 16px;
+                                line-height: 30px;
+                            }
+                        }
+
+                        p:first-child {
+                            margin-bottom: 0;
+                            color: #474747;
+                            letter-spacing: 0.56px;
+                        }
+
+                        p:last-child {
+                            line-height: 44px;
+                        }
+
+                        input {
+                            padding: 4px 0 4px 10px;
+                            width: 100px;
+                            height: 30px;
+                            line-height: 30px;
+                            font-size: 14px;
+                            text-align: center;
+                            border: 0;
+                            border-radius: 3px;
+                        }
+                    }
+                }
+
+                .sign-person {
+                    margin: 0 auto 15px;
+                    padding: 10px 12px;
+                    // width: 80%;
+                    height: 70px;
+                    border-radius: 3px;
+                    background: #F0F2FF;
+                    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+                    // margin-right: 25px;
+                    // margin-top: 20px;
+                    // padding: 10px 14px;
+                    // width: 280px;
+                    .sign-title {
+                        margin-bottom: 8px;
+                        font-family: PingFangTC-Regular;
+                        font-size: 0;
+
+                        p:first-child {
+                            height: 16px;
+                            line-height: 16px;
+                            font-size: 14px;
+                            letter-spacing: 2px;
+                            color: #000000;
+
+                            span {
+                                height: 16px;
+                                font-size: 10px;
+                                letter-spacing: 2px;
+                                line-height: 16px;
+                                color: #575C6C;
+                            }
+                        }
+                    }
+
+                    .sign-choose {
+                        //用div的样式代替select的样式
+                        margin-left: 40px;
+                        position: relative;
+                        width: 174px;
+                        height: 30px;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        color: #575757;
+
+                        .choose {
+                            //清除select的边框样式
+                            border: none;
+                            //清除select聚焦时候的边框颜色
+                            outline: none;
+                            //将select的宽高等于div的宽高
+                            width: 100%;
+                            height: 30px;
+                            line-height: 30px;
+                            //隐藏select的下拉图标
+                            appearance: none;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            //通过padding-left的值让文字居中
+                            padding-left: 60px;
+                            background-color: rgba(216,216,216,.37);
+                            // option:default {
+                            // 	display: none;
+                            // }
+                        }
+
+                        &:after {
+                            content: "";
+                            width: 14px;
+                            height: 8px;
+                            background: url("https://i.loli.net/2018/08/08/5b6a8854012ac.png") no-repeat center;
+                            //通过定位将图标放在合适的位置
+                            position: absolute;
+                            right: 20px;
+                            top: 45%;
+                            //给自定义的图标实现点击下来功能
+                            pointer-events: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
