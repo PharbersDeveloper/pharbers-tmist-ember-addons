@@ -52,11 +52,14 @@
                                 {{/each}}
                             </div>
                             <div local-class="compare">
-                                <h5>药品详情</h5>
-                                {{detail-table data=medic.detail}}
-                                <h5>药品历史</h5>
-                                {{detail-table  data=medic.history}}
-
+                                <div class="col-md-12 col-lg-6">
+                                    <h5>药品详情</h5>
+                                    {{detail-table data=medic.detail}}
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <h5>药品历史</h5>
+                                    {{detail-table  data=medic.history}}
+                                </div>
                                 {{!-- {{detail-table  data=medic.compete_goods}} --}}
 
                             </div>
