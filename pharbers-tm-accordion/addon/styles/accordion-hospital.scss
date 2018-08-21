@@ -103,7 +103,7 @@
         overflow-x: hidden;
         font-size: 0;
         border-radius: 0 0 6px 6px;
-        background: #FFFFFF;
+        background-color: #F6F7F9;
         box-shadow: 0 3px 14px 0 rgba(184,184,184,0.50);
 
         .medicine {
@@ -114,7 +114,6 @@
             // overflow: hidden;
             .changepage {
                 padding: 10px 0;
-                background-color: #F6F7F9;
                 border-radius: 9px;
 
                 :global(.carousel-control) {
@@ -181,7 +180,7 @@
             }
 
             .input-area {
-                padding:20px 10px;
+                padding:20px 15px;
                 width: 100%;
                 height: auto;
                 overflow: hidden;
@@ -189,13 +188,28 @@
                 display: flex;
                 justify-content: center;
                 .area-right {
-                    display: flex;
+                    // display: flex;
                     flex-direction: row;
                     flex-wrap: nowrap;
+
+                    padding-left: -15px !important;
+                    padding-right: -15px !important;
+
+                    min-height: 155px;
+                    height: auto;
+                    overflow: hidden;
+                    border-radius: 3px;
+                    background: #F0F2FF;
+                    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+                    .right-row {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                    }
                 }
                 .part-input {
-                    // margin: 0 15px;
-                    // padding: 10px 12px;
+                    height: 155px;
+                    overflow: hidden;
                     height: auto;
                     min-width: 200px;
                     border-radius: 3px;
@@ -213,16 +227,26 @@
                             line-height: 50px;
                             background: rgba(0,0,0,0.03);
                             border-bottom: 1px solid rgba(0,0,0,0.125);
+
+                            font-size: 14px;
+                            font-weight: bold;
+                            font-style: italic;
+                        }
+                        .input-con {
+                            margin: 12px;
                         }
                         .input-result {
                             padding-left: 12px;
                             padding-bottom: 12px;
+                            margin-right: 12px;
                         }
                     }
-
+                    .input-group {
+                        padding: 10px 12px;
+                    }
                     div {
-                        display: inline-block;
-                        vertical-align: top;
+                        // display: inline-block;
+                        // vertical-align: top;
                         font-size: 12px;
 
                         &.input-left {
@@ -258,33 +282,31 @@
                             line-height: 44px;
                         }
 
-                        input {
-                            margin: 12px;
-                            padding: 4px 0 4px 10px;
-                            max-width: 100px;
-                            width: auto;
-                            height: 30px;
-                            line-height: 30px;
-                            font-size: 14px;
-                            text-align: center;
-                            border: 0;
-                            border-radius: 3px;
-                        }
+                        // input {
+                        //
+                        //     padding: 4px 0 4px 10px;
+                        //     max-width: 100px;
+                        //     width: auto;
+                        //     height: 30px;
+                        //     line-height: 30px;
+                        //     font-size: 14px;
+                        //     text-align: center;
+                        //     border: 0;
+                        //     border-radius: 3px;
+                        // }
                     }
                 }
 
                 .sign-person {
-                    margin: 0 auto 15px;
                     padding: 10px 12px;
-                    // width: 80%;
-                    height: 70px;
-                    border-radius: 3px;
-                    background: #F0F2FF;
-                    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
-                    // margin-right: 25px;
-                    // margin-top: 20px;
-                    // padding: 10px 14px;
-                    // width: 280px;
+                    // display: flex;
+                    text-align: center;
+
+
+                        img {
+                            width: 54px;
+                            height: 54px;
+                }
                     .sign-title {
                         margin-bottom: 8px;
                         font-family: PingFangTC-Regular;

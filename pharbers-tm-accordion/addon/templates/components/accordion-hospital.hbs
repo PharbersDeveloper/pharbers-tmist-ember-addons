@@ -29,17 +29,24 @@
                         {{#bs-carousel
                           local-class="changepage"
                           wrap=false
-                          autoPlay=false
                           ltr=true
                           pauseOnMouseEnter=true
-                          nextControlIcon='glyphicon glyphicon-chevron-right'
-                          nextControlLabel='下页'
-                          prevControlIcon='glyphicon glyphicon-chevron-left'
-                          prevControlLabel='上页'
                           as |car|}}
                           {{#car.slide}}
                           <div local-class="medicine-area">
-                              <p local-class="title">{{medic.prod_category}}</p>
+                              {{#bs-button-group
+                                  local-class="title"
+                                  value=buttonGroupValue
+                                  type="checkbox"
+                                  onChange=(action (mut buttonGroupValue)) as |bg|}}
+                                  {{#bg.button value=1}}{{medic.prod_category}}{{/bg.button}}
+                              {{/bs-button-group}}
+                              {{!-- <div class="btn-group" role="group" aria-label="Basic example" local-class="title">
+                                  <div class="btn-group" role="group" aria-label="...">
+                                      <button type="button" class="btn btn-default"></button>
+                                  </div>
+                                  {{!-- <button type="button" class="btn btn-secondary">{{medic.prod_category}}</button> --}}
+                              {{!-- </div> --}}
                               <div local-class="properties">
                                   {{#each medic.overview as |ov|}}
                                       <div local-class="property">
@@ -73,63 +80,8 @@
                                   {{!-- {{detail-table  data=medic.compete_goods}} --}}
                               </div>
                           </div>
-                          {{/car.slide}}
-                          {{#car.slide}}
-                            {{target-detail-hospital-page data=hosp}}
-                          {{/car.slide}}
-                        {{/bs-carousel}}
 
-
-                        {{!-- <div local-class="medicine-area">
-                            <p local-class="title">{{medic.prod_category}}</p>
-                            <div local-class="properties">
-                                {{#each medic.overview as |ov|}}
-                                    <div local-class="property">
-                                        {{#if (eq ov.key '增长潜力')}}
-                                            <p>{{ov.key}}</p>
-                                            <p>{{number-to-percent ov.value}}%</p>
-                                            {{else if (eq ov.key '上期增长')}}
-                                            <p>{{ov.key}}</p>
-                                            <p>{{number-to-percent ov.value}}%</p>
-                                            {{else if (eq ov.key '份额')}}
-                                            <p>{{ov.key}}</p>
-                                            <p>{{number-to-percent ov.value}}%</p>
-                                            {{else if (eq ov.key '上期贡献率')}}
-                                            <p>{{ov.key}}</p>
-                                            <p>{{number-to-percent ov.value}}%</p>
-                                        {{else}}
-                                            <p>{{ov.key}}</p>
-                                            <p>{{number-format ov.value}}</p>
-                                        {{/if}}
-
-                                    </div>
-                                {{/each}}
-                            </div>
-                            <div local-class="compare">
-                                <div class="col-md-12 col-lg-6">
-                                    <h5>药品详情</h5> {{detail-table data=medic.detail}}
-                                </div>
-                                <div class="col-md-12 col-lg-6">
-                                    <h5>药品历史</h5> {{detail-table  data=medic.history}}
-                                </div>
-                                {{detail-table  data=medic.compete_goods}}
-                            </div>
-                        </div> --}}
                         <div local-class="input-area" class="row">
-                            {{!-- {{#each values as |item|}}
-                                {{#if (eq medic.id item.medicid)}}
-                                    <div local-class="inputarea">
-                                        <div local-class="input-left">
-                                            <p>{{item.lable}}</p>
-                                            <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p>
-                                        </div>
-                                        <div local-class="input-right">
-                                            <p>{{item.computed_field}}</p>
-                                            <p>{{item.computedVal}}</p>
-                                        </div>
-                                    </div>
-                                {{/if}}
-                            {{/each}} --}}
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div local-class="part-input">
@@ -138,61 +90,90 @@
                                         <p local-class="input-title">指标设定</p>
                                         {{!-- <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p> --}}
                                         <div local-class="input-con">
-                                            {{input type="number" value="item.value"}}
-                                            <span>元</span>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                <span class="input-group-addon" id="basic-addon2">元</span>
+                                            </div>
                                         </div>
                                         <div local-class="input-result">
-                                            <span>指标增长:</span>
-                                            <span>0</span>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon2">指标增长</span>
+                                                <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                                                <span class="input-group-addon" id="basic-addon2">%</span>
+                                            </div>
                                         </div>
                                     </div>
-                                        {{!-- <p>{{item.computed_field}}</p> --}}
-                                        {{!-- <p>{{item.computedVal}}</p> --}}
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div local-class="part-input">
                                     <div local-class="input-line">
                                         <p local-class="input-title">预算分配</p>
                                         <div local-class="input-con">
-                                            {{input type="number" value="item.value"}}
-                                            <span>元</span>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                <span class="input-group-addon" id="basic-addon2">元</span>
+                                            </div>
                                         </div>
                                         <div local-class="input-result">
-                                            <span>预算所占%</span>
-                                            <span>0</span>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon2">预算所占</span>
+                                                <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                                                <span class="input-group-addon" id="basic-addon2">%</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" local-class="area-right">
-                                    <div local-class="sign-person" class="col-md-4">
-                                        <div local-class="sign-title">
-                                            <p>人员分配</p>
-                                        </div>
-                                        <div local-class="sign-choose">
-                                            <select local-class="choose" >
-                                                <option value="none" selected=true disabled>请选择人员</option>
-                                                <option value="a" >Little A</option>
-                                                <option value="b" >LIttle B</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div local-class="part-input" class="col-md-4">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" local-class="margin-right">
+                                <div local-class="area-right">
+                                    <div local-class="part-input">
                                         <div local-class="input-line">
-                                            <span>时间分配</span>
-                                            {{input type="number" value="item.value"}}
+                                            <p local-class="input-title">人员分配</p>
                                         </div>
                                     </div>
-                                    <div local-class="part-input" class="col-md-4">
-                                        <div local-class="input-line">
-                                            <span>经理陪同</span>
-                                            {{input type="number" value="item.value"}}
+                                    <div local-class="sign-person" class="col-md-6 col-sm-6">
+                                            <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
+
+                                        <div class="btn-group">
+                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            请选择人员 <span class="caret"></span>
+                                          </button>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                          </ul>
                                         </div>
                                     </div>
+                                    <div local-class="part-input" class="col-md-6 col-sm-6">
+                                        <div local-class="input-line input-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon2">&nbsp;&nbsp;&nbsp;&nbsp;分配&nbsp;&nbsp;&nbsp;</span>
+                                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                <span class="input-group-addon" id="basic-addon2">天</span>
+                                            </div>
+                                        </div>
+                                        <div local-class="input-line input-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon2">经理陪同</span>
+                                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                <span class="input-group-addon" id="basic-addon2">天</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
+
+                        {{/car.slide}}
+                        {{#car.slide}}
+                          {{target-detail-hospital-page data=hosp}}
+                        {{/car.slide}}
+                      {{/bs-carousel}}
                     </div>
                 {{/each}}
             {{/aitem.body}}
