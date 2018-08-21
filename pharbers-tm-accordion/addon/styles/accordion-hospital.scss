@@ -97,7 +97,7 @@
 
     .medicine-info {
         max-height: 500px;
-        padding: 22px 25px 0;
+        padding: 10px 5px 0;
         margin: 0;
         overflow-y: auto;
         overflow-x: hidden;
@@ -108,21 +108,34 @@
 
         .medicine {
             margin-bottom: 20px;
-            padding: 15px 0;
             width: 100%;
             // min-height: 400px;
             height: auto;
-            border-radius: 9px;
-            background-color: #F6F7F9;
-            overflow: hidden;
+            // overflow: hidden;
+            .changepage {
+                padding: 10px 0;
+                background-color: #F6F7F9;
+                border-radius: 9px;
 
+                :global(.carousel-control) {
+                    background-image: none;
+                }
+
+                :global(.carousel-control.left span) {
+                    left: 5%;
+                    color: #4D608F;
+                }
+
+                :global(.carousel-control.right span) {
+                    right: 5%;
+                    color: #4D608F;
+                }
+            }
 
             .medicine-area {
                 padding-left: 15px;
                 padding-right: 15px;
                 overflow: hidden;
-
-
 
                 .title {
                     margin-bottom: 10px;
@@ -140,7 +153,6 @@
 
                     .property {
                         // margin-right: 50px;
-
                         p:first-child {
                             margin-bottom: 4px;
                             height: 14px;
@@ -164,7 +176,6 @@
                     margin: 12px 0 0;
                     // height: 240px;
                     border-radius: 4px;
-
                     overflow: hidden;
                 }
             }
@@ -173,7 +184,6 @@
                 margin: 20px 0 0;
                 padding: 0 10px;
                 height: auto;
-
                 overflow: hidden;
 
                 .part-input {
@@ -320,6 +330,4 @@
         }
     }
 }
-@media(max-width:1450px) {
-
-}
+@media(max-width:1450px) {}
