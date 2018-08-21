@@ -130,98 +130,70 @@
                                     </div>
                                 {{/if}}
                             {{/each}} --}}
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div local-class="part-input">
                                     <div local-class="input-line">
                                         {{!-- <p>{{item.lable}}</p> --}}
-                                        <span>指标设定</span>{{!-- <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p> --}}
-                                        {{input type="number" value="item.value" }}<span>元</span>
-
+                                        <p local-class="input-title">指标设定</p>
+                                        {{!-- <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p> --}}
+                                        <div local-class="input-con">
+                                            {{input type="number" value="item.value"}}
+                                            <span>元</span>
+                                        </div>
+                                        <div local-class="input-result">
+                                            <span>指标增长:</span>
+                                            <span>0</span>
+                                        </div>
                                     </div>
-                                    <div local-class="input-line">
                                         {{!-- <p>{{item.computed_field}}</p> --}}
-                                        <span>指标增长</span>
-                                        <span>0</span>{{!-- <p>{{item.computedVal}}</p> --}}
-                                    </div>
+                                        {{!-- <p>{{item.computedVal}}</p> --}}
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <div local-class="part-input">
                                     <div local-class="input-line">
-                                        <span>预算分配</span> {{input type="number" value="item.value"}}
-                                        <span>元</span>
-                                        < </div>
-                                            <div local-class="input-line">
-                                                <span>预算所占%</span>
-                                                <span>0</span>
-                                            </div>
+                                        <p local-class="input-title">预算分配</p>
+                                        <div local-class="input-con">
+                                            {{input type="number" value="item.value"}}
+                                            <span>元</span>
+                                        </div>
+                                        <div local-class="input-result">
+                                            <span>预算所占%</span>
+                                            <span>0</span>
+                                        </div>
                                     </div>
                                 </div>
-                                {{!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <div local-class="part-input">
-                                    <div local-class="input-left">
-                                        <p>时间分配</p>
-                                        <p>{{input type="number" value="item.value"}}<span>元</span></p>
-                                    </div>
-                                    <div local-class="input-right">
-                                        <p>指标增长</p>
-                                        <p>0</p>
-                                    </div>
-                                </div>
-                            </div> --}}
-                                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div local-class="sign-person" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            </div>
+                        </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" local-class="area-right">
+                                    <div local-class="sign-person" class="col-md-4">
                                         <div local-class="sign-title">
-                                            <p>人员分配 <span>-请分配代表负责该医院</span> </p>
+                                            <p>人员分配</p>
                                         </div>
                                         <div local-class="sign-choose">
-                                            <select local-class="choose">
-                                            <option value="none" selected=true disabled>请选择人员</option>
-                                            <option value="a" >Little A</option>
-                                            <option value="b" >LIttle B</option>
-                                        </select>{{!-- <select local-class="choose" onchange= {{action 'chooseRep' value="target.value"}}>
-                                            <option value="none" selected=true disabled>请选择人员</option>
-                                            {{#each rightTotalRep as |item|}}
-                                                {{#if (eq existRep.id item.id)}}
-                                                    <option selected value={{item.id}} >
-                                                        {{item.name}}
-                                                    </option>
-                                                {{else}}
-                                                    <option value={{item.id}} >
-                                                        {{item.name}}
-                                                    </option>
-                                                {{/if}}
-                                            {{/each}}
-                                        </select> --}}
+                                            <select local-class="choose" >
+                                                <option value="none" selected=true disabled>请选择人员</option>
+                                                <option value="a" >Little A</option>
+                                                <option value="b" >LIttle B</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <div local-class="part-input">
-                                            <div local-class="input-line">
-                                                <span>时间分配</span> {{input type="number" value="item.value"}}
-                                                <span>元</span>
-                                                < </div>
-                                                    <div local-class="input-line">
-                                                        {{!-- <span>预算所占%</span> --}}
-                                                        {{!-- <span>0</span> --}}
-                                                    </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <div local-class="part-input">
-                                                <div local-class="input-line">
-                                                    <span>经理陪同</span> {{input type="number" value="item.value"}}
-                                                    <span>元</span>
-                                                    < </div>
-                                                        <div local-class="input-line">
-                                                            {{!-- <span>预算所占%</span> --}}
-                                                            {{!-- <span>0</span> --}}
-                                                        </div>
-                                                </div>
-                                            </div>
+                                    <div local-class="part-input" class="col-md-4">
+                                        <div local-class="input-line">
+                                            <span>时间分配</span>
+                                            {{input type="number" value="item.value"}}
                                         </div>
                                     </div>
-                                </div>
+                                    <div local-class="part-input" class="col-md-4">
+                                        <div local-class="input-line">
+                                            <span>经理陪同</span>
+                                            {{input type="number" value="item.value"}}
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                 {{/each}}
             {{/aitem.body}}
         {{/acc.item}}
