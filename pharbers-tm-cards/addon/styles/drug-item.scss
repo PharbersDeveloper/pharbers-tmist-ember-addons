@@ -1,7 +1,7 @@
 .container {
 	position: relative;
 	margin-bottom: 15px;
-	width: 280px;
+	width: 220px;
 	// min-height: 165px;
 	font-size: 0;
 	border: 1px solid rgba(0,0,0,.125);
@@ -12,7 +12,7 @@
 		vertical-align: top;
 
 		&.right {
-			width: 280px;
+			width: 220px;
 			height: auto;
 			padding: 15px;
 			font-size: 14px;
@@ -30,7 +30,7 @@
 
 			.feature {
 				margin: 0 0 10px;
-				width: 240px;
+				width: 200px;
 				line-height: 20px;
 				font-size: 14px;
 				color: #485465;

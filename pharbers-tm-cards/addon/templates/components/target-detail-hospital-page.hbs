@@ -1,0 +1,68 @@
+{{yield}}
+<div local-class="bgcolor"></div>
+<div local-class="hosp-overview">
+	<img src= {{data.hosp_image}} alt="">
+	<p local-class="name">{{data.hosp_name}}</p>
+	<p local-class="level">{{data.hosp_category}}-{{data.hosp_level}}</p>
+</div>
+<div local-class="line">
+	<span local-class="outside"><span>基础信息</span></span>
+</div>
+<div local-class="base-info">
+	<div local-class="item">
+		<p>成立时间</p>
+		<p>{{data.init_time}}</p>
+	</div>
+	<div local-class="item">
+		<p>床位数量</p>
+		<p>{{number-format data.beds}}</p>
+	</div>
+	<div local-class="item">
+		<p>门诊人次/年</p>
+		<p>{{number-format data.outpatient_yearly}}</p>
+	</div>
+	<div local-class="item">
+		<p>住院人次/年</p>
+		<p>{{number-format data.inpatient_yearly}}</p>
+	</div>
+	<div local-class="item">
+		<p>手术台数/年</p>
+		<p>{{number-format data.surgery_yearly}}</p>
+	</div>
+	<div local-class="item">
+		<p>学术收纳度</p>
+		<p>{{data.academic_acceptance_rate}}</p>
+	</div>
+    <div local-class="item">
+		<p>学术影响力</p>
+		<p>{{data.academic_influence}}</p>
+	</div>
+
+    <p local-class="department">
+        <span>重点科室：</span>
+        {{#each (string-to-array data.focus_department ';') as |value|}}
+            <span>{{value}}</span>
+        {{/each}}
+    </p>
+    <p local-class="outpatient">
+        <span>特色门诊：</span>
+        {{#each (string-to-array data.featured_outpatient ';') as |value|}}
+            <span>{{value}}</span>
+        {{/each}}
+    </p>
+</div>
+<div local-class="line">
+	<span local-class="outside"><span>近期动态</span></span>
+</div>
+<ul local-class="moments">
+    {{#each data.status as |sta|}}
+        <li local-class="moment">
+            <p local-class="rep">
+                <span local-class="point"></span><span>{{sta.cycle}}</span> <span>{{sta.name}}</span>
+            </p>
+            <p local-class="content">
+                {{sta.content}}
+            </p>
+        </li>
+    {{/each}}
+</ul>
