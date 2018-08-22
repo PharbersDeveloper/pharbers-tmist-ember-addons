@@ -21,12 +21,6 @@
 				margin-bottom: 10px;
 			}
 
-			.title {
-				line-height: 20px;
-				font-size: 16px;
-				color: #4A90E2;
-				letter-spacing: 3.5px;
-			}
 
 			.feature {
 				margin: 0 0 10px;
@@ -76,8 +70,11 @@
 			.title {
 				line-height: 20px;
 				font-size: 16px;
-				color: #4A90E2;
+				color: #474747;
 				letter-spacing: 3.5px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+				height: 30px;
+				width: 100%;
 			}
 
 			.subtitle {
@@ -113,6 +110,7 @@
 					background: transparent;
 				}
 			}
+
 
 			.department,
 			.heal {
@@ -152,5 +150,108 @@
 				background: #FFD58F;
 			}
 		}
+	}
+}
+.point {
+	.card-out {
+		width: 180px;
+		height: 110px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		.heal {
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+		 .heal , .department {
+			 display: flex;
+			 flex-direction: row;
+			 .card-title {
+				 white-space: nowrap;
+			 }
+			 .heal-span , .depart{
+				 width: 100px;
+			 }
+			 #depart-area {
+				 display: flex;
+				 flex-direction: column;
+				 span:first-child {
+					min-width: 100px;
+	 				display: flex;
+	 				flex-direction: column;
+	 				text-overflow:ellipsis;
+	 				overflow-x: hidden;
+	 				height: 25px;
+	 				line-height: 25px;
+	 				text-align: center;
+	 				font-size: 14px;
+	 				color: #FFFFFF;
+	 				letter-spacing: 1.5px;
+	 				border-radius: 3px;
+	 				margin-right: 5px;
+					background: #FFD58F !important;
+				 }
+			 }
+			 span.depart {
+				display: block;
+			 }
+			span {
+				height: 25px;
+				line-height: 25px;
+			}
+
+			span:first-child {
+				width: 80px;
+				font-size: 14px;
+				color: #485465;
+				letter-spacing: 1.5px;
+				overflow: hidden;
+			}
+
+			span:not(:first-child) {
+				min-width: 100px;
+				display: flex;
+				flex-direction: column;
+				text-overflow:ellipsis;
+				overflow-x: hidden;
+				height: 25px;
+				line-height: 25px;
+				text-align: center;
+				font-size: 14px;
+				color: #FFFFFF;
+				letter-spacing: 1.5px;
+				border-radius: 3px;
+				margin-right: 5px;
+
+			}
+		}
+
+		.heal span:not(:first-child) {
+			background: #8AE8D3;
+		}
+
+		.department span:not(:first-child) {
+			background: #FFD58F;
+			margin-bottom: 5px;
+
+		}
+
+	}
+}
+.c-inside {
+	p.title {
+		line-height: 20px;
+		font-size: 14px;
+		color: #474747;
+		font-weight: bold;
+		font-style: italic;
+		letter-spacing: 3.5px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+		height: 30px;
+		width: 220px;
+		padding:0 -10px;
+		margin-left: -15px;
+		padding-left: 15px;
 	}
 }

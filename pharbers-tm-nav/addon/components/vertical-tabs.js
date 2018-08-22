@@ -5,6 +5,9 @@ import styles from '../styles/vertical-tabs';
 export default Component.extend({
     layout,
     styles,
+    // tagName: '',
+    // classNames: [''],
+    localClassNames: 'left',
     init() {
         this._super(...arguments);
         this.data = {

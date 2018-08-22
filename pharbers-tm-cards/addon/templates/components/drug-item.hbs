@@ -5,15 +5,35 @@
 	  <p local-class="title">{{target.name}}-{{target.class}}</p>
 	  <p local-class="feature">
 		  {{#bs-button tagName='p' local-class="point"}}
-			  {{target.feature}}
+            <div local-class="card-out">
+                <p local-class="heal">
+                    <div local-class="card-title">
+                        <span>治疗领域：</span>
+                    </div>
+                    {{#each target.heal as |area|}}
+                        <span local-class="heal-span" >{{area}}</span>
+
+                    {{/each}}
+                </p>
+
+                <p local-class="department">
+                    <div local-class="card-title">
+                        <span>目标科室：</span>
+                    </div>
+                    <div id="depart-area">
+                        <span class="display:none;"></span>
+                        {{#each target.department as |depart|}}
+                            <span local-class="depart">{{depart}}</span>
+                        {{/each}}
+                    </div>
+
+                </p>
+            </div>
+
 			  {{#bs-popover triggerEvents="hover" title=target.name local-class="popover-medic"}}
 			  <div local-class="c-inside right">
 				  <p local-class="subtitle">{{target.class}}</p>
-				  <p local-class="feature">
-					  <span>产品特点：</span>
-					  <p >{{target.feature}}</p>
-				  </p>
-				  <p local-class="heal">
+                  <p local-class="heal">
 					  <span>治疗领域：</span>
 					  {{#each target.heal as |area|}}
 						  <span local-class="heal">{{area}}</span>
@@ -24,6 +44,10 @@
 					  {{#each target.department as |depart|}}
 						  <span local-class="depart">{{depart}}</span>
 					  {{/each}}
+				  </p>
+				  <p local-class="feature">
+					  <span>产品特点：</span>
+					  <p>{{target.feature}}</p>
 				  </p>
 			  </div>
 			  {{/bs-popover}}
