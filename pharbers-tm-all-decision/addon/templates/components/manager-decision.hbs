@@ -15,7 +15,63 @@
 </div>
 <div local-class="column right">
     <div local-class="inside">
-            
+        <div local-class="manager">
+            <p local-class="title">经理时间分配</p>
+            <p local-class="desc">经理时间分配的描述。</p>
+            <div local-class="input-container" class="row">
+                <div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <p local-class="input-title">KPI分析</p>
+                    <div local-class="input-con">
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">天</span>
+                        </div>
+                    </div>
+                    <div local-class="input-result">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">1V1能力辅导</span>
+                            <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">天</span>
+                        </div>
+                    </div>
+                </div>
+                <div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    {{!-- <p>{{item.lable}}</p> --}}
+                    <p local-class="input-title">团建/例会</p>
+                    {{!-- <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p> --}}
+                    <div local-class="input-con">
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">天</span>
+                        </div>
+                    </div>
+                    <div local-class="input-result">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">协助拜访</span>
+                            <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">天</span>
+                        </div>
+                    </div>
+                </div>
+                <div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    {{!-- <p>{{item.lable}}</p> --}}
+                    <p local-class="input-title">行政事务</p>
+                    {{!-- <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p> --}}
+                    <div local-class="input-con">
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">天</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {{#mapping-components data.component_data as |componentName component|}}
+            {{#if (eq componentName.componentName "rep-input-card")}}
+                {{component.component }}
+            {{/if}}
+        {{/mapping-components}}
     </div>
 </div>
 {{!-- {{/mapping-components}} --}}
