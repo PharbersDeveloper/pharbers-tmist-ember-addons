@@ -1,4 +1,4 @@
-{{#bs-tab customTabs=true tagName="" as |tab| }}
+{{#bs-tab customTabs=true tagName="" local-class="left" as |tab| }}
     {{#bs-nav type="pills" local-class="left-tabs" stacked=true as |nav|}}
         {{#nav.item local-class="tab" active=(bs-eq tab.activeId "medicineid")}}
             <a local-class="tabsa" href="medicineid" class="nav-link" role="tab" {{action tab.select "medicineid"}}>
@@ -13,7 +13,7 @@
     {{/bs-nav}}
     <div class="tab-content" local-class="right-content">
         {{#tab.pane local-class="medicine-detail" elementId="medicineid" title="Tab 1" }}
-            <h2>药品card</h2>
+            <h2>药品信息</h2>
             {{drug-item data=data.medicines}}
         {{/tab.pane}}
 
