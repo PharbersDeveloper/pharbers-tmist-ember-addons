@@ -98,7 +98,7 @@
     .medicine-info {
         padding: 10px 5px 0;
         margin: 0;
-        height: auto;
+        min-height: 612px;
         overflow-y: hidden;
         overflow-x: hidden;
         font-size: 0;
@@ -112,6 +112,9 @@
             // min-height: 400px;
             height: auto;
             // overflow: hidden;
+            .carousel-control {
+                background: red;
+            }
             .changepage {
                 padding: 10px 0;
                 border-radius: 9px;
@@ -119,15 +122,35 @@
                 :global(.carousel-control) {
                     background-image: none;
                 }
+                :global(.carousel-control.left) {
+                    display:none;
+                }
 
-                :global(.carousel-control.left span) {
-                    left: 5%;
-                    color: #4D608F;
+                // :global(.carousel-control.left span) {
+                //     left: 5%;
+                //     color: #4D608F;
+                // }
+                :global(.carousel-control.right) {
+                    position: absolute;
+                    right: 38%;
+                    top: 50%;
+                    bottom: 10px;
+                    // transform: translateX(-50%);
+                    // margin-right: 25%;
+                    transform: translateY(50%);
+                    opacity: 1;
                 }
 
                 :global(.carousel-control.right span) {
-                    right: 5%;
-                    color: #4D608F;
+                    width: 40px;
+                    height: 30px;
+                    top: 50%;
+                    left: 0;
+                    background-image: url('https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/webwxgetmsgimg%20%281%29.jpeg');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    color: rgba(0,0,0,0);
                 }
             }
 
@@ -185,8 +208,10 @@
                 height: auto;
                 overflow: hidden;
 
-                display: flex;
-                justify-content: center;
+
+                #margin-right {
+                    transform: translateX(15px);
+                }
                 .area-right {
                     // display: flex;
                     flex-direction: row;

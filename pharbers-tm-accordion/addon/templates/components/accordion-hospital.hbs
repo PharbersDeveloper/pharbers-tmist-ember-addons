@@ -28,10 +28,18 @@
                     <div local-class="medicine medicine-component">
                         {{#bs-carousel
                           local-class="changepage"
-                          wrap=false
+                          autoPlay=true
+                          index=integerIndex
+                          showControls=true
+                          showIndicators=false
+                          wrap=true
+                          interval=1000000
                           ltr=true
                           pauseOnMouseEnter=true
                           as |car|}}
+                          {{#car.slide}}
+                            {{target-detail-hospital-page data=hosp}}
+                          {{/car.slide}}
                           {{#car.slide}}
                           <div local-class="medicine-area">
                               {{#bs-button-group
@@ -81,8 +89,8 @@
                               </div>
                           </div>
 
-                        <div local-class="input-area" class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                        <div local-class="input-area">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" local-class="area-left">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div local-class="part-input">
                                     <div local-class="input-line">
@@ -126,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" local-class="margin-right">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="margin-right">
                                 <div local-class="area-right">
                                     <div local-class="part-input">
                                         <div local-class="input-line">
@@ -168,11 +176,12 @@
 
                             </div>
                         </div>
+                        {{!-- <div class="carousel-caption">
+                          First caption
+                          <button type="button" name="button" id="carousel" {{action 'carousel'}}>tianxie</button>
+                        </div> --}}
+                        {{/car.slide}}
 
-                        {{/car.slide}}
-                        {{#car.slide}}
-                          {{target-detail-hospital-page data=hosp}}
-                        {{/car.slide}}
                       {{/bs-carousel}}
                     </div>
                 {{/each}}
