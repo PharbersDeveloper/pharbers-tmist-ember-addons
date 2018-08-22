@@ -15,7 +15,10 @@
 </div>
 <div local-class="column right">
     {{#mapping-components data.component_data as |componentName component|}}
-        {{#if (eq componentName.componentName "target-person-card")}}
+        {{!-- {{#if (eq componentName.componentName "target-person-card")}}
+            {{component.component }}
+        {{/if}} --}}
+        {{#if (eq componentName.componentName "vertical-right-tabs")}}
             {{component.component }}
         {{/if}}
     {{/mapping-components}}

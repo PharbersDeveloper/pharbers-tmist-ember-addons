@@ -1,0 +1,36 @@
+{{#bs-tab customTabs=true tagName="" local-class="left" as |tab| }}
+
+    <div class="tab-content" local-class="right-content">
+        {{#tab.pane local-class="medicine-detail" elementId="repcard" title="Tab 1" }}
+            <h2>代表信息</h2>
+            {{!-- {{drug-item data=data.medicines}} --}}
+            {{target-person-card data=data.represents}}
+        {{/tab.pane}}
+
+        {{#tab.pane local-class="medicine-detail" elementId="budgetprogress" title="Tab 2" }}
+            <h2>预算进度</h2>
+
+            {{#each manpowerPerc as |item|}}
+                <p local-class="human-text"> <span>{{item.name}}</span> <span>{{item.used}}/{{item.total}}天</span> <span>{{item.percent}}%</span> </p>
+                <div local-class="self-progress" class="progress">
+                    {{#bs-progress as |p|}}
+                        {{p.bar value=item.percent local-class="self-progress-bar"}}
+                    {{/bs-progress}}
+                </div>
+            {{/each}}
+
+        {{/tab.pane}}
+    </div>
+    {{#bs-nav type="pills" local-class="left-tabs" stacked=true as |nav|}}
+        {{#nav.item local-class="tab" active=(bs-eq tab.activeId "repcard")}}
+            <a local-class="tabsa" href="repcard" class="nav-link" role="tab" {{action tab.select "repcard"}}>
+                <span class="badge">R</span>
+            </a>
+        {{/nav.item}}
+        {{#nav.item local-class="tab" active=(bs-eq tab.activeId "budgetprogress")}}
+            <a local-class="tabsa" href="repcard" class="nav-link" role="tab" {{action tab.select "budgetprogress"}}>
+                <span class="badge">B</span>
+            </a>
+        {{/nav.item}}
+    {{/bs-nav}}
+{{/bs-tab}}
