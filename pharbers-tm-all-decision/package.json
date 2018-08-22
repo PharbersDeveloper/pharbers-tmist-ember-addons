@@ -1,13 +1,13 @@
 {
   "name": "pharbers-tm-all-decision",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "1.0.0",
+  "description": "Combine components.",
   "keywords": [
     "ember-addon"
   ],
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "Frank",
   "directories": {
     "doc": "doc",
     "test": "tests"
