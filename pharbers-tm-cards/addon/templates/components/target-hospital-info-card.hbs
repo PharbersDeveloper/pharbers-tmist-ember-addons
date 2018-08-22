@@ -1,0 +1,33 @@
+{{#each data as |item|}}
+	<div local-class="hosp-intro">
+		<div local-class="basic-info">
+			<div local-class="circle-left">
+			</div>
+			<div local-class="circle-right">
+			</div>
+			<img local-class="avatar" src= {{item.overview.hosp_image}} alt="">
+			<div local-class="name">
+				<p>{{item.overview.hosp_name}}</p>
+				<p>{{item.overview.hosp_category}}/{{item.overview.hosp_level}}</p>
+			</div>
+		</div>
+		<div local-class="tag">
+			<p local-class="tag-title">重点科室：</p>
+			<div local-class="tag-card blue">
+				{{#each (string-to-array item.overview.focus_department ';') as |value|}}
+					<p>{{value}}</p>
+				{{/each}}
+			</div>
+		</div>
+		<div local-class="tag">
+			<p local-class="tag-title">特色门诊：</p>
+			<div local-class="tag-card">
+				<div local-class="tag-card green">
+					{{#each (string-to-array item.overview.featured_outpatient ';') as |value|}}
+						<p>{{value}}</p>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+{{/each}}

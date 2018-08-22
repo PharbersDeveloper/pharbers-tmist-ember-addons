@@ -1,0 +1,1 @@
+export { default } from 'pharbers-tm-all-decision/components/manager-decision';

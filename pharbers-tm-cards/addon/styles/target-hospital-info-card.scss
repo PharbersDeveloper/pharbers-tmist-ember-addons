@@ -1,0 +1,235 @@
+$default-radius: 3px; //测试Demo用
+
+input {
+	color: #000 !important;
+}
+
+.circle-left {
+	position: relative;
+	top: 90px;
+	left: -30px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #eef1fa;
+}
+
+.circle-right {
+	position: relative;
+	top: 70px;
+	left: 240px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #eef1fa;
+}
+
+.tag {
+	margin-top: 10px;
+	font-family: PingFangTC-Regular;
+	font-size: 12px;
+	color: #FFFFFF;
+	letter-spacing: 1.5px;
+	text-align: center;
+
+	.tag-title {
+		text-align: left;
+	}
+
+	.blue p {
+		background: #75A9E5;
+	}
+
+	.green p {
+		background: #6CD5BD;
+	}
+
+	.tag-card {
+		display: flex;
+		justify-content: flex-start;
+
+		p {
+			width: 70px;
+			line-height: 20px;
+			padding: 1px 3px;
+			margin: 2px;
+			border-radius: 1px;
+		}
+	}
+}
+
+.hosp-intro {
+	// margin-bottom: -230px;
+	padding: 10px 15px;
+	height: 240px;
+	border-radius: 5px 5px 0 0;
+	color: #FFF;
+	background-image: linear-gradient(110deg, #4D608F 0%, #8F9CC3 100%);
+	box-shadow: 0 1px 3px 0 rgba(134,134,134,0.50);
+
+	.basic-info {
+		// margin-bottom: 10px;
+		margin-bottom: 30px;
+		margin-top: -30px;
+		vertical-align: top;
+
+		.avatar,
+		.name {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.avatar {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+
+		.name {
+			padding-left: 25px;
+			padding-top: 5px;
+			font-family: PingFangTC-Regular;
+
+			p:first-child {
+				margin-bottom: 4px;
+				font-size: 18px;
+				letter-spacing: 3.21px;
+			}
+
+			p:last-child {
+				font-size: 12px;
+				letter-spacing: 1px;
+			}
+		}
+	}
+
+	.highlight {
+		margin: 5px;
+		height: 18px;
+		line-height: 18px;
+		font-size: 12px;
+
+		span {
+			display: inline-block;
+		}
+
+		span:first-child {
+			width: 80px;
+		}
+
+		span:last-child {
+			padding-right: 15px;
+			width: 120px;
+			text-align: right;
+		}
+	}
+
+	.user-info {
+		margin: 10px auto 0;
+		width: 230px;
+		height: 50px;
+		line-height: 50px;
+		font-size: 0;
+		background-color: #FFF;
+		border-radius: $default-radius;
+
+		img,
+		p {
+			display: inline-block;
+		}
+
+		p {
+			padding-left: 15px;
+			font-family: PingFangTC-Regular;
+			font-size: 12px;
+			letter-spacing: 1.14px;
+			color: #4E4E4E;
+		}
+
+		img {
+			float: right;
+			margin-right: 15px;
+			margin-top: 7px;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+		}
+	}
+}
+
+.medicine-container {
+	position: absolute;
+	top: 230px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow-y: auto;
+
+	.medicine-item {
+		margin: 15px auto;
+		padding: 7px 15px;
+		width: 230px;
+		height: 140px;
+		font-size: 0;
+		border-radius: $default-radius + 2px;
+		color: #FFF;
+		background-image: linear-gradient(108deg, #4D608F 0%, #93A2CF 100%);
+		box-shadow: 0 1px 2px 0 rgba(91,91,91,0.50);
+
+		.title {
+			font-family: PingFangTC-Regular;
+			font-size: 14px;
+			letter-spacing: 2.5px;
+		}
+
+		.potential {
+			margin: 15px auto 25px;
+			width: 190px;
+			height: 25px;
+			line-height: 26px;
+			font-family: PingFangTC-Regular;
+			font-size: 12px;
+			letter-spacing: 1px;
+			border-radius: 100px;
+			color: #4A4A4A;
+			background-color: #FFF;
+
+			span:first-child {
+				margin-left: 16px;
+			}
+
+			span:last-child {
+				float: right;
+				margin-right: 16px;
+			}
+		}
+
+		.parameter {
+			display: flex;
+			font-family: PingFangTC-Regular;
+			font-size: 12px;
+			text-align: center;
+
+			.param-item p:first-child {
+				margin-bottom: 8px;
+				letter-spacing: 1.2px;
+			}
+
+			.param-item p:last-child {
+				letter-spacing: 1.8px;
+			}
+
+			.sell-money {
+				flex: 1;
+			}
+
+			.contribution {
+				flex: 0 0 55px;
+			}
+
+			.share {
+				flex: 0 0 55px;
+			}
+		}
+	}
+}
