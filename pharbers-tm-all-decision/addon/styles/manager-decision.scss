@@ -18,7 +18,7 @@
     .left {
         position: relative;
         float: left;
-        width: 289px;
+        width: 280px;
         background-color: #F9F9F9;
     }
 
@@ -26,6 +26,11 @@
         float: right;
         width: 100%;
         margin-left: -578px;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         .inside {
             padding-top: 20px;
