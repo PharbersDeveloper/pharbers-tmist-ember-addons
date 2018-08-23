@@ -7,6 +7,7 @@
 	width: 100%;
 	height: auto;
 	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 4px;
 
 	.title {
 		// height: 20px;
@@ -27,7 +28,14 @@
 		text-align: justify;
 		line-height: 21px;
 	}
-
+	.text {
+		display: flex;
+		p {
+			width: 150px;
+			margin-left: 15px;
+			margin-top: 10px;
+		}
+	}
 	.desc {
 		line-height: 20px;
 		font-size: 14px;
