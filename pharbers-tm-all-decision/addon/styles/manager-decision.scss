@@ -29,38 +29,91 @@
         .inside {
             height: 100%;
             margin-left: 578px;
+            padding-left: 10px;
+            padding-right: 25px;
+            .title {
+                margin-top: 20px;
+                margin-left: 10px;
 
+                height: 20px;
+                line-height: 20px;
+                font-size: 18px;
+                // color: #4A90E2;
+                letter-spacing: 2px;
+
+            }
             .manager {
-                .title {
-                    height: 20px;
-                    line-height: 20px;
-                    font-size: 14px;
-                    color: #4A90E2;
-                    letter-spacing: 2px;
-                }
-
+                margin-left: 10px;
+                margin-bottom: 10px;
+                margin-right: 20px;
+                overflow: hidden;
+                width: 100%;
+                height: 225px;
+                border: 1px solid rgba(0, 0, 0, 0.125);
                 .desc {
-                    line-height: 20px;
+                    padding: 10px 15px;
+                    width: 100%;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+                    background: #d9edf7;
+                    line-height: 30px;
                     font-size: 14px;
-                    color: #767A80;
+                    color:#474747;
+                    font-weight: bold;
+                    font-style: italic;
                     letter-spacing: 3.5px;
                     text-align: justify;
                     line-height: 21px;
                 }
+                .manager-list {
+                    display: flex;
+                    flex-direction: row;
+                    height: 180px;
+                    .input-info {
+                        margin-right:25px;
+                        // margin-top: 10px;
+                        // margin-bottom: 10px;
+                        padding: 10px;
+                        padding-top: 40px;
+                        height: 180px;
+                        overflow: hidden;
 
-                .input-container {
-                    margin: 0;
-
-                    .input-con {
-                        margin-bottom: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        div.status {
+                            padding: 2px 10px;
+                            margin-bottom: 5px;
+                            font-size: 12px;
+                            overflow: hidden;
+                            text-overflow:ellipsis;
+                            white-space: nowrap;
+                        }
                     }
+                    .input-container {
+                        margin: 0;
+                        padding: 10px;
+                        .text {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            margin-left: 15px;
+                            margin-bottom: 10px;
+                            p {
+                                width: 150px;
+                            }
+                        }
 
-                    .input-title {
-                        line-height: 20px;
-                        font-size: 14px;
-                        color: #767A80;
-                        letter-spacing: 3.5px;
-                        text-align: justify;
+                        .input-con {
+                            margin-bottom: 10px;
+                        }
+
+                        .input-title {
+                            line-height: 20px;
+                            font-size: 14px;
+                            color: #767A80;
+                            letter-spacing: 3.5px;
+                            text-align: justify;
+                        }
                     }
                 }
             }

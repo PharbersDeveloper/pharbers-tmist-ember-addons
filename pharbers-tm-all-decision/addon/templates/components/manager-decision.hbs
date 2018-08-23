@@ -15,57 +15,91 @@
 </div>
 <div local-class="column right">
     <div local-class="inside">
+        <h2 local-class="title">时间分配</h2>
         <div local-class="manager">
-            <p local-class="title">经理时间分配</p>
-            <p local-class="desc">经理时间分配的描述。</p>
-            <div local-class="input-container" class="row">
-                <div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <p local-class="input-title">KPI分析</p>
-                    <div local-class="input-con">
-                        <div class="input-group">
-                            <input type="text" class="form-control" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">天</span>
-                        </div>
+            <p local-class="desc">经理信息</p>
+            <div local-class="manager-list" class="row">
+                <div local-class="input-container" class="col-md-8">
+                    <div local-class="text">
+                        <p>总时间：120 天</p>
+                        <p>分配时间：100 天</p>
                     </div>
-                    <div local-class="input-result">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon2">1V1能力辅导</span>
-                            <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">天</span>
+                    <div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div local-class="input-con">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2">KPI分析</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                <span class="input-group-addon" id="basic-addon2">天</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    {{!-- <p>{{item.lable}}</p> --}}
-                    <p local-class="input-title">团建/例会</p>
-                    {{!-- <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p> --}}
-                    <div local-class="input-con">
-                        <div class="input-group">
-                            <input type="text" class="form-control" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">天</span>
-                        </div>
-                    </div>
-                    <div local-class="input-result">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon2">协助拜访</span>
-                            <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">天</span>
-                        </div>
-                    </div>
-                </div>
-                <div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    {{!-- <p>{{item.lable}}</p> --}}
-                    <p local-class="input-title">行政事务</p>
-                    {{!-- <p>{{input type="number" value=item.value}}<span>{{item.unit}}</span></p> --}}
-                    <div local-class="input-con">
-                        <div class="input-group">
-                            <input type="text" class="form-control" aria-describedby="basic-addon2">
-                            <span class="input-group-addon" id="basic-addon2">天</span>
-                        </div>
-                    </div>
 
+                    </div>
+                    <div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div local-class="input-con">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2">团建/例会</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                <span class="input-group-addon" id="basic-addon2">天</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div local-class="input-con">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2">行政事务</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                <span class="input-group-addon" id="basic-addon2">天</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="visibility:hidden;">
+                        <div local-class="input-con">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2">行政事务</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                <span class="input-group-addon" id="basic-addon2">天</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div local-class="input-con">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2">1V1能力辅导</span>
+                                <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                                <span class="input-group-addon" id="basic-addon2">天</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div local-class="input-con">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon2">协助拜访</span>
+                                <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                                <span class="input-group-addon" id="basic-addon2">天</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div local-class="input-info" class="col-md-4">
+                    <div class="alert alert-info" role="alert" local-class="status">
+                      KPI分析:什么什么什么什么什么什么
+                    </div>
+                    <div class="alert alert-info" role="alert" local-class="status">
+                     团建/例会：什么什么什么什么
+                    </div>
+                    <div class="alert alert-info" role="alert" local-class="status">
+                      KPI分析:什么什么什么什么什么什么
+                    </div>
+                    <div class="alert alert-info" role="alert" local-class="status">
+                      KPI分析:什么什么什么什么什么什么
+                    </div>
+                    <div class="alert alert-info" role="alert" local-class="status">
+                      KPI分析:什么什么什么什么什么什么
+                    </div>
                 </div>
             </div>
+
         </div>
         {{#mapping-components data.component_data as |componentName component|}}
             {{#if (eq componentName.componentName "rep-input-card")}}
