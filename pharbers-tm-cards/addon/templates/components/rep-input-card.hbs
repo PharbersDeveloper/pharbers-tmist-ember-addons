@@ -3,24 +3,36 @@
 		<p local-class="title">{{item.rep_name}}</p>
 		<p local-class="desc">{{item.rep_intro}}</p>
 		<div local-class="input-container" class="row">
-			<div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<p local-class="input-title">脱岗产品培训</p>
-				<div local-class="input-con">
-					<div class="input-group">
-						<input type="text" class="form-control" aria-describedby="basic-addon2">
-						<span class="input-group-addon" id="basic-addon2">天</span>
+			<div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<div local-class="input-con">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon2">脱岗产品培训</span>
+							<input type="text" class="form-control" aria-describedby="basic-addon2">
+							<span class="input-group-addon" id="basic-addon2">天</span>
+						</div>
 					</div>
-				</div>
-				<p local-class="input-title">1V1能力辅导</p>
-				<div local-class="input-con">
-					<div class="input-group">
-						<input type="text" class="form-control" aria-describedby="basic-addon2">
-						<span class="input-group-addon" id="basic-addon2">天</span>
+					<div local-class="input-con">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon2">1V1能力辅导</span>
+							<input type="text" class="form-control" aria-describedby="basic-addon2">
+							<span class="input-group-addon" id="basic-addon2">天</span>
+						</div>
 					</div>
-				</div>
 			</div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                {{person-radio data=item}}
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div local-class="person-radio">
+					{{person-radio data=item}}
+				</div>
+            </div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div local-class="person-info">
+					<div class="panel panel-info" local-class="panel">
+					  <div class="panel-footer">员工信息</div>
+					  <div class="panel-body">
+					   这是一个员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工的信息
+					  </div>
+					</div>
+                </div>
             </div>
 		</div>
 	</div>
