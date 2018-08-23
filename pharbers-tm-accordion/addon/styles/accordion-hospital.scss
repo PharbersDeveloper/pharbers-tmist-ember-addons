@@ -1,18 +1,15 @@
 .hosp-item {
-    // height: 125px;
     margin: 0;
     border-radius: 6px 6px 0 0;
-    // background-image: linear-gradient(110deg, #4D608F 0%, #8F9CC3 100%);
     box-shadow: 0 3px 14px 0 rgba(166,166,166,0.50);
 
     .info {
         padding-left: 15px;
         width: 100%;
-        // min-width: 1200px;
         color: #EDEDED;
         font-size: 0;
         background-image: linear-gradient(110deg, #4D608F 0%, #8F9CC3 100%);
-        // background-color: transparent !important;
+
         .avatar {
             img {
                 width: 90px;
@@ -58,7 +55,6 @@
                 height: 20px;
                 line-height: 20px;
                 width: 70px;
-                overflow: hidden;
                 overflow: hidden;
                 text-align: center;
                 font-size: 12px;
@@ -109,12 +105,10 @@
         .medicine {
             margin-bottom: 20px;
             width: 100%;
-            // min-height: 400px;
             height: auto;
-            // overflow: hidden;
-            .carousel-control {
-                background: red;
-            }
+            // .carousel-control {
+            //     background: red;
+            // }
             .changepage {
                 padding: 10px 0;
                 border-radius: 9px;
@@ -122,21 +116,16 @@
                 :global(.carousel-control) {
                     background-image: none;
                 }
+
                 :global(.carousel-control.left) {
-                    display:none;
+                    display: none;
                 }
 
-                // :global(.carousel-control.left span) {
-                //     left: 5%;
-                //     color: #4D608F;
-                // }
                 :global(.carousel-control.right) {
                     position: absolute;
                     right: 38%;
                     top: 50%;
                     bottom: 10px;
-                    // transform: translateX(-50%);
-                    // margin-right: 25%;
                     transform: translateY(50%);
                     opacity: 1;
                 }
@@ -146,7 +135,8 @@
                     height: 30px;
                     top: 50%;
                     left: 0;
-                    background-image: url('https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/webwxgetmsgimg%20%281%29.jpeg');
+                    font-size: 0;
+                    background-image: url("https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/webwxgetmsgimg%20%281%29.jpeg");
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -174,7 +164,6 @@
                     text-align: center;
 
                     .property {
-                        // margin-right: 50px;
                         p:first-child {
                             margin-bottom: 4px;
                             height: 14px;
@@ -196,42 +185,40 @@
 
                 .compare {
                     margin: 12px 0 0;
-                    // height: 240px;
                     border-radius: 4px;
                     overflow: hidden;
                 }
             }
 
             .input-area {
-                padding:20px 15px;
+                padding: 20px 15px;
                 width: 100%;
                 height: auto;
                 overflow: hidden;
 
-
                 #margin-right {
                     transform: translateX(15px);
                 }
+
                 .area-right {
-                    // display: flex;
                     flex-direction: row;
                     flex-wrap: nowrap;
-
                     padding-left: -15px !important;
                     padding-right: -15px !important;
-
                     min-height: 155px;
                     height: auto;
                     overflow: hidden;
                     border-radius: 3px;
                     background: #F0F2FF;
                     box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+
                     .right-row {
                         display: flex;
                         flex-direction: row;
                         justify-content: center;
                     }
                 }
+
                 .part-input {
                     height: 155px;
                     overflow: hidden;
@@ -244,34 +231,35 @@
                     .input-line {
                         display: flex;
                         flex-direction: column;
+
                         .input-title {
                             padding: 0 12px;
-
                             width: 100%;
                             height: 50px;
                             line-height: 50px;
                             background: rgba(0,0,0,0.03);
                             border-bottom: 1px solid rgba(0,0,0,0.125);
-
                             font-size: 14px;
                             font-weight: bold;
                             font-style: italic;
                         }
+
                         .input-con {
                             margin: 12px;
                         }
+
                         .input-result {
                             padding-left: 12px;
                             padding-bottom: 12px;
                             margin-right: 12px;
                         }
                     }
+
                     .input-group {
                         padding: 10px 12px;
                     }
+
                     div {
-                        // display: inline-block;
-                        // vertical-align: top;
                         font-size: 12px;
 
                         &.input-left {
@@ -306,35 +294,20 @@
                         p:last-child {
                             line-height: 44px;
                         }
-
-                        // input {
-                        //
-                        //     padding: 4px 0 4px 10px;
-                        //     max-width: 100px;
-                        //     width: auto;
-                        //     height: 30px;
-                        //     line-height: 30px;
-                        //     font-size: 14px;
-                        //     text-align: center;
-                        //     border: 0;
-                        //     border-radius: 3px;
-                        // }
                     }
                 }
 
                 .sign-person {
                     padding: 10px 12px;
-                    // display: flex;
                     text-align: center;
 
+                    img {
+                        width: 54px;
+                        height: 54px;
+                    }
 
-                        img {
-                            width: 54px;
-                            height: 54px;
-                }
                     .sign-title {
                         margin-bottom: 8px;
-                        font-family: PingFangTC-Regular;
                         font-size: 0;
 
                         p:first-child {

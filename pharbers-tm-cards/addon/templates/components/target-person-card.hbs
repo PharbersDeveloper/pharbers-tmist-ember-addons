@@ -1,0 +1,17 @@
+{{#each data as |target|}}
+	<div local-class="person-card container">
+		<div local-class="p-inside right">
+			<p local-class="title">{{target.rep_name}}</p>
+			<p local-class="intro">
+				{{#bs-button tagName='p' local-class="point" }}
+					{{target.intro}}
+					{{#bs-popover triggerEvents="hover" title=target.rep_name local-class="popover-radio" }}
+						<div local-class="radio">
+							{{person-radio data=target}}
+						</div>
+					{{/bs-popover}}
+				{{/bs-button}}
+			</p>
+		</div>
+	</div>
+{{/each}}

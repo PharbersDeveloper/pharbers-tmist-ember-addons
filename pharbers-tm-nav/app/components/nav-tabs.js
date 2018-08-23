@@ -1,1 +1,0 @@
-export { default } from 'pharbers-tm-nav-title/components/nav-tabs';

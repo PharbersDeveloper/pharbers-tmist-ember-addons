@@ -1,0 +1,63 @@
+.container {
+	position: relative;
+	margin-bottom: 15px;
+	width: 220px;
+	font-size: 0;
+	border: 1px solid rgba(0,0,0,.125);
+	background-color: #FBFBFB;
+
+	.p-inside {
+		display: inline-block;
+		vertical-align: top;
+
+		&.right {
+			width: 220px;
+			height: auto;
+			padding: 15px;
+			font-size: 14px;
+
+			p {
+				margin-bottom: 10px;
+			}
+
+			.title {
+				line-height: 20px;
+				font-size: 16px;
+				color: #4A90E2;
+				letter-spacing: 3.5px;
+			}
+
+			.intro {
+				margin: 0 0 10px;
+				width: 200px;
+				line-height: 20px;
+				font-size: 14px;
+				color: #485465;
+				letter-spacing: 1.5px;
+
+				.point {
+					margin: 0;
+					padding: 0;
+					line-height: 24px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 3; //第三行
+					border: 0;
+					white-space: inherit;
+					background: transparent;
+				}
+			}
+		}
+	}
+}
+
+.popover-radio {
+	width: 240px;
+	max-width: 240px !important;
+
+	& > div:last-child {
+		padding: 0;
+	}
+}

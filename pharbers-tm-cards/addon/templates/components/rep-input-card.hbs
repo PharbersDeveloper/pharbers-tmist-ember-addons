@@ -1,0 +1,27 @@
+{{#each data as |item|}}
+	<div local-class="rep-input">
+		<p local-class="title">{{item.rep_name}}</p>
+		<p local-class="desc">{{item.rep_intro}}</p>
+		<div local-class="input-container" class="row">
+			<div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<p local-class="input-title">脱岗产品培训</p>
+				<div local-class="input-con">
+					<div class="input-group">
+						<input type="text" class="form-control" aria-describedby="basic-addon2">
+						<span class="input-group-addon" id="basic-addon2">天</span>
+					</div>
+				</div>
+				<p local-class="input-title">1V1能力辅导</p>
+				<div local-class="input-con">
+					<div class="input-group">
+						<input type="text" class="form-control" aria-describedby="basic-addon2">
+						<span class="input-group-addon" id="basic-addon2">天</span>
+					</div>
+				</div>
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                {{person-radio data=item}}
+            </div>
+		</div>
+	</div>
+{{/each}}
