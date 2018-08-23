@@ -1,6 +1,7 @@
 .left {
     height: 100%;
 }
+
 .left-tabs {
     display: inline-block;
     vertical-align: top;
@@ -41,11 +42,16 @@
     display: inline-block;
     vertical-align: top;
     height: 100%;
+    overflow: auto;
     width: 230px;
-    padding: 20px 5px 0;
-    border-radius: 0 4px 4px 0;
-    background-color: #FFF;
+    padding: 20px 5px;
+    // border-radius: 0 4px 4px 0;
     font-size: 14px;
+    background-color: #FFF;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     h2 {
         font-size: 18px;

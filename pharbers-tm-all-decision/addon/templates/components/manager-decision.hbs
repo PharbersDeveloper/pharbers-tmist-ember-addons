@@ -14,7 +14,7 @@
 </div>
 <div local-class="column right">
     <div local-class="inside">
-        <div local-class="manager-rep-input">
+        {{!-- <div local-class="manager-rep-input"> --}}
             <h2 local-class="title">时间分配</h2>
             {{manager-input-card }}
             {{#mapping-components data.component_data as |componentName component|}}
@@ -22,15 +22,8 @@
                     {{component.component }}
                 {{/if}}
             {{/mapping-components}}
-        </div>
+        {{!-- </div> --}}
 
-        <div local-class="show-info">
-            {{#mapping-components data.component_data as |componentName component|}}
-                {{#if (eq componentName.componentName "vertical-right-tabs")}}
-                    {{component.component }}
-                {{/if}}
-            {{/mapping-components}}
-        </div>
     </div>
 </div>
 {{!-- {{yield}} --}}

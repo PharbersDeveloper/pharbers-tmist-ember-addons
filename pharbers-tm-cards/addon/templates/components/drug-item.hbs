@@ -54,36 +54,6 @@
 	  </p>
   </div>
 </div>
+{{else}}
+    <p>暂无数据</p>
 {{/each}}
-
-{{!-- <div local-class="drug-item container">
-	<div local-class="c-inside right">
-		<p local-class="title">{{data.name}}-{{data.class}}</p>
-		<p local-class="feature">
-			{{#bs-button tagName='p' local-class="point"}}
-				{{data.feature}}
-				{{#bs-popover triggerEvents="hover" title=data.name local-class="popover-medic"}}
-				<div local-class="c-inside right">
-					<p local-class="subtitle">{{data.class}}</p>
-					<p local-class="feature">
-						<span>产品特点：</span>
-						<p >{{data.feature}}</p>
-					</p>
-					<p local-class="heal">
-						<span>治疗领域：</span>
-						{{#each data.heal as |area|}}
-							<span local-class="heal">{{area}}</span>
-						{{/each}}
-					</p>
-					<p local-class="department">
-						<span>目标科室：</span>
-						{{#each data.department as |data|}}
-							<span local-class="depart">{{data}}</span>
-						{{/each}}
-					</p>
-				</div>
-				{{/bs-popover}}
-			{{/bs-button}}
-		</p>
-	</div>
-</div> --}}
