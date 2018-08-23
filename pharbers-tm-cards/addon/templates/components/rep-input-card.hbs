@@ -1,7 +1,8 @@
+{{yield}}
 {{#each data as |item|}}
 	<div local-class="rep-input">
 		<p local-class="title">{{item.rep_name}}</p>
-		<p local-class="desc">{{item.rep_intro}}</p>
+		{{!-- <p local-class="desc">{{item.intro}}</p> --}}
 		<div local-class="input-container" class="row">
 			<div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<div local-class="input-con">
@@ -29,7 +30,7 @@
 					<div class="panel panel-info" local-class="panel">
 					  <div class="panel-footer">员工信息</div>
 					  <div class="panel-body">
-					   这是一个员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工员工的信息
+						  {{item.intro}}
 					  </div>
 					</div>
                 </div>

@@ -1,0 +1,1 @@
+export { default } from 'pharbers-tm-cards/components/manager-input-card';
