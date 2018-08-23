@@ -2,5 +2,7 @@
     :global(.echarts-chart) {
         width: 230px;
         height: 200px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

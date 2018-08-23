@@ -27,6 +27,7 @@
         margin-left: -578px;
 
         .inside {
+            display: flex;
             height: 100%;
             margin-left: 578px;
             padding-left: 10px;
@@ -115,7 +116,27 @@
                             text-align: justify;
                         }
                     }
+
+                    .input-container {
+                        margin: 0;
+
+                        .input-con {
+                            margin-bottom: 10px;
+                        }
+
+                        .input-title {
+                            line-height: 20px;
+                            font-size: 14px;
+                            color: #767A80;
+                            letter-spacing: 3.5px;
+                            text-align: justify;
+                        }
+                    }
                 }
+            }
+
+            .show-info {
+                flex: 0 0 280px;
             }
         }
     }
