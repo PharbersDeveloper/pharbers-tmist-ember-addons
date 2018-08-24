@@ -6,17 +6,25 @@
 
     .column {
         position: relative;
-        padding-top: 40px;
+        padding-top: 45px;
         float: left;
         height: 100%;
     }
 
     .center {
+        position: relative;
+        padding-bottom: 40px;
         width: 100%;
         background-color: #e9e9e9;
+        overflow: hidden;
 
-        &::-webkit-scrollbar {
-            display: none;
+        .inside {
+            position: absolute;
+            top: 45px;
+            right: -15px;
+            bottom: 40px;
+            left: 0;
+            overflow: auto;
         }
     }
 

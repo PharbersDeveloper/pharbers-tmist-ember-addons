@@ -1,5 +1,6 @@
-.left {
+.tab-container {
     height: 100%;
+    overflow: -moz-hidden-unscrollable;
 }
 
 .left-tabs {
@@ -9,7 +10,6 @@
     width: 45px;
     padding-top: 16px;
     text-align: center;
-    border-radius: 4px 0 0 4px;
     background-image: linear-gradient(137deg, #4060AE 0%, #8F9CC3 100%);
 
     .tab {
@@ -42,15 +42,18 @@
     display: inline-block;
     vertical-align: top;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     width: 230px;
-    padding: 20px 5px;
-    // border-radius: 0 4px 4px 0;
     font-size: 14px;
     background-color: #FFF;
 
-    &::-webkit-scrollbar {
-        display: none;
+    .info-detail {
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        padding-right: 18px;
+        box-sizing: content-box;
     }
 
     h2 {

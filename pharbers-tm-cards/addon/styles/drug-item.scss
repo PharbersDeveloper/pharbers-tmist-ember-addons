@@ -2,7 +2,6 @@
 	position: relative;
 	margin-bottom: 15px;
 	width: 220px;
-	// min-height: 165px;
 	font-size: 0;
 	border: 1px solid rgba(0,0,0,.125);
 	border-radius: 4px;
@@ -11,38 +10,85 @@
 	.c-inside {
 		display: inline-block;
 		vertical-align: top;
+		width: 220px;
+		height: auto;
+		padding: 0 15px;
+		font-size: 14px;
 
-		&.right {
-			width: 220px;
-			height: auto;
-			padding: 15px;
+		.title {
+			line-height: 30px;
 			font-size: 14px;
+			color: #474747;
+			font-weight: bold;
+			font-style: italic;
+			letter-spacing: 3.5px;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+			height: 30px;
+			width: 220px;
+			padding: 0 -10px;
+			margin-left: -15px;
+			padding-left: 15px;
+		}
 
-			p {
-				margin-bottom: 10px;
-			}
+		.feature {
+			width: 200px;
+			line-height: 20px;
+			font-size: 14px;
+			color: #485465;
+			letter-spacing: 1.5px;
 
+			.point {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				border: 0;
+				background: transparent;
 
-			.feature {
-				margin: 0 0 10px;
-				width: 200px;
-				line-height: 20px;
-				font-size: 14px;
-				color: #485465;
-				letter-spacing: 1.5px;
-
-				.point {
-					margin: 0;
-					padding: 0;
-					line-height: 24px;
+				.card-out {
+					width: 100%;
 					overflow: hidden;
-					text-overflow: ellipsis;
-					display: -webkit-box;
-					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 3; //第三行
-					border: 0;
-					white-space: inherit;
-					background: transparent;
+
+					.card-inside {
+						& > div {
+							display: inline-block;
+							vertical-align: top;
+						}
+
+						.card-title {
+							width: 80px;
+						}
+
+						.card-content {
+							width: 100px;
+							color: #FFF;
+						}
+
+						&.heal {
+							margin: 10px 0;
+							height: 25px;
+							line-height: 25px;
+
+							.card-content {
+								border-radius: 3px;
+								background: #8AE8D3;
+							}
+						}
+
+						&.department {
+							.card-content {
+								height: 70px;
+								overflow: hidden;
+
+								.depart {
+									height: 25px;
+									line-height: 25px;
+									margin-bottom: 10px;
+									border-radius: 3px;
+									background-color: #FFD58F;
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -63,10 +109,6 @@
 			height: auto;
 			padding: 15px 15px 0;
 			font-size: 14px;
-
-			p {
-				margin-bottom: 10px;
-			}
 
 			.title {
 				line-height: 20px;
@@ -112,9 +154,10 @@
 				}
 			}
 
-
 			.department,
 			.heal {
+				margin-bottom: 5px;
+
 				span {
 					display: inline-block;
 					vertical-align: top;
@@ -151,108 +194,5 @@
 				background: #FFD58F;
 			}
 		}
-	}
-}
-.point {
-	.card-out {
-		width: 180px;
-		height: 110px;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		.heal {
-			padding-top: 15px;
-			padding-bottom: 15px;
-		}
-		 .heal , .department {
-			 display: flex;
-			 flex-direction: row;
-			 .card-title {
-				 white-space: nowrap;
-			 }
-			 .heal-span , .depart{
-				 width: 100px;
-			 }
-			 #depart-area {
-				 display: flex;
-				 flex-direction: column;
-				 span:first-child {
-					min-width: 100px;
-	 				display: flex;
-	 				flex-direction: column;
-	 				text-overflow:ellipsis;
-	 				overflow-x: hidden;
-	 				height: 25px;
-	 				line-height: 25px;
-	 				text-align: center;
-	 				font-size: 14px;
-	 				color: #FFFFFF;
-	 				letter-spacing: 1.5px;
-	 				border-radius: 3px;
-	 				margin-right: 5px;
-					background: #FFD58F !important;
-				 }
-			 }
-			 span.depart {
-				display: block;
-			 }
-			span {
-				height: 25px;
-				line-height: 25px;
-			}
-
-			span:first-child {
-				width: 80px;
-				font-size: 14px;
-				color: #485465;
-				letter-spacing: 1.5px;
-				overflow: hidden;
-			}
-
-			span:not(:first-child) {
-				min-width: 100px;
-				display: flex;
-				flex-direction: column;
-				text-overflow:ellipsis;
-				overflow-x: hidden;
-				height: 25px;
-				line-height: 25px;
-				text-align: center;
-				font-size: 14px;
-				color: #FFFFFF;
-				letter-spacing: 1.5px;
-				border-radius: 3px;
-				margin-right: 5px;
-
-			}
-		}
-
-		.heal span:not(:first-child) {
-			background: #8AE8D3;
-		}
-
-		.department span:not(:first-child) {
-			background: #FFD58F;
-			margin-bottom: 5px;
-
-		}
-
-	}
-}
-.c-inside {
-	p.title {
-		line-height: 20px;
-		font-size: 14px;
-		color: #474747;
-		font-weight: bold;
-		font-style: italic;
-		letter-spacing: 3.5px;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-		height: 30px;
-		width: 220px;
-		padding:0 -10px;
-		margin-left: -15px;
-		padding-left: 15px;
 	}
 }
