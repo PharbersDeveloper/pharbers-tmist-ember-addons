@@ -2,30 +2,31 @@
 <div local-class="drug-item container">
   <div local-class="c-inside right">
 	  <p local-class="title">{{target.name}}-{{target.class}}</p>
-	  <p local-class="feature">
-		  {{#bs-button tagName='p' local-class="point"}}
+	  <div local-class="feature">
+		  {{#bs-button tagName='div' local-class="point"}}
             <div local-class="card-out">
-                <p local-class="heal">
+                <div local-class="heal card-inside">
                     <div local-class="card-title">
                         <span>治疗领域：</span>
                     </div>
-                    {{#each target.heal as |area|}}
-                        <span local-class="heal-span" >{{area}}</span>
-                    {{/each}}
-                </p>
+                    <div local-class="card-content">
+                        {{#each target.heal as |area|}}
+                            <span local-class="heal-span" >{{area}}</span>
+                        {{/each}}
+                    </div>
+                </div>
 
-                <p local-class="department">
+                <div local-class="department card-inside">
                     <div local-class="card-title">
                         <span>目标科室：</span>
                     </div>
-                    <div id="depart-area">
-                        <span class="display:none;"></span>
+                    <div local-class="card-content">
                         {{#each target.department as |depart|}}
-                            <span local-class="depart">{{depart}}</span>
+                            <p local-class="depart">{{depart}}</p>
                         {{/each}}
                     </div>
 
-                </p>
+                </div>
             </div>
 
 			  {{#bs-popover triggerEvents="hover" title=target.name local-class="popover-medic"}}
@@ -50,7 +51,7 @@
 			  </div>
 			  {{/bs-popover}}
 		  {{/bs-button}}
-	  </p>
+	  </div>
   </div>
 </div>
 {{else}}

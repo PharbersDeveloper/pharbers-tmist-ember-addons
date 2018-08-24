@@ -1,10 +1,13 @@
 {{!-- {{#mapping-components data.component_data as |componentName component|}} --}}
 <div local-class="column center">
-    {{#mapping-components data.component_data as |componentName component|}}
-        {{#if (eq componentName.componentName "accordion-hospital")}}
-            {{component.component }}
-        {{/if}}
-    {{/mapping-components}}
+    <div local-class="inside">
+        {{#mapping-components data.component_data as |componentName component|}}
+            {{#if (eq componentName.componentName "accordion-hospital")}}
+                {{component.component }}
+            {{/if}}
+        {{/mapping-components}}
+    </div>
+
 </div>
 <div local-class="column left">
     {{#mapping-components data.component_data as |componentName component|}}
