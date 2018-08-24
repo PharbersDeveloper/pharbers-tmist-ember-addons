@@ -10,11 +10,6 @@
 	border-radius: 4px;
 
 	.title {
-		// height: 20px;
-		// line-height: 20px;
-		// font-size: 14px;
-		// color: #4A90E2;
-		// letter-spacing: 2px;
 		padding: 10px 15px;
 		width: 100%;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -28,14 +23,17 @@
 		text-align: justify;
 		line-height: 21px;
 	}
+
 	.text {
 		display: flex;
+
 		p {
 			width: 150px;
 			margin-left: 15px;
 			margin-top: 10px;
 		}
 	}
+
 	.desc {
 		line-height: 20px;
 		font-size: 14px;
