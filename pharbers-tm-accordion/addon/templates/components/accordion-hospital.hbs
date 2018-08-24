@@ -128,21 +128,22 @@
                                                 <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
 
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <select local-class="select-group">
+                                                      <option disabled selected>请选择人员</option>
+                                                      <option>Saab</option>
+                                                      <option>Mercedes</option>
+                                                      <option>Audi</option>
+                                                    </select>
+                                                    {{!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         请选择人员 <span class="caret"></span>
                                                     </button>
                                                     <ul class="dropdown-menu">
                                                         <li><a href="#">Action</a></li>
                                                         <li><a href="#">Another action</a></li>
                                                         <li><a href="#">Something else here</a></li>
-                                                    </ul>
+                                                    </ul> --}}
                                                 </div>
-                                                <select>
-                                                  <option>Volvo</option>
-                                                  <option>Saab</option>
-                                                  <option>Mercedes</option>
-                                                  <option>Audi</option>
-                                                </select>
+
                                             </div>
                                             <div local-class="part-input" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <div local-class="input-line input-group">

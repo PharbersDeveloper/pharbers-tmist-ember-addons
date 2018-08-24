@@ -311,13 +311,31 @@
                 .sign-person {
                     padding: 10px 12px;
                     text-align: center;
+                    font-size: 14px;
 
                     img {
                         width: 54px;
                         height: 54px;
                     }
                     .select-group {
-                        width: 80px;
+                        width: 120px;
+                        height: 33px;
+                        background: #3379b7;
+                        border: 0;
+                        border-radius: 4px;
+                        color: #fff;
+                        text-align: center;
+                        padding-left: 10px;
+                            option {
+                                background: #fff;
+                                width: 200px;
+                                height: 30px;
+                                padding-top: 5px;
+                                padding-bottom: 5px;
+                                line-height: 30px;
+                                color: #000;
+                                border: 1px solid #ddd;
+                            }
                     }
                     .sign-title {
                         margin-bottom: 8px;
