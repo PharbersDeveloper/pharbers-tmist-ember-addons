@@ -199,18 +199,29 @@
                 #margin-right {
                     transform: translateX(15px);
                 }
+                .area-left {
+                    margin-bottom:25px;
+                    .part-input-left {
+                        margin-left: -15px;
+                    }
+                    .part-input-right {
+                        margin-right: -15px;
+                    }
+                }
 
                 .area-right {
                     flex-direction: row;
                     flex-wrap: nowrap;
                     padding-left: -15px !important;
                     padding-right: -15px !important;
+                    margin-bottom: 25px;
                     min-height: 155px;
                     height: auto;
                     overflow: hidden;
                     border-radius: 3px;
                     background: #F0F2FF;
                     box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+
 
                     .right-row {
                         display: flex;
@@ -305,7 +316,9 @@
                         width: 54px;
                         height: 54px;
                     }
-
+                    .select-group {
+                        width: 80px;
+                    }
                     .sign-title {
                         margin-bottom: 8px;
                         font-size: 0;
@@ -376,4 +389,11 @@
         }
     }
 }
-@media(max-width:1450px) {}
+@media(max-width:1500px) {
+    .area-left {
+        width: 100% !important;
+    }
+    .input-area-right {
+        width: 100% !important;
+    }
+}

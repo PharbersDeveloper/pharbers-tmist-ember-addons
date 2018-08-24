@@ -75,9 +75,9 @@
                                 </div>
 
                                 <div local-class="input-area">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" local-class="area-left">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" local-class="area-left">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <div local-class="part-input">
+                                            <div local-class="part-input part-input-left">
                                                 <div local-class="input-line">
                                                     <p local-class="input-title">指标设定</p>
                                                     <div local-class="input-con">
@@ -97,7 +97,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <div local-class="part-input">
+                                            <div local-class="part-input  part-input-right">
                                                 <div local-class="input-line">
                                                     <p local-class="input-title">预算分配</p>
                                                     <div local-class="input-con">
@@ -117,28 +117,34 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="margin-right">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" local-class="input-area-right">
                                         <div local-class="area-right">
                                             <div local-class="part-input">
                                                 <div local-class="input-line">
                                                     <p local-class="input-title">人员分配</p>
                                                 </div>
                                             </div>
-                                            <div local-class="sign-person" class="col-md-6 col-sm-6">
+                                            <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
 
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            请选择人员 <span class="caret"></span>
-                                          </button>
+                                                        请选择人员 <span class="caret"></span>
+                                                    </button>
                                                     <ul class="dropdown-menu">
                                                         <li><a href="#">Action</a></li>
                                                         <li><a href="#">Another action</a></li>
                                                         <li><a href="#">Something else here</a></li>
                                                     </ul>
                                                 </div>
+                                                <select>
+                                                  <option>Volvo</option>
+                                                  <option>Saab</option>
+                                                  <option>Mercedes</option>
+                                                  <option>Audi</option>
+                                                </select>
                                             </div>
-                                            <div local-class="part-input" class="col-md-6 col-sm-6">
+                                            <div local-class="part-input" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <div local-class="input-line input-group">
                                                     <div class="input-group">
                                                         <span class="input-group-addon" id="basic-addon2">&nbsp;&nbsp;&nbsp;&nbsp;分配&nbsp;&nbsp;&nbsp;</span>
