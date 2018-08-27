@@ -1,7 +1,13 @@
-{{!-- {{yield (hash sya=(component 'say-hello'))(hash cobject=1)}} --}}
-{{#each result as |item|}}
+{{#if (is-array result)}}
+    {{#each result as |item|}}
     {{yield
         (hash componentName=item.key)
-        (hash component=(component item.key data=item.values))
+        (hash component=(component item.key))
     }}
-{{/each}}
+    {{/each}}
+{{else}}
+    {{yield
+        (hash componentName=result.key)
+        (hash component=(component result.key))
+    }}
+{{/if}}
