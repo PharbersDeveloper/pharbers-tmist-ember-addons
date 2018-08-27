@@ -7,26 +7,25 @@ input {
 .circle-left {
 	position: relative;
 	top: 90px;
-	left: -25px;
-	width: 20px;
+	left: -15px;
+	width: 10px;
 	height: 20px;
-	border-radius: 0px 20px  20px 0;
+	border-radius: 0 10px 10px 0;
 	background: #f9f9f9;
 }
 
 .circle-right {
 	position: relative;
 	top: 70px;
-	left: 263px;
-	width: 20px;
+	left: 264px;
+	width: 10px;
 	height: 20px;
-	border-radius: 20px 0 0 20px;
+	border-radius: 10px 0 0 10px;
 	background: #eef1fa;
 }
 
 .tag {
 	margin-top: 10px;
-	font-family: PingFangTC-Regular;
 	font-size: 12px;
 	color: #FFFFFF;
 	letter-spacing: 1.5px;
@@ -59,7 +58,6 @@ input {
 }
 
 .hosp-intro {
-	// margin-bottom: -230px;
 	padding: 10px 15px;
 	height: 240px;
 	border-radius: 5px 5px 0 0;
@@ -68,7 +66,6 @@ input {
 	box-shadow: 0 1px 3px 0 rgba(134,134,134,0.50);
 
 	.basic-info {
-		// margin-bottom: 10px;
 		margin-bottom: 30px;
 		margin-top: -30px;
 		vertical-align: top;

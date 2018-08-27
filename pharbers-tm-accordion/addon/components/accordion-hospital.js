@@ -7,12 +7,9 @@ export default Component.extend({
     styles,
     integerIndex: 0,
     actions: {
-        carousel () {
+        carousel() {
             console.log(this.get('integerIndex'))
-            this.set('integerIndex',1)
-            // console.log(super.index);
-            // this.set(super.index,'1');
-
+            this.set('integerIndex', 1)
         }
     }
 });
