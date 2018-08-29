@@ -13,6 +13,16 @@
         float: left;
         width: 289px;
         background-color: #e9e9e9;
+        z-index: 2;
+        overflow: hidden;
+        .inside {
+            position: absolute;
+            top: 45px;
+            right: -15px;
+            bottom: 40px;
+            left: 0;
+            overflow: auto;
+        }
     }
 
     .left {
@@ -20,6 +30,7 @@
         float: left;
         width: 280px;
         background-color: #F9F9F9;
+        z-index: 2;
     }
 
     .right {
