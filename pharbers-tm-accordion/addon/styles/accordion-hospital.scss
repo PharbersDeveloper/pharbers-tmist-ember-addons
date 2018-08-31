@@ -106,9 +106,7 @@
             margin-bottom: 20px;
             width: 100%;
             height: auto;
-            // .carousel-control {
-            //     background: red;
-            // }
+
             .changepage {
                 padding: 10px 0;
                 border-radius: 9px;
@@ -123,11 +121,13 @@
 
                 :global(.carousel-control.right) {
                     position: absolute;
-                    right: 38%;
-                    top: 50%;
-                    bottom: 10px;
-                    transform: translateY(50%);
+                    left: 50%;
+                    top: 95%;
+                    // bottom: 10%;
+                    transform: translateX(-50%);
                     opacity: 1;
+                    width: 50px;
+                    height: 30px;
                 }
 
                 :global(.carousel-control.right span) {
@@ -199,11 +199,14 @@
                 #margin-right {
                     transform: translateX(15px);
                 }
+
                 .area-left {
-                    margin-bottom:25px;
+                    margin-bottom: 25px;
+
                     .part-input-left {
                         margin-left: -15px;
                     }
+
                     .part-input-right {
                         margin-right: -15px;
                     }
@@ -221,7 +224,6 @@
                     border-radius: 3px;
                     background: #F0F2FF;
                     box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
-
 
                     .right-row {
                         display: flex;
@@ -317,6 +319,7 @@
                         width: 54px;
                         height: 54px;
                     }
+
                     .select-group {
                         width: 120px;
                         height: 33px;
@@ -326,17 +329,19 @@
                         color: #fff;
                         text-align: center;
                         padding-left: 10px;
-                            option {
-                                background: #fff;
-                                width: 200px;
-                                height: 30px;
-                                padding-top: 5px;
-                                padding-bottom: 5px;
-                                line-height: 30px;
-                                color: #000;
-                                border: 1px solid #ddd;
-                            }
+
+                        option {
+                            background: #fff;
+                            width: 200px;
+                            height: 30px;
+                            padding-top: 5px;
+                            padding-bottom: 5px;
+                            line-height: 30px;
+                            color: #000;
+                            border: 1px solid #ddd;
+                        }
                     }
+
                     .sign-title {
                         margin-bottom: 8px;
                         font-size: 0;
@@ -411,6 +416,7 @@
     .area-left {
         width: 100% !important;
     }
+
     .input-area-right {
         width: 100% !important;
     }
