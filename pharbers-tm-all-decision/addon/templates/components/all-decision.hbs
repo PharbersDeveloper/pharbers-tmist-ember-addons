@@ -11,12 +11,10 @@
 		<img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="person">
 	</div>
 </div>
-{{log total}}
 {{#if (eq whichpag "manager")}}
-<h2>manager</h2>
-<h2>manager</h2>
 {{#each data as |item|}}
 {{#mapping-components item as |componentName component|}}
+
 	{{#if (eq componentName.componentName 'manager-decision')}}
 		{{component.component data=item}}
 	{{/if}}
@@ -26,10 +24,12 @@
 
 
 {{else}}
-<h2>hospital</h2>
-<h2>hospital</h2>
+{{log total}}
+{{log data}}
 	{{#each data as |item|}}
 	{{#mapping-components item as |componentName component|}}
+	{{log "dddddddddddddddd"}}
+	{{log componentName.componentName}}
 		{{#if (eq componentName.componentName 'hospital-decision')}}
 			{{component.component data=item}}
 		{{/if}}

@@ -1,30 +1,32 @@
 {{!-- {{#mapping-components data.component_data as |componentName component|}} --}}
 <div local-class="column center">
     <div local-class="inside">
-        {{#mapping-components data.component_data as |componentName component|}}
+        {{!-- {{#mapping-components data.component_data as |componentName component|}}
             {{#if (eq componentName.componentName "accordion-hospital")}}
                 {{component.component }}
             {{/if}}
-        {{/mapping-components}}
+        {{/mapping-components}} --}}
+        <h3>main content is there</h3>
+        {{!-- {{accordion-hospital data=data.hospital}} --}}
     </div>
 
 </div>
 <div local-class="column left">
-    {{#mapping-components data.component_data as |componentName component|}}
+    {{!-- {{#mapping-components data.component_data as |componentName component|}}
         {{#if (eq componentName.componentName "vertical-tabs")}}
             {{component.component }}
         {{/if}}
-    {{/mapping-components}}
+    {{/mapping-components}} --}}
+
+    {{!-- {{vertical-tabs data=data.vertical}} --}}
 </div>
 <div local-class="column right">
-    {{#mapping-components data.component_data as |componentName component|}}
-        {{!-- {{#if (eq componentName.componentName "target-person-card")}}
-            {{component.component }}
-        {{/if}} --}}
+    {{!-- {{#mapping-components data.component_data as |componentName component|}}
         {{#if (eq componentName.componentName "vertical-right-tabs")}}
             {{component.component }}
         {{/if}}
-    {{/mapping-components}}
+    {{/mapping-components}} --}}
+
+    {{!-- {{vertical-right-tabs data=data.vertical-right}} --}}
 </div>
-{{!-- {{/mapping-components}} --}}
 {{yield}}
