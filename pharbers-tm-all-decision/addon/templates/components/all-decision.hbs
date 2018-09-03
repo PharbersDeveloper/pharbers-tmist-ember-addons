@@ -11,6 +11,7 @@
 		<img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="person">
 	</div>
 </div>
+
 {{#if (eq whichpag "manager")}}
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
@@ -19,15 +20,11 @@
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}
-
-
-
 {{else}}
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
-			{{log componentName}}
 			{{#if (eq componentName.componentName 'hospital-decision')}}
-				{{component.component data=item}}
+				{{component.component getMedicNotices=(action 'getMedicNotices') getHospInfo=(action 'getHospInfo') getRepBudget=(action 'getRepBudget')}}
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}

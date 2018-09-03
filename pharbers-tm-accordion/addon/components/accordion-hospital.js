@@ -6,6 +6,10 @@ export default Component.extend({
     layout,
     styles,
     integerIndex: 0,
+    init() {
+        this._super(...arguments);
+        this.sendAction('getHospInfo', this);
+    },
     actions: {
         carousel() {
             console.log(this.get('integerIndex'))

@@ -14,12 +14,12 @@
     <div class="tab-content" local-class="right-content">
             {{#tab.pane local-class="info-detail" elementId="medicineid" title="Tab 1" }}
                 <h2>药品信息</h2>
-                {{drug-item data=data.medicines}}
+                {{drug-item data=result.medicines}}
             {{/tab.pane}}
 
             {{#tab.pane local-class="info-detail" elementId="notice" title="Tab 2" }}
                 <h2>通知</h2>
-                {{drug-item data=data.notices}}
+                {{drug-item data=result.notices}}
             {{/tab.pane}}
 
     </div>

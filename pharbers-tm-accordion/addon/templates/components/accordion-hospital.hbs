@@ -4,22 +4,22 @@
             {{#aitem.title local-class="info" class="container" }}
                 <div class="row">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-                        <img src= {{hosp.overview.hosp_image}} alt="">
+                        <img src= {{hosp.hosp_image}} alt="">
                     </div>
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" local-class="overview">
                         <p local-class="title">
-                            <span>{{hosp.overview.hosp_name}}</span>
-                            <span>{{hosp.overview.hosp_category}}/{{hosp.overview.hosp_level}}</span>
+                            <span>{{hosp.hosp_name}}</span>
+                            <span>{{hosp.hosp_category}}/{{hosp.hosp_level}}</span>
                         </p>
                         <p local-class="department">
                             <span>重点科室：</span>
-                            {{#each (string-to-array hosp.overview.department ';') as |value|}}
+                            {{#each (string-to-array hosp.department ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
                         <p local-class="outpatient">
                             <span>特色门诊：</span>
-                            {{#each (string-to-array hosp.overview.featured_outpatient ';') as |value|}}
+                            {{#each (string-to-array hosp.featured_outpatient ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
