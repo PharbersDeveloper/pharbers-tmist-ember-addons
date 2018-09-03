@@ -6,7 +6,7 @@
                 {{component.component }}
             {{/if}}
         {{/mapping-components}} --}}
-        <h3>main content is there</h3>
+
         {{!-- {{accordion-hospital data=data.hospital}} --}}
     </div>
 
@@ -18,7 +18,7 @@
         {{/if}}
     {{/mapping-components}} --}}
 
-    {{!-- {{vertical-tabs data=data.vertical}} --}}
+    {{vertical-tabs data=data.vertical}}
 </div>
 <div local-class="column right">
     {{!-- {{#mapping-components data.component_data as |componentName component|}}
@@ -27,6 +27,6 @@
         {{/if}}
     {{/mapping-components}} --}}
 
-    {{!-- {{vertical-right-tabs data=data.vertical-right}} --}}
+    {{vertical-right-tabs data=data.vertical-right}}
 </div>
 {{yield}}
