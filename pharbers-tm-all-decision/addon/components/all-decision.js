@@ -17,10 +17,16 @@ export default Component.extend({
             this.sendAction('getMedicNotices', component);
         },
         getHospInfo(component) {
-            this.sendAction('getHospInfo', component)
+            this.sendAction('getHospInfo', component);
         },
         getRepBudget(component) {
             this.sendAction('getRepBudget', component);
+        },
+        getHospCardInfo(component) {
+            this.sendAction('getHospCardInfo', component);
+        },
+        getInputCard(component) {
+            this.sendAction('getInputCard', component);
         }
     }
 }).reopenClass({

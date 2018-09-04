@@ -7,6 +7,14 @@ export default Component.extend({
     styles,
     tagName: 'div',
     localClassNames: 'manager-decision',
+    actions: {
+        getHospCardInfo(component) {
+            this.sendAction('getHospCardInfo', component);
+        },
+        getInputCard(component) {
+            this.sendAction('getInputCard', component);
+        }
+    }
 }).reopenClass({
     positionalParams: ['data']
 })

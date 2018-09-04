@@ -16,7 +16,7 @@
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
 			{{#if (eq componentName.componentName 'manager-decision')}}
-				{{component.component data=item}}
+				{{component.component getHospCardInfo=(action 'getHospCardInfo') getInputCard=(action 'getInputCard')}}
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}
