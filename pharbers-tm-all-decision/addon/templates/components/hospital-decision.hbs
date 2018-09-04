@@ -1,27 +1,14 @@
 {{!-- {{#mapping-components data.component_data as |componentName component|}} --}}
 <div local-class="column center">
     <div local-class="inside">
-
         {{accordion-hospital getHospInfo=(action 'getHospInfo')}}
     </div>
 
 </div>
 <div local-class="column left">
-    {{!-- {{#mapping-components data.component_data as |componentName component|}}
-        {{#if (eq componentName.componentName "vertical-tabs")}}
-            {{component.component }}
-        {{/if}}
-    {{/mapping-components}} --}}
-
     {{vertical-tabs getMandN=(action 'getMedicNotices')}}
 </div>
 <div local-class="column right">
-    {{!-- {{#mapping-components data.component_data as |componentName component|}}
-        {{#if (eq componentName.componentName "vertical-right-tabs")}}
-            {{component.component }}
-        {{/if}}
-    {{/mapping-components}} --}}
-
     {{vertical-right-tabs getRandB=(action 'getRepBudget')}}
 </div>
 {{yield}}

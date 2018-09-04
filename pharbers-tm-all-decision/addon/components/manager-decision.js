@@ -8,6 +8,9 @@ export default Component.extend({
     tagName: 'div',
     localClassNames: 'manager-decision',
     actions: {
+        getMedicNotices(component) {
+            this.sendAction('getMedicNotices', component);
+        },
         getHospCardInfo(component) {
             this.sendAction('getHospCardInfo', component);
         },

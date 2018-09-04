@@ -11,11 +11,12 @@ export default Component.extend({
         this._super(...arguments);
         this.sendAction('getRandB', this);
     },
-    manpowerPerc: computed('data.manpower', 'data.manpower.@each.used', function() {
-        let manpower = this.get('data.manpower');
+
+    manpowerPerc: computed('data.budgets', 'data.budgets.@each.used', function() {
+        let manpower = this.get('data.budgets');
         let newManpower = [];
-        if (manpower != undefined) {
-            for (let i = 0, len = manpower.length; i < len; i++) {
+        if (this.get('data.budgets') != undefined) {
+            for (let i = 0, len = this.get('data.budgets').length; i < len; i++) {
                 let percentObject = {};
                 percentObject.name = manpower[i].name;
                 percentObject.id = manpower[i].id;
@@ -25,7 +26,6 @@ export default Component.extend({
                 newManpower.push(percentObject);
             }
         }
-
         return newManpower;
     }),
 });

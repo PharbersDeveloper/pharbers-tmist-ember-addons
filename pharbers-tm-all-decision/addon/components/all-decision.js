@@ -13,6 +13,9 @@ export default Component.extend({
         this.sendAction('queryDecision', this);
     },
     actions: {
+        getManagerMedicNotices(component) {
+            this.sendAction('getManagerMedicNotices', component);
+        },
         getMedicNotices(component) {
             this.sendAction('getMedicNotices', component);
         },
@@ -27,6 +30,9 @@ export default Component.extend({
         },
         getInputCard(component) {
             this.sendAction('getInputCard', component);
+        },
+        runCalc() {
+            this.sendAction('runCalc');
         }
     }
 }).reopenClass({

@@ -6,9 +6,6 @@ import { computed } from '@ember/object';
 export default Component.extend({
     layout,
     styles,
-    result: computed('data', function() {
-        return this.get('data');
-    }),
     localClassNames: 'tab-container',
     init() {
         this._super(...arguments);

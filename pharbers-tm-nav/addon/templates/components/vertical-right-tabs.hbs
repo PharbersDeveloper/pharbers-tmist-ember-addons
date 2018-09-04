@@ -1,23 +1,29 @@
 {{#bs-tab customTabs=true tagName="" local-class="left" as |tab| }}
-{{log data}}
     <div class="tab-content" local-class="left-content">
         {{#tab.pane local-class="rep-card inside" elementId="repcard" title="Tab 1" }}
             <h2>代表信息</h2>
-            {{target-person-card data=data.representsinfo}}
+            {{target-person-card data=data.represents}}
         {{/tab.pane}}
 
         {{#tab.pane local-class="progress inside" elementId="budgetprogress" title="Tab 2" }}
             <h2>预算进度</h2>
 
-            {{#each manpowerPerc as |item|}}
-                <p local-class="human-text"> <span>{{item.name}}</span> <span>{{item.used}}/{{item.total}}天</span> <span>{{item.percent}}%</span> </p>
+            {{#each manpowerPerc as |repBudget|}}
+                <p local-class="human-text"> <span>{{repBudget.name}}</span> <span>{{repBudget.used}}/{{repBudget.total}}天</span> <span>{{percent}}%</span> </p>
                 <div local-class="self-progress" class="progress">
                     {{#bs-progress as |p|}}
-                        {{p.bar value=item.percent local-class="self-progress-bar"}}
+                        {{p.bar value=repBudget.percent local-class="self-progress-bar"}}
                     {{/bs-progress}}
                 </div>
             {{/each}}
-
+            {{#each data.budgets as |repBudget|}}
+                <p local-class="human-text"> <span>{{repBudget.name}}</span> <span>{{repBudget.used_days}}/{{repBudget.total_days}}天</span> <span>{{percent}}%</span> </p>
+                <div local-class="self-progress" class="progress">
+                    {{#bs-progress as |p|}}
+                        {{p.bar value=percent local-class="self-progress-bar"}}
+                    {{/bs-progress}}
+                </div>
+            {{/each}}
         {{/tab.pane}}
     </div>
     {{#bs-nav type="pills" local-class="right-tabs" stacked=true as |nav|}}
