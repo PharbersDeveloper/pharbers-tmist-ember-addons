@@ -6,13 +6,10 @@ export default Component.extend({
     styles,
     tagName: 'div',
     localClassNames: 'select',
-    // init() {
-    //     this._super(...arguments);
-    //     this.data = {
-    //         "current": "整体销售表现",
-    //         "selected": [{ "url": "", "text": "aaaaaaa" }, { "url": "", "text": "bbbbbbbbb" }, { "url": "", "text": "ddddddddddd" }, { "url": "", "text": "dedefderd" }]
-    //     }
-    // },
+    init() {
+        this._super(...arguments);
+        this.sendAction('getDropdawnData', this);
+    },
     actions: {
         onclick(type, id) {
             this.sendAction('onclick', type, id)

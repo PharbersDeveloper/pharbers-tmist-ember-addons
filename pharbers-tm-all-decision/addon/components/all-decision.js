@@ -10,7 +10,7 @@ export default Component.extend({
     whichpag: 'hospital',
     init() {
         this._super(...arguments);
-        this.sendAction('queryDecision', this);
+        // this.sendAction('queryDecision', this);
     },
     actions: {
         getManagerMedicNotices(component) {

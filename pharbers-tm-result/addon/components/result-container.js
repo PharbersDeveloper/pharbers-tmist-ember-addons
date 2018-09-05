@@ -8,6 +8,9 @@ export default Component.extend({
     actions: {
         onclick(type, id) {
             this.sendAction('onclick', type, id);
+        },
+        getDropdawnData(component) {
+            this.sendAction('getDropdawnData', component);
         }
     }
 }).reopenClass({
