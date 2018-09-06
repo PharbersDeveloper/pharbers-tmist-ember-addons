@@ -1,0 +1,1 @@
+export { default } from 'pharbers-tm-charts/components/table-number-percent';

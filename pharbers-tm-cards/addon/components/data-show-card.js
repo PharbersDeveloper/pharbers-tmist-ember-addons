@@ -7,4 +7,8 @@ export default Component.extend({
 	styles,
 	tagName: 'div',
 	localClassNames: 'block',
+	init() {
+		this._super(...arguments);
+		this.sendAction('getShowCard', this);
+	},
 });

@@ -12,15 +12,14 @@
         {{/nav.item}}
     {{/bs-nav}}
     <div class="tab-content" local-class="right-content">
-            {{#tab.pane local-class="info-detail" elementId="medicineid" title="Tab 1" }}
-                <h2>药品信息</h2>
-                {{drug-item data=data.medicines}}
-            {{/tab.pane}}
+        {{#tab.pane local-class="info-detail" elementId="medicineid" title="Tab 1" }}
+            <h2>药品信息</h2>
+            {{drug-item data=data.medicines}}
+        {{/tab.pane}}
 
-            {{#tab.pane local-class="info-detail" elementId="notice" title="Tab 2" }}
-                <h2>通知</h2>
-                {{drug-item data=data.notices}}
-            {{/tab.pane}}
-
+        {{#tab.pane local-class="info-detail" elementId="notice" title="Tab 2" }}
+            <h2>通知</h2>
+            {{drug-item data=data.notices}}
+        {{/tab.pane}}
     </div>
 {{/bs-tab}}

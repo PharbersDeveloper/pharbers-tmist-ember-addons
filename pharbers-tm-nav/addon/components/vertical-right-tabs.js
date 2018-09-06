@@ -11,21 +11,20 @@ export default Component.extend({
         this._super(...arguments);
         this.sendAction('getRandB', this);
     },
-
     manpowerPerc: computed('data.budgets', 'data.budgets.@each.used', function() {
-        let manpower = this.get('data.budgets');
+        let manpowerPromise = this.get('data.budgets');
         let newManpower = [];
-        if (this.get('data.budgets') != undefined) {
-            for (let i = 0, len = this.get('data.budgets').length; i < len; i++) {
+        if (manpowerPromise != undefined) {
+            manpowerPromise.map((item) => {
                 let percentObject = {};
-                percentObject.name = manpower[i].name;
-                percentObject.id = manpower[i].id;
-                percentObject.used = manpower[i].used;
-                percentObject.total = manpower[i].total;
-                percentObject.percent = ((manpower[i].used / manpower[i].total) * 100).toFixed(0);
+                percentObject.name = item.name;
+                percentObject.id = item.id;
+                percentObject.used = item.used_days;
+                percentObject.total = item.total_days;
+                percentObject.percent = ((item.used_days / item.total_days) * 100).toFixed(0);
                 newManpower.push(percentObject);
-            }
+            })
+            return newManpower
         }
-        return newManpower;
     }),
 });
