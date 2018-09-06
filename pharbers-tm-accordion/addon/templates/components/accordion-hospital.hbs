@@ -45,13 +45,13 @@
                                                 {{#if (eq ov.key '增长潜力')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期增长')}}
+                                                    {{else if (eq ov.key '上期增长')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '份额')}}
+                                                    {{else if (eq ov.key '份额')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期贡献率')}}
+                                                    {{else if (eq ov.key '上期贡献率')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
                                                 {{else}}
@@ -64,12 +64,10 @@
                                     </div>
                                     <div local-class="compare">
                                         <div class="col-md-12 col-lg-6">
-                                            <h5>药品详情</h5>
-                                            {{detail-table data=medic.detail}}
+                                            <h5>药品详情</h5> {{detail-table data=medic.detail}}
                                         </div>
                                         <div class="col-md-12 col-lg-6">
-                                            <h5>药品历史</h5>
-                                            {{detail-table  data=medic.history}}
+                                            <h5>药品历史</h5> {{detail-table  data=medic.history}}
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +122,40 @@
                                                     <p local-class="input-title">人员分配</p>
                                                 </div>
                                             </div>
-                                            <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                            {{log hosp}}
+                                            {{#if hosp.signrep.rep_name}}
+                                                <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                                    <img src= {{data.signrep.rep_image}} alt="头像" class="img-thumbnail" local-class="head-img">
+
+                                                    <div class="btn-group">
+                                                        <select local-class="select-group">
+                                                      <option selected>{{hosp.signrep.rep_name}}</option>
+                                                      {{#each totalRep as |rep|}}
+                                                        {{#if (not-eq hosp.signrep.id rep.id)}}
+                                                          <option>{{rep.rep_name}}</option>
+                                                        {{/if}}
+                                                      {{/each}}
+                                                      {{!-- <option>aaa</option>
+                                                      <option>bbb</option>
+                                                      <option>ccc</option> --}}
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            {{else}}
+                                                <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                                    <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
+
+                                                    <div class="btn-group">
+                                                        <select local-class="select-group">
+                                                      <option disabled selected>请选择人员</option>
+                                                      {{#each totalRep as |rep|}}
+                                                          <option>{{rep.rep_name}}</option>
+                                                      {{/each}}
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            {{/if}}
+                                            {{!-- <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
 
                                                 <div class="btn-group">
@@ -135,8 +166,7 @@
                                                       <option>Audi</option>
                                                     </select>
                                                 </div>
-
-                                            </div>
+                                            </div> --}}
                                             <div local-class="part-input" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <div local-class="input-line input-group">
                                                     <div class="input-group">
