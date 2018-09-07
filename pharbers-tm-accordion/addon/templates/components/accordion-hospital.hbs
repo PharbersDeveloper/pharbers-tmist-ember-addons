@@ -1,25 +1,25 @@
 {{#bs-accordion as |acc|}}
     {{#each data as |hosp|}}
-        {{#acc.item local-class="hosp-item" value=hosp.id as |aitem|}}
+        {{#acc.item local-class="hosp-item" value=hosp.hospital.id as |aitem|}}
             {{#aitem.title local-class="info" class="container" }}
-                <div class="row" {{action 'changeHospInput' hosp.id}}>
+                <div class="row" {{action 'changeHospInput' hosp.hospital.id}}>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-                        <img src= {{hosp.hosp_image}} alt="">
+                        <img src= {{hosp.hospital.hosp_image}} alt="">
                     </div>
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" local-class="overview">
                         <p local-class="title">
-                            <span>{{hosp.hosp_name}}</span>
-                            <span>{{hosp.hosp_category}}/{{hosp.hosp_level}}</span>
+                            <span>{{hosp.hospital.hosp_name}}</span>
+                            <span>{{hosp.hospital.hosp_category}}/{{hosp.hospital.hosp_level}}</span>
                         </p>
                         <p local-class="department">
                             <span>重点科室：</span>
-                            {{#each (string-to-array hosp.department ';') as |value|}}
+                            {{#each (string-to-array hosp.hospital.department ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
                         <p local-class="outpatient">
                             <span>特色门诊：</span>
-                            {{#each (string-to-array hosp.featured_outpatient ';') as |value|}}
+                            {{#each (string-to-array hosp.hospital.featured_outpatient ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
@@ -27,7 +27,7 @@
                 </div>
             {{/aitem.title}}
             {{#aitem.body local-class="medicine-info" }}
-                {{#each hosp.medicines as |medic|}}
+                {{#each hosp.hospmedicinfos as |medic|}}
                     <div local-class="medicine medicine-component">
                         {{#bs-carousel local-class="changepage" autoPlay=true index=integerIndex showControls=true showIndicators=false wrap=true interval=1000000 ltr=true pauseOnMouseEnter=true as |car|}}
                             {{#car.slide}}
@@ -121,13 +121,16 @@
                                                     <p local-class="input-title">人员分配</p>
                                                 </div>
                                             </div>
-                                            {{#if hosp.signrep.rep_name}}
+                                            {{!-- {{#each hosp.representatives as |rep index|}}
+                                                {{log index}}
+                                            {{/each}} --}}
+                                            {{#if hosp.representative.rep_name}}
                                                 <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                     <img src= {{data.signrep.rep_image}} alt="头像" class="img-thumbnail" local-class="head-img">
 
                                                     <div class="btn-group">
                                                         <select local-class="select-group">
-                                                      <option selected>{{hosp.signrep.rep_name}}</option>
+                                                      <option selected>{{hosp.representative.rep_name}}</option>
                                                       {{#each totalRep as |rep|}}
                                                         {{#if (not-eq hosp.signrep.id rep.id)}}
                                                           <option>{{rep.rep_name}}</option>
@@ -176,5 +179,7 @@
                 {{/each}}
             {{/aitem.body}}
         {{/acc.item}}
+    {{else}}
+        <h3>暂无数据</h3>
     {{/each}}
 {{/bs-accordion}}

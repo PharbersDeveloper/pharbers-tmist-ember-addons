@@ -8,31 +8,29 @@ export default Component.extend({
     styles,
     integerIndex: 0,
     initHospInput: observer('data', function() {
-        let hospitalsmany = this.get('data').length;
-        // let input = [];
-        let input = this.get('data').map((item) => {
-            let hospdetailinput = {};
-            hospdetailinput.hosp_id = item.id;
-            hospdetailinput.medicines = [];
-            let medicine = item.medicines.map((medic) => {
-                let hospitalinputmedic = {};
-                hospitalinputmedic.medic_id = item.id;
-                hospitalinputmedic.target = "";
-                hospitalinputmedic.target_growth = "";
-                hospitalinputmedic.budget = "";
-                hospitalinputmedic.budget_percent = "";
-                hospitalinputmedic.rep = {};
-                hospitalinputmedic.rep.rep_id = '';
-                hospitalinputmedic.rep.rep_name = "";
-                hospitalinputmedic.rep.rep_avatar = "";
-                hospitalinputmedic.rep.asignday = "";
-                hospitalinputmedic.managerwith = "";
-                return hospitalinputmedic;
-            })
-            hospdetailinput.medicines = medicine;
-            return hospdetailinput;
-        });
-        console.log(input);
+        // let hospitalsmany = this.get('data').length;
+        // let input = this.get('data').map((item) => {
+        //     let hospdetailinput = {};
+        //     hospdetailinput.hosp_id = item.id;
+        //     hospdetailinput.medicines = [];
+        //     let medicine = item.medicines.map((medic) => {
+        //         let hospitalinputmedic = {};
+        //         hospitalinputmedic.medic_id = item.id;
+        //         hospitalinputmedic.target = "";
+        //         hospitalinputmedic.target_growth = "";
+        //         hospitalinputmedic.budget = "";
+        //         hospitalinputmedic.budget_percent = "";
+        //         hospitalinputmedic.rep = {};
+        //         hospitalinputmedic.rep.rep_id = '';
+        //         hospitalinputmedic.rep.rep_name = "";
+        //         hospitalinputmedic.rep.rep_avatar = "";
+        //         hospitalinputmedic.rep.asignday = "";
+        //         hospitalinputmedic.managerwith = "";
+        //         return hospitalinputmedic;
+        //     })
+        //     hospdetailinput.medicines = medicine;
+        //     return hospdetailinput;
+        // });
 
     }),
     init() {

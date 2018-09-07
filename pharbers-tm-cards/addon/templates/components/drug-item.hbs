@@ -1,7 +1,7 @@
 {{#each data as |target|}}
 <div local-class="drug-item container">
   <div local-class="c-inside right">
-	  <p local-class="title">{{target.name}}-{{target.class}}</p>
+	  <p local-class="title">{{target.prod_name}}-{{target.prod_category}}</p>
 	  <div local-class="feature">
 		  {{#bs-button tagName='div' local-class="point"}}
             <div local-class="card-out">
@@ -10,7 +10,7 @@
                         <span>治疗领域：</span>
                     </div>
                     <div local-class="card-content">
-                        {{#each target.heal as |area|}}
+                        {{#each (string-to-array target.therapeutic_field ',') as |area|}}
                             <span local-class="heal-span" >{{area}}</span>
                         {{/each}}
                     </div>
@@ -21,7 +21,7 @@
                         <span>目标科室：</span>
                     </div>
                     <div local-class="card-content">
-                        {{#each target.department as |depart|}}
+                        {{#each (string-to-array target.target_department ',') as |depart|}}
                             <p local-class="depart">{{depart}}</p>
                         {{/each}}
                     </div>
@@ -29,24 +29,24 @@
                 </div>
             </div>
 
-			  {{#bs-popover triggerEvents="hover" title=target.name local-class="popover-medic"}}
+			  {{#bs-popover triggerEvents="hover" title=target.prod_name local-class="popover-medic"}}
 			  <div local-class="c-inside right">
-				  <p local-class="subtitle">{{target.class}}</p>
+				  <p local-class="subtitle">{{target.prod_category}}</p>
                   <p local-class="heal">
 					  <span>治疗领域：</span>
-					  {{#each target.heal as |area|}}
+					  {{#each (string-to-array target.therapeutic_field ',') as |area|}}
 						  <span local-class="heal">{{area}}</span>
 					  {{/each}}
 				  </p>
 				  <p local-class="department">
 					  <span>目标科室：</span>
-					  {{#each target.department as |depart|}}
+					  {{#each (string-to-array target.target_department ',') as |depart|}}
 						  <span local-class="depart">{{depart}}</span>
 					  {{/each}}
 				  </p>
 				  <p local-class="feature">
 					  <span>产品特点：</span>
-					  <p>{{target.feature}}</p>
+					  <p>{{target.prod_features}}</p>
 				  </p>
 			  </div>
 			  {{/bs-popover}}

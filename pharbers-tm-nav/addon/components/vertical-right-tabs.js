@@ -16,6 +16,7 @@ export default Component.extend({
         let newManpower = [];
         if (manpowerPromise != undefined) {
             manpowerPromise.map((item) => {
+                console.log(item);
                 let percentObject = {};
                 percentObject.name = item.repInfo.rep_name;
                 percentObject.id = item.id;
