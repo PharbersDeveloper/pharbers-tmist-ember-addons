@@ -4,22 +4,22 @@
             {{#aitem.title local-class="info" class="container" }}
                 <div class="row">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-                        <img src= {{hosp.overview.hosp_image}} alt="">
+                        <img src= {{hosp.hosp_image}} alt="">
                     </div>
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" local-class="overview">
                         <p local-class="title">
-                            <span>{{hosp.overview.hosp_name}}</span>
-                            <span>{{hosp.overview.hosp_category}}/{{hosp.overview.hosp_level}}</span>
+                            <span>{{hosp.hosp_name}}</span>
+                            <span>{{hosp.hosp_category}}/{{hosp.hosp_level}}</span>
                         </p>
                         <p local-class="department">
                             <span>重点科室：</span>
-                            {{#each (string-to-array hosp.overview.department ';') as |value|}}
+                            {{#each (string-to-array hosp.department ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
                         <p local-class="outpatient">
                             <span>特色门诊：</span>
-                            {{#each (string-to-array hosp.overview.featured_outpatient ';') as |value|}}
+                            {{#each (string-to-array hosp.featured_outpatient ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
@@ -45,13 +45,13 @@
                                                 {{#if (eq ov.key '增长潜力')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期增长')}}
+                                                    {{else if (eq ov.key '上期增长')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '份额')}}
+                                                    {{else if (eq ov.key '份额')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期贡献率')}}
+                                                    {{else if (eq ov.key '上期贡献率')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
                                                 {{else}}
@@ -64,12 +64,10 @@
                                     </div>
                                     <div local-class="compare">
                                         <div class="col-md-12 col-lg-6">
-                                            <h5>药品详情</h5>
-                                            {{detail-table data=medic.detail}}
+                                            <h5>药品详情</h5> {{detail-table data=medic.detail}}
                                         </div>
                                         <div class="col-md-12 col-lg-6">
-                                            <h5>药品历史</h5>
-                                            {{detail-table  data=medic.history}}
+                                            <h5>药品历史</h5> {{detail-table  data=medic.history}}
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +122,40 @@
                                                     <p local-class="input-title">人员分配</p>
                                                 </div>
                                             </div>
-                                            <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                            {{log hosp}}
+                                            {{#if hosp.signrep.rep_name}}
+                                                <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                                    <img src= {{data.signrep.rep_image}} alt="头像" class="img-thumbnail" local-class="head-img">
+
+                                                    <div class="btn-group">
+                                                        <select local-class="select-group">
+                                                      <option selected>{{hosp.signrep.rep_name}}</option>
+                                                      {{#each totalRep as |rep|}}
+                                                        {{#if (not-eq hosp.signrep.id rep.id)}}
+                                                          <option>{{rep.rep_name}}</option>
+                                                        {{/if}}
+                                                      {{/each}}
+                                                      {{!-- <option>aaa</option>
+                                                      <option>bbb</option>
+                                                      <option>ccc</option> --}}
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            {{else}}
+                                                <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                                    <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
+
+                                                    <div class="btn-group">
+                                                        <select local-class="select-group">
+                                                      <option disabled selected>请选择人员</option>
+                                                      {{#each totalRep as |rep|}}
+                                                          <option>{{rep.rep_name}}</option>
+                                                      {{/each}}
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            {{/if}}
+                                            {{!-- <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
 
                                                 <div class="btn-group">
@@ -134,17 +165,8 @@
                                                       <option>Mercedes</option>
                                                       <option>Audi</option>
                                                     </select>
-                                                    {{!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        请选择人员 <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">Action</a></li>
-                                                        <li><a href="#">Another action</a></li>
-                                                        <li><a href="#">Something else here</a></li>
-                                                    </ul> --}}
                                                 </div>
-
-                                            </div>
+                                            </div> --}}
                                             <div local-class="part-input" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <div local-class="input-line input-group">
                                                     <div class="input-group">

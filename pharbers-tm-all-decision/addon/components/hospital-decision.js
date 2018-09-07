@@ -8,6 +8,17 @@ export default Component.extend({
         tagName: 'div',
         localClassNames: 'hospital-decision',
 
+        actions: {
+            getMedicNotices(component) {
+                this.sendAction('getMedicNotices', component);
+            },
+            getHospInfo(component) {
+                this.sendAction('getHospInfo', component);
+            },
+            getRepBudget(component) {
+                this.sendAction('getRepBudget', component);
+            }
+        },
     })
     .reopenClass({
         positionalParams: ['data']

@@ -6,5 +6,4 @@ export default Component.extend({
 	layout,
 	styles,
 	tagName: '',
-
 });

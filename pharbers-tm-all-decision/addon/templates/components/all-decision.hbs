@@ -1,0 +1,37 @@
+<div local-class="header navbar">
+	<div local-class="head-left">
+		<img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/logo_login.png" alt="logo">
+		<h1>TMIST</h1>
+	</div>
+	<div local-class="head-right">
+		{{#bs-button-group value=whichpag type="radio" onChange=(action (mut whichpag)) as |bg|}}
+			{{#bg.button value="hospital" }}资源分配{{/bg.button}}
+			{{#bg.button value="manager" }}时间分配{{/bg.button}}
+		{{/bs-button-group}}
+		<img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="person">
+	</div>
+</div>
+{{#if (eq whichpag "manager")}}
+	{{#each data as |item|}}
+		{{#mapping-components item as |componentName component|}}
+			{{#if (eq componentName.componentName 'manager-decision')}}
+				{{component.component getMedicNotices=(action 'getManagerMedicNotices') getHospCardInfo=(action 'getHospCardInfo') getInputCard=(action 'getInputCard')}}
+			{{/if}}
+		{{/mapping-components}}
+	{{/each}}
+{{else}}
+	{{#each data as |item|}}
+		{{#mapping-components item as |componentName component|}}
+			{{#if (eq componentName.componentName 'hospital-decision')}}
+				{{component.component getMedicNotices=(action 'getMedicNotices') getHospInfo=(action 'getHospInfo') getRepBudget=(action 'getRepBudget')}}
+			{{/if}}
+		{{/mapping-components}}
+	{{/each}}
+{{/if}}
+
+<div local-class="footer navbar">
+	<div class="alert alert-success" role="alert" local-class="footer-tab">
+		<p>This is a success alert—check it out!</p>
+		<button type="button" name="button" local-class="footer-button" {{action 'runCalc'}}>执行计算</button>
+	</div>
+</div>

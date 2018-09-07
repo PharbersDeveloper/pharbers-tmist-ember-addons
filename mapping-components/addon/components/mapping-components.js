@@ -6,11 +6,15 @@ export default Component.extend({
 		layout,
 		tagName: "",
 		result: computed('data', function() {
-			let reVal = this.get('data')
-				.map(function(ele) {
-					return { 'key': ele.key, 'values': ele.values }
-				});
-			return reVal;
+			if (Array.isArray(this.get('data'))) {
+				let reVal = this.get('data')
+					.map(function(ele) {
+						return { 'key': ele.get('component_name') }
+					});
+				return reVal;
+			} else {
+				return { 'key': this.get('data').get('component_name') }
+			}
 		}),
 	})
 	.reopenClass({
