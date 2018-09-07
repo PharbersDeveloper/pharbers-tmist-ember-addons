@@ -13,7 +13,7 @@ export default Component.extend({
     classNames: ['table-center'],
     selfheight: '480px',
     sort: '',
-    dir: 'asc',
+    // dir: 'asc',
     init() {
         this._super(...arguments);
         this.sendAction('getResultTable', this);
