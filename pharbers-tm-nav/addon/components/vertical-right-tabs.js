@@ -11,13 +11,13 @@ export default Component.extend({
         this._super(...arguments);
         this.sendAction('getRandB', this);
     },
-    manpowerPerc: computed('data.budgets', 'data.budgets.@each.used', function() {
-        let manpowerPromise = this.get('data.budgets');
+    manpowerPerc: computed('data', 'data.@each.used', function() {
+        let manpowerPromise = this.get('data');
         let newManpower = [];
         if (manpowerPromise != undefined) {
             manpowerPromise.map((item) => {
                 let percentObject = {};
-                percentObject.name = item.name;
+                percentObject.name = item.repInfo.rep_name;
                 percentObject.id = item.id;
                 percentObject.used = item.used_days;
                 percentObject.total = item.total_days;

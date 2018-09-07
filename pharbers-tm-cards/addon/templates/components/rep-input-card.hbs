@@ -1,7 +1,8 @@
 {{yield}}
+
 {{#each data as |item|}}
 	<div local-class="rep-input">
-		<p local-class="title">{{item.rep_name}}</p>
+		<p local-class="title">{{item.repInfo.rep_name}}</p>
 		<div local-class="text">
 			<p>总时间：{{item.total_days}}天</p>
 			<p>分配时间：{{item.used_days}} 天</p>
@@ -32,7 +33,7 @@
 			</div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div local-class="person-radio">
-					{{person-radio data=item}}
+					{{person-radio data=item.repInfo}}
 				</div>
             </div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
