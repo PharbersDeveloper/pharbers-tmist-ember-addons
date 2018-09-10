@@ -13,8 +13,8 @@ export default Component.extend({
         // this.sendAction('queryDecision', this);
     },
     actions: {
-        getManagerMedicNotices(component) {
-            this.sendAction('getManagerMedicNotices', component);
+        getMandNs(component) {
+            this.sendAction('getMandNs', component);
         },
         getMedicNotices(component) {
             this.sendAction('getMedicNotices', component);

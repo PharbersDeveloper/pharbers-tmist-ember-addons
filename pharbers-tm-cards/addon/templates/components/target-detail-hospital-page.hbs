@@ -1,10 +1,4 @@
 {{yield}}
-{{!-- <div local-class="bgcolor"></div> --}}
-{{!-- <div local-class="hosp-overview"> --}}
-	{{!-- <img src= {{data.hosp_image}} alt="">
-	<p local-class="name">{{data.hosp_name}}</p>
-	<p local-class="level">{{data.hosp_category}}-{{data.hosp_level}}</p> --}}
-{{!-- </div> --}}
 <div local-class="changepages">
 
 <div local-class="line">
@@ -54,10 +48,11 @@
     </p>
 </div>
 <div local-class="line">
-	<span local-class="outside"><span>近期动态</span></span>
+	<span local-class="outside"><span>医院介绍</span></span>
 </div>
 <ul local-class="moments">
-    {{#each data.status as |sta|}}
+	<p>{{data.intro}}</p>
+    {{!-- {{#each data.status as |sta|}}
         <li local-class="moment">
             <p local-class="rep">
                 <span local-class="point"></span><span>{{sta.cycle}}</span> <span>{{sta.name}}</span>
@@ -66,6 +61,6 @@
                 {{sta.content}}
             </p>
         </li>
-    {{/each}}
+    {{/each}} --}}
 </ul>
 </div>
