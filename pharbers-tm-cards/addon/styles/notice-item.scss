@@ -1,0 +1,99 @@
+.container {
+	position: relative;
+	margin-bottom: 15px;
+	width: 220px;
+	font-size: 0;
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: 4px;
+	background-color: #FBFBFB;
+
+	.c-inside {
+		display: inline-block;
+		vertical-align: top;
+		width: 220px;
+		height: auto;
+		font-size: 14px;
+
+		.title {
+			margin: 0;
+			line-height: 30px;
+			font-size: 14px;
+			color: #474747;
+			font-weight: bold;
+			font-style: italic;
+			letter-spacing: 3.5px;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+			height: 30px;
+			// width: 220px;
+			padding: 0 -10px;
+			// margin-left: -15px;
+			padding-left: 15px;
+		}
+
+		.feature {
+			line-height: 20px;
+			font-size: 14px;
+			color: #485465;
+			letter-spacing: 1.5px;
+
+			.point {
+				margin: 0;
+				padding: 10px 0;
+				overflow: hidden;
+				border: 0;
+				background: transparent;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 3;
+				overflow: hidden;
+				white-space: inherit;
+
+				.card-out {
+					width: 100%;
+					overflow: hidden;
+
+					p {
+						padding: 0 10px;
+						line-height: 20px;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.popover-medic {
+	width: 380px;
+	top: 30px;
+	max-width: 380px !important;
+
+	.c-inside {
+		display: inline-block;
+		vertical-align: top;
+
+		&.right {
+			height: auto;
+			padding: 10px 0;
+			font-size: 14px;
+
+			.title {
+				line-height: 20px;
+				font-size: 16px;
+				color: #474747;
+				letter-spacing: 3.5px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+				height: 30px;
+				width: 100%;
+			}
+
+			.subtitle {
+				margin-bottom: 8px;
+				line-height: 20px;
+				font-size: 14px;
+				color: #4A90E2;
+				letter-spacing: 3.5px;
+			}
+		}
+	}
+}

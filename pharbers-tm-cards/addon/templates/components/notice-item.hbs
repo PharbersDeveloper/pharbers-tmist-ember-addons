@@ -1,0 +1,22 @@
+{{#each data as |target|}}
+<div local-class="drug-item container">
+  <div local-class="c-inside right">
+	  <p local-class="title">{{target.title}}</p>
+	  <div local-class="feature">
+		  {{#bs-button tagName='div' local-class="point"}}
+            <div local-class="card-out">
+				<p>{{target.news}}</p>
+            </div>
+
+			  {{#bs-popover triggerEvents="hover" title=target.title local-class="popover-medic"}}
+			  <div local-class="c-inside right">
+				  <p local-class="subtitle">{{target.news}}</p>
+			  </div>
+			  {{/bs-popover}}
+		  {{/bs-button}}
+	  </div>
+  </div>
+</div>
+{{else}}
+    <p>暂无数据</p>
+{{/each}}

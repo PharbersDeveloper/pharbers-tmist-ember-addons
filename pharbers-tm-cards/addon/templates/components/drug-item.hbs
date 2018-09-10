@@ -10,7 +10,7 @@
                         <span>治疗领域：</span>
                     </div>
                     <div local-class="card-content">
-                        {{#each (string-to-array target.therapeutic_field ',') as |area|}}
+                        {{#each (string-to-array target.therapeutic_field ',' 3) as |area|}}
                             <span local-class="heal-span" >{{area}}</span>
                         {{/each}}
                     </div>
@@ -21,7 +21,7 @@
                         <span>目标科室：</span>
                     </div>
                     <div local-class="card-content">
-                        {{#each (string-to-array target.target_department ',') as |depart|}}
+                        {{#each (string-to-array target.target_department ',' 3) as |depart|}}
                             <p local-class="depart">{{depart}}</p>
                         {{/each}}
                     </div>
@@ -34,13 +34,13 @@
 				  <p local-class="subtitle">{{target.prod_category}}</p>
                   <p local-class="heal">
 					  <span>治疗领域：</span>
-					  {{#each (string-to-array target.therapeutic_field ',') as |area|}}
+					  {{#each (string-to-array target.therapeutic_field ',' 3) as |area|}}
 						  <span local-class="heal">{{area}}</span>
 					  {{/each}}
 				  </p>
 				  <p local-class="department">
 					  <span>目标科室：</span>
-					  {{#each (string-to-array target.target_department ',') as |depart|}}
+					  {{#each (string-to-array target.target_department ',' 3) as |depart|}}
 						  <span local-class="depart">{{depart}}</span>
 					  {{/each}}
 				  </p>

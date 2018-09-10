@@ -13,7 +13,7 @@
                         </p>
                         <p local-class="department">
                             <span>重点科室：</span>
-                            {{#each (string-to-array hosp.hospital.department ';') as |value|}}
+                            {{#each (string-to-array hosp.hospital.focus_department ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
@@ -31,7 +31,7 @@
                     <div local-class="medicine medicine-component">
                         {{#bs-carousel local-class="changepage" autoPlay=true index=integerIndex showControls=true showIndicators=false wrap=true interval=1000000 ltr=true pauseOnMouseEnter=true as |car|}}
                             {{#car.slide}}
-                                {{target-detail-hospital-page data=hosp}}
+                                {{target-detail-hospital-page data=hosp.hospital}}
                             {{/car.slide}}
                             {{#car.slide}}
                                 <div local-class="medicine-area">
@@ -45,13 +45,13 @@
                                                 {{#if (eq ov.key '增长潜力')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                    {{else if (eq ov.key '上期增长')}}
+                                                {{else if (eq ov.key '上期增长')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                    {{else if (eq ov.key '份额')}}
+                                                {{else if (eq ov.key '份额')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                    {{else if (eq ov.key '上期贡献率')}}
+                                                {{else if (eq ov.key '上期贡献率')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
                                                 {{else}}
@@ -73,7 +73,37 @@
 
                                 <div local-class="input-area">
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" local-class="area-left">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        {{#each initHospInput as |ho|}}
+                                            {{#if (eq ho.hosp_id hosp.hospital.id)}}
+                                                {{#each ho.medicines as |me|}}
+                                                    {{#if (eq me.medic_id medic.id)}}
+                                                        {{#each me.target_budget as |tb|}}
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                <div local-class="part-input part-input-left">
+                                                                    <div local-class="input-line">
+                                                                        <p local-class="input-title">{{tb.title}}</p>
+                                                                        <div local-class="input-con">
+                                                                            <div class="input-group">
+                                                                                {{input type="text" class="form-control" aria-describedby="basic-addon2" value=tb.value}}
+                                                                                <span class="input-group-addon" id="basic-addon2">元</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div local-class="input-result">
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon" id="basic-addon2">{{tb.subtitle}}</span>
+                                                                                {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=tb.change}}
+                                                                                <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {{/each}}
+                                                    {{/if}}
+                                                {{/each}}
+                                            {{/if}}
+                                        {{/each}}
+                                        {{!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <div local-class="part-input part-input-left">
                                                 <div local-class="input-line">
                                                     <p local-class="input-title">指标设定</p>
@@ -112,7 +142,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" local-class="input-area-right">
                                         <div local-class="area-right">
@@ -121,12 +151,9 @@
                                                     <p local-class="input-title">人员分配</p>
                                                 </div>
                                             </div>
-                                            {{!-- {{#each hosp.representatives as |rep index|}}
-                                                {{log index}}
-                                            {{/each}} --}}
                                             {{#if hosp.representative.rep_name}}
                                                 <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
-                                                    <img src= {{data.signrep.rep_image}} alt="头像" class="img-thumbnail" local-class="head-img">
+                                                    <img src= {{hosp.representative.rep_image}} alt="头像" class="img-thumbnail" local-class="head-img">
 
                                                     <div class="btn-group">
                                                         <select local-class="select-group">
@@ -179,7 +206,7 @@
                 {{/each}}
             {{/aitem.body}}
         {{/acc.item}}
-    {{else}}
-        <h3>暂无数据</h3>
+        {{else}}
+            <h3>暂无数据</h3>
     {{/each}}
 {{/bs-accordion}}
