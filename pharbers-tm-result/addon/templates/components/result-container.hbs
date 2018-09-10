@@ -1,8 +1,21 @@
-{{yield}}
+{{!-- {{yield}} --}}
 <div local-class="reports" class="container">
 	<div local-class="total-info" class="row">
-		{{#mapping-components result.component_data as |componentName component|}}
+		{{!-- {{#mapping-components result.component_data as |componentName component|}}
 			{{component.component onclick=(action "onclick")}}
-		{{/mapping-components}}
+		{{/mapping-components}} --}}
+		{{#each data as |item|}}
+			{{#mapping-components item as |componentName component|}}
+				{{#if (eq componentName.componentName 'which-result')}}
+					{{component.component getDropdawnData=(action 'getDropdawnData') onclick=(action 'onclick')}}
+				{{/if}}
+				{{#if (eq componentName.componentName 'data-show-card')}}
+					{{component.component getShowCard=(action 'getShowCard')}}
+				{{/if}}
+				{{#if (eq componentName.componentName 'result-table')}}
+					{{component.component getResultTable=(action 'getResultTable')}}
+				{{/if}}
+			{{/mapping-components}}
+		{{/each}}
 	</div>
 </div>

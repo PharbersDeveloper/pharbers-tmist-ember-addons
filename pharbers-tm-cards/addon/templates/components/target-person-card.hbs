@@ -3,7 +3,6 @@
 		<p local-class="title">经理</p>
 		<p local-class="intro">
 			{{#bs-button tagName='p' local-class="point" }}
-				{{!-- {{target.intro}} --}}
 				<div local-class="card-info">
 					<div local-class="card-list">
 						总&nbsp;时&nbsp;间&nbsp;：<span local-class="total-time">120天</span>
@@ -19,22 +18,21 @@
 {{#each data as |target|}}
 	<div local-class="person-card container">
 		<div local-class="p-inside right">
-			<p local-class="title">{{target.rep_name}}</p>
+			<p local-class="title">{{target.repInfo.rep_name}}</p>
 			<p local-class="intro">
 				{{#bs-button tagName='p' local-class="point" }}
-					{{!-- {{target.intro}} --}}
 					<div local-class="card-info">
 						<div local-class="card-list">
-							总&nbsp;时&nbsp;间&nbsp;：<span local-class="total-time">120天</span>
+							总&nbsp;时&nbsp;间&nbsp;：<span local-class="total-time">{{target.total_days}}天</span>
 						</div>
 						<div local-class="card-list">
-							分配时间：<span local-class="apart-time">80天</span>
+							分配时间：<span local-class="apart-time">{{target.used_days}}天</span>
 						</div>
 					</div>
 
-					{{#bs-popover triggerEvents="hover" title=target.rep_name local-class="popover-radio" }}
+					{{#bs-popover triggerEvents="hover" title=target.repInfo.rep_name local-class="popover-radio" }}
 						<div local-class="radio">
-							{{person-radio data=target}}
+							{{person-radio data=target.repInfo}}
 						</div>
 					{{/bs-popover}}
 				{{/bs-button}}

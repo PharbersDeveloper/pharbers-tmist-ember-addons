@@ -1,25 +1,25 @@
 {{#bs-accordion as |acc|}}
     {{#each data as |hosp|}}
-        {{#acc.item local-class="hosp-item" value=hosp.id as |aitem|}}
+        {{#acc.item local-class="hosp-item" value=hosp.hospital.id as |aitem|}}
             {{#aitem.title local-class="info" class="container" }}
-                <div class="row">
+                <div class="row" {{action 'changeHospInput' hosp.hospital.id}}>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" local-class="avatar">
-                        <img src= {{hosp.overview.hosp_image}} alt="">
+                        <img src= {{hosp.hospital.hosp_image}} alt="">
                     </div>
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" local-class="overview">
                         <p local-class="title">
-                            <span>{{hosp.overview.hosp_name}}</span>
-                            <span>{{hosp.overview.hosp_category}}/{{hosp.overview.hosp_level}}</span>
+                            <span>{{hosp.hospital.hosp_name}}</span>
+                            <span>{{hosp.hospital.hosp_category}}/{{hosp.hospital.hosp_level}}</span>
                         </p>
                         <p local-class="department">
                             <span>重点科室：</span>
-                            {{#each (string-to-array hosp.overview.department ';') as |value|}}
+                            {{#each (string-to-array hosp.hospital.department ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
                         <p local-class="outpatient">
                             <span>特色门诊：</span>
-                            {{#each (string-to-array hosp.overview.featured_outpatient ';') as |value|}}
+                            {{#each (string-to-array hosp.hospital.featured_outpatient ';') as |value|}}
                                 <span>{{value}}</span>
                             {{/each}}
                         </p>
@@ -27,7 +27,7 @@
                 </div>
             {{/aitem.title}}
             {{#aitem.body local-class="medicine-info" }}
-                {{#each hosp.medicines as |medic|}}
+                {{#each hosp.hospmedicinfos as |medic|}}
                     <div local-class="medicine medicine-component">
                         {{#bs-carousel local-class="changepage" autoPlay=true index=integerIndex showControls=true showIndicators=false wrap=true interval=1000000 ltr=true pauseOnMouseEnter=true as |car|}}
                             {{#car.slide}}
@@ -45,31 +45,28 @@
                                                 {{#if (eq ov.key '增长潜力')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期增长')}}
+                                                    {{else if (eq ov.key '上期增长')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '份额')}}
+                                                    {{else if (eq ov.key '份额')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期贡献率')}}
+                                                    {{else if (eq ov.key '上期贡献率')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
                                                 {{else}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-format ov.value}}</p>
                                                 {{/if}}
-
                                             </div>
                                         {{/each}}
                                     </div>
                                     <div local-class="compare">
                                         <div class="col-md-12 col-lg-6">
-                                            <h5>药品详情</h5>
-                                            {{detail-table data=medic.detail}}
+                                            <h5>药品详情</h5> {{detail-table data=medic.detail}}
                                         </div>
                                         <div class="col-md-12 col-lg-6">
-                                            <h5>药品历史</h5>
-                                            {{detail-table  data=medic.history}}
+                                            <h5>药品历史</h5> {{detail-table  data=medic.history}}
                                         </div>
                                     </div>
                                 </div>
@@ -124,27 +121,39 @@
                                                     <p local-class="input-title">人员分配</p>
                                                 </div>
                                             </div>
-                                            <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
-                                                <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
+                                            {{!-- {{#each hosp.representatives as |rep index|}}
+                                                {{log index}}
+                                            {{/each}} --}}
+                                            {{#if hosp.representative.rep_name}}
+                                                <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                                    <img src= {{data.signrep.rep_image}} alt="头像" class="img-thumbnail" local-class="head-img">
 
-                                                <div class="btn-group">
-                                                    <select local-class="select-group">
-                                                      <option disabled selected>请选择人员</option>
-                                                      <option>Saab</option>
-                                                      <option>Mercedes</option>
-                                                      <option>Audi</option>
+                                                    <div class="btn-group">
+                                                        <select local-class="select-group">
+                                                      <option selected>{{hosp.representative.rep_name}}</option>
+                                                      {{#each totalRep as |rep|}}
+                                                        {{#if (not-eq hosp.signrep.id rep.id)}}
+                                                          <option>{{rep.rep_name}}</option>
+                                                        {{/if}}
+                                                      {{/each}}
                                                     </select>
-                                                    {{!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        请选择人员 <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">Action</a></li>
-                                                        <li><a href="#">Another action</a></li>
-                                                        <li><a href="#">Something else here</a></li>
-                                                    </ul> --}}
+                                                    </div>
                                                 </div>
+                                            {{else}}
+                                                <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                                    <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
 
-                                            </div>
+                                                    <div class="btn-group">
+                                                        <select local-class="select-group">
+                                                      <option disabled selected>请选择人员</option>
+                                                      {{#each totalRep as |rep|}}
+                                                          <option>{{rep.rep_name}}</option>
+                                                      {{/each}}
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            {{/if}}
+
                                             <div local-class="part-input" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                 <div local-class="input-line input-group">
                                                     <div class="input-group">
@@ -170,5 +179,7 @@
                 {{/each}}
             {{/aitem.body}}
         {{/acc.item}}
+    {{else}}
+        <h3>暂无数据</h3>
     {{/each}}
 {{/bs-accordion}}

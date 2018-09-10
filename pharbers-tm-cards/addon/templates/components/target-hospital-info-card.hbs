@@ -5,16 +5,16 @@
 			</div>
 			<div local-class="circle-right">
 			</div>
-			<img local-class="avatar" src= {{item.overview.hosp_image}} alt="">
+			<img local-class="avatar" src= {{item.hosp_image}} alt="">
 			<div local-class="name">
-				<p>{{item.overview.hosp_name}}</p>
-				<p>{{item.overview.hosp_category}}/{{item.overview.hosp_level}}</p>
+				<p>{{item.hosp_name}}</p>
+				<p>{{item.hosp_category}}/{{item.hosp_level}}</p>
 			</div>
 		</div>
 		<div local-class="tag">
 			<p local-class="tag-title">重点科室：</p>
 			<div local-class="tag-card blue">
-				{{#each (string-to-array item.overview.focus_department ';') as |value|}}
+				{{#each (string-to-array item.focus_department ';') as |value|}}
 					<p>{{value}}</p>
 				{{/each}}
 			</div>
@@ -23,11 +23,13 @@
 			<p local-class="tag-title">特色门诊：</p>
 			<div local-class="tag-card">
 				<div local-class="tag-card green">
-					{{#each (string-to-array item.overview.featured_outpatient ';') as |value|}}
+					{{#each (string-to-array item.featured_outpatient ';') as |value|}}
 						<p>{{value}}</p>
 					{{/each}}
 				</div>
 			</div>
 		</div>
 	</div>
+{{else}}
+<h4>暂无数据</h4>
 {{/each}}

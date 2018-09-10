@@ -4,5 +4,9 @@ import styles from '../styles/target-hospital-info-card';
 
 export default Component.extend({
 	layout,
-	styles
+	styles,
+	init() {
+		this._super(...arguments);
+		this.sendAction('getHospCardInfo', this);
+	},
 });

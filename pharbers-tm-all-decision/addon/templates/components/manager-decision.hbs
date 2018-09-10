@@ -1,34 +1,18 @@
 <div local-class="column left">
-    {{!-- {{#mapping-components data.component_data as |componentName component|}}
-        {{#if (eq componentName.componentName "vertical-tabs")}}
-            {{component.component }}
-        {{/if}}
-    {{/mapping-components}} --}}
-    {{vertical-tabs data=data.vertical}}
+
+    {{vertical-tabs getMandN=(action 'getMedicNotices')}}
 </div>
 <div local-class="column center">
     <div local-class="inside">
-        {{!-- {{#mapping-components data.component_data as |componentName component|}}
-            {{#if (eq componentName.componentName "target-hospital-info-card")}}
-                {{component.component }}
-            {{/if}}
-        {{/mapping-components}} --}}
-        {{target-hospital-info-card data=data.hospital}}
+        {{target-hospital-info-card getHospCardInfo=(action 'getHospCardInfo')}}
     </div>
 </div>
 <div local-class="column right">
     <div local-class="inside">
-        {{!-- <div local-class="manager-rep-input"> --}}
             <h2 local-class="title">时间分配</h2>
             {{manager-input-card }}
-            {{!-- {{#mapping-components data.component_data as |componentName component|}}
-                {{#if (eq componentName.componentName "rep-input-card")}}
-                    {{component.component }}
-                {{/if}}
-            {{/mapping-components}} --}}
-            {{rep-input-card data=data.input-card}}
-        {{!-- </div> --}}
 
+            {{rep-input-card getInputCard=(action 'getInputCard')}}
     </div>
 </div>
 {{!-- {{yield}} --}}

@@ -8,8 +8,17 @@ export default Component.extend({
     actions: {
         onclick(type, id) {
             this.sendAction('onclick', type, id);
+        },
+        getDropdawnData(component) {
+            this.sendAction('getDropdawnData', component);
+        },
+        getShowCard(component) {
+            this.sendAction('getShowCard', component);
+        },
+        getResultTable(component) {
+            this.sendAction('getResultTable', component);
         }
     }
 }).reopenClass({
-    positionalParams: ['result']
+    positionalParams: ['data']
 })

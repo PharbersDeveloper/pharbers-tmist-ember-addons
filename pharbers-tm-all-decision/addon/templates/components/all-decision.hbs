@@ -15,19 +15,15 @@
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
 			{{#if (eq componentName.componentName 'manager-decision')}}
-				{{component.component data=item}}
+				{{component.component getMedicNotices=(action 'getManagerMedicNotices') getHospCardInfo=(action 'getHospCardInfo') getInputCard=(action 'getInputCard')}}
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}
-
-
-
 {{else}}
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
-			{{log componentName}}
 			{{#if (eq componentName.componentName 'hospital-decision')}}
-				{{component.component data=item}}
+				{{component.component getMedicNotices=(action 'getMedicNotices') getHospInfo=(action 'getHospInfo') getRepBudget=(action 'getRepBudget')}}
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}
@@ -36,6 +32,6 @@
 <div local-class="footer navbar">
 	<div class="alert alert-success" role="alert" local-class="footer-tab">
 		<p>This is a success alert—check it out!</p>
-		<button type="button" name="button" local-class="footer-button">执行计算</button>
+		<button type="button" name="button" local-class="footer-button" {{action 'runCalc'}}>执行计算</button>
 	</div>
 </div>

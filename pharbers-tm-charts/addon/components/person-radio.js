@@ -8,12 +8,16 @@ export default Component.extend({
     styles,
     localClassNames: 'person-radio',
     optionResult: computed('data', function() {
-        let data = this.get('data');
+        // let data = this.get('data');
+        let sales_skills_val = this.get('data.sales_skills_val');
+        let prod_knowledge_val = this.get('data.prod_knowledge_val');
+        let motivation_val = this.get('data.motivation_val');
+        let overall_val = this.get('data.overall_val');
         let ability = [];
-        ability.push(data.sales_skills_val || 0);
-        ability.push(data.prod_knowledge_val || 0);
-        ability.push(data.motivation_val || 0);
-        ability.push(data.overall_val || 0);
+        ability.push(sales_skills_val || 0);
+        ability.push(prod_knowledge_val || 0);
+        ability.push(motivation_val || 0);
+        ability.push(overall_val || 0);
 
         return {
             title: {

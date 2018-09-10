@@ -1,19 +1,29 @@
 {{!-- <div local-class="select"> --}}
 {{#bs-dropdown local-class="title" tagName="span" as |dd|}}
-    {{#dd.toggle}}{{data.current}}<span class="caret"></span>{{/dd.toggle}}
-    {{#dd.menu local-class="ull" as |menu|}}
-        {{#each data.selected as |selected|}}
-    
-            {{#if (not-eq data.current selected.text)}}
-            {{#menu.item}}
-                <span {{action 'onclick' selected.type selected.columns_id}}>{{selected.text}}</span>
-            {{/menu.item}}
-            {{menu.divider}}
+    {{#dd.toggle}}
+        {{#each data as |selected|}}
+            {{#if (eq currentRoute selected.whichpage)}}
+                {{selected.text}}
             {{/if}}
-            {{!-- {{#menu.item}}
-                <span {{action 'onclick' selected.type selected.columns_id}}>{{selected.text}}</span>
-            {{/menu.item}}
-            {{menu.divider}} --}}
+        {{/each}}
+        <span class="caret"></span>
+    {{/dd.toggle}}
+    {{#dd.menu local-class="ull" as |menu|}}
+        {{!-- {{#each data.selected as |selected|}}
+            {{#if (not-eq data.current selected.text)}}
+                {{#menu.item}}
+                    <span {{action 'onclick' selected.type selected.columns_id}}>{{selected.text}}</span>
+                {{/menu.item}}
+                {{menu.divider}}
+            {{/if}}
+        {{/each}} --}}
+        {{#each data as |selected|}}
+            {{#if (not-eq currentRoute selected.whichpage)}}
+                {{#menu.item}}
+                    <span {{action 'onclick' selected.whichpage selected.id}}>{{selected.text}}</span>
+                {{/menu.item}}
+                {{menu.divider}}
+            {{/if}}
         {{/each}}
     {{/dd.menu}}
 {{/bs-dropdown}}
