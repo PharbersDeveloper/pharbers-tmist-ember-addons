@@ -141,48 +141,12 @@
 		}
 	}
 
-	.moments {
-		list-style: none;
-
-		.moment {
-			.rep {
-				height: 20px;
-				line-height: 20px;
-
-				.point {
-					display: inline-block;
-					width: 8px;
-					height: 8px;
-					border-radius: 50%;
-					background: #70C4B1;
-				}
-
-				span:nth-child(2) {
-					font-size: 14px;
-					color: #585858;
-					letter-spacing: 2.5px;
-				}
-
-				span:nth-child(2) {
-					margin-left: 20px;
-					font-size: 14px;
-					color: #585858;
-					letter-spacing: 2.5px;
-				}
-			}
-
-			.content {
-				margin-left: 80px;
-				margin-right: 24px;
-				line-height: 25px;
-				font-size: 14px;
-				color: #767A80;
-				letter-spacing: 2.5px;
-				text-align: justify;
-			}
-		}
+	.desc {
+		padding: 0 16px;
+		font-size: 14px;
 	}
 }
+
 .changepages {
 	height: 541px;
 }

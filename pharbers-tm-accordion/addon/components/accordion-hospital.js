@@ -26,8 +26,8 @@ export default Component.extend({
                     hospitalinputmedic.rep.rep_name = "";
                     hospitalinputmedic.rep.rep_avatar = "";
                     hospitalinputmedic.rep.inputarea = [
-                        { key: "asignday", title: '', value: "" },
-                        // {key: }
+                        { key: "asignday", title: '', value: '' },
+                        { key: "managerwith", title: '', value: '' }
                     ];
 
                     hospitalinputmedic.rep.asignday = "";
