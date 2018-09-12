@@ -154,6 +154,23 @@
                     font-size: 18px;
                     letter-spacing: 2.5px;
                     color: #52545D;
+
+                    .medic-title {
+                        .title {
+                            line-height: 30px;
+                            font-size: 14px;
+                            color: #474747;
+                            font-weight: bold;
+                            font-style: italic;
+                            letter-spacing: 3.5px;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+                            height: 30px;
+                            width: 220px;
+                            padding: 0 -10px;
+                            margin-left: -15px;
+                            padding-left: 15px;
+                        }
+                    }
                 }
 
                 .properties {

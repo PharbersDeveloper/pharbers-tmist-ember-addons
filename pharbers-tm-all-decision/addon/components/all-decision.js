@@ -31,6 +31,15 @@ export default Component.extend({
         getInputCard(component) {
             this.sendAction('getInputCard', component);
         },
+        hospInput(id) {
+            this.sendAction('hospInput', id);
+        },
+        changeHospInput(hospid) {
+            this.sendAction('changeHospInput', hospid);
+        },
+        chooseRep(repid) {
+            this.sendAction('chooseRep', repid);
+        },
         runCalc() {
             this.sendAction('runCalc');
         }

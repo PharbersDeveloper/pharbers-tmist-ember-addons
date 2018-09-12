@@ -23,7 +23,13 @@
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
 			{{#if (eq componentName.componentName 'hospital-decision')}}
-				{{component.component getMedicNotices=(action 'getMedicNotices') getHospInfo=(action 'getHospInfo') getRepBudget=(action 'getRepBudget')}}
+				{{component.component
+					getMedicNotices=(action 'getMedicNotices')
+					getHospInfo=(action 'getHospInfo')
+					getRepBudget=(action 'getRepBudget')
+					hospInput=(action 'hospInput')
+					chooseRep=(action 'chooseRep')
+				changeHospInput=(action 'changeHospInput')}}
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}

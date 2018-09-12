@@ -36,7 +36,8 @@
                             {{#car.slide}}
                                 <div local-class="medicine-area">
                                     {{#bs-button-group local-class="title" value=buttonGroupValue type="checkbox" onChange=(action (mut buttonGroupValue)) as |bg|}}
-                                        {{#bg.button value=1}}{{medic.prod_category}}{{/bg.button}}
+                                        {{!-- {{#bg.button value=1}}{{medic.prod_category}}{{/bg.button}} --}}
+                                        <p local-class="medic-title">{{medic.prod_name}}-{{medic.prod_category}}</p>
                                     {{/bs-button-group}}
 
                                     <div local-class="properties">
@@ -45,13 +46,13 @@
                                                 {{#if (eq ov.key '增长潜力')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期增长')}}
+                                                    {{else if (eq ov.key '上期增长')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '份额')}}
+                                                    {{else if (eq ov.key '份额')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
-                                                {{else if (eq ov.key '上期贡献率')}}
+                                                    {{else if (eq ov.key '上期贡献率')}}
                                                     <p>{{ov.key}}</p>
                                                     <p>{{number-to-percent ov.value}}%</p>
                                                 {{else}}
@@ -63,7 +64,7 @@
                                     </div>
                                     <div local-class="compare">
                                         <div class="col-md-12 col-lg-6">
-                                            <h5>药品详情</h5> {{detail-table data=medic.detail}}
+                                            <h5>竞品详情</h5> {{detail-table data=medic.detail}}
                                         </div>
                                         <div class="col-md-12 col-lg-6">
                                             <h5>药品历史</h5> {{detail-table  data=medic.history}}
@@ -73,50 +74,22 @@
 
                                 <div local-class="input-area">
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" local-class="area-left">
-                                        {{#each initHospInput as |ho|}}
-                                            {{#if (eq ho.hosp_id hosp.hospital.id)}}
-                                                {{#each ho.medicines as |me|}}
-                                                    {{#if (eq me.medic_id medic.id)}}
-                                                        {{#each me.target_budget as |tb|}}
-                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                                <div local-class="part-input part-input-left">
-                                                                    <div local-class="input-line">
-                                                                        <p local-class="input-title">{{tb.title}}</p>
-                                                                        <div local-class="input-con">
-                                                                            <div class="input-group">
-                                                                                {{input type="text" class="form-control" aria-describedby="basic-addon2" value=tb.value}}
-                                                                                <span class="input-group-addon" id="basic-addon2">元</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div local-class="input-result">
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon" id="basic-addon2">{{tb.subtitle}}</span>
-                                                                                {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=tb.change}}
-                                                                                <span class="input-group-addon" id="basic-addon2">%</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        {{/each}}
-                                                    {{/if}}
-                                                {{/each}}
-                                            {{/if}}
-                                        {{/each}}
-                                        {{!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <div local-class="part-input part-input-left">
                                                 <div local-class="input-line">
                                                     <p local-class="input-title">指标设定</p>
                                                     <div local-class="input-con">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                            {{input type="text" key-up=(action 'hospInput' hosp.hospital.id) class="form-control" aria-describedby="basic-addon2" value=hosp.target}}
+
                                                             <span class="input-group-addon" id="basic-addon2">元</span>
                                                         </div>
                                                     </div>
                                                     <div local-class="input-result">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon" id="basic-addon2">指标增长</span>
-                                                            <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                                                            <span class="input-group-addon" id="basic-addon2">指标增长</span>{{!-- <input type="text" disabled class="form-control" aria-describedby="basic-addon2"> --}}
+                                                            {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=hosp.target_change}}
+
                                                             <span class="input-group-addon" id="basic-addon2">%</span>
                                                         </div>
                                                     </div>
@@ -129,20 +102,20 @@
                                                     <p local-class="input-title">预算分配</p>
                                                     <div local-class="input-con">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                            {{input type="text" key-up=(action 'hospInput' hosp.hospital.id) class="form-control" aria-describedby="basic-addon2" value=hosp.budget}}
                                                             <span class="input-group-addon" id="basic-addon2">元</span>
                                                         </div>
                                                     </div>
                                                     <div local-class="input-result">
                                                         <div class="input-group">
-                                                            <span class="input-group-addon" id="basic-addon2">预算所占</span>
-                                                            <input type="text" disabled class="form-control" aria-describedby="basic-addon2">
+                                                            <span class="input-group-addon" id="basic-addon2">预算所占</span>{{!-- <input type="text" disabled class="form-control" aria-describedby="basic-addon2"> --}}
+                                                            {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=hosp.budget_change}}
                                                             <span class="input-group-addon" id="basic-addon2">%</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" local-class="input-area-right">
                                         <div local-class="area-right">
@@ -154,16 +127,15 @@
                                             {{#if hosp.representative.rep_name}}
                                                 <div local-class="sign-person" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
                                                     <img src= {{hosp.representative.rep_image}} alt="头像" class="img-thumbnail" local-class="head-img">
-
                                                     <div class="btn-group">
-                                                        <select local-class="select-group">
-                                                      <option selected>{{hosp.representative.rep_name}}</option>
-                                                      {{#each totalRep as |rep|}}
-                                                        {{#if (not-eq hosp.signrep.id rep.id)}}
-                                                          <option>{{rep.rep_name}}</option>
-                                                        {{/if}}
-                                                      {{/each}}
-                                                    </select>
+                                                        <select local-class="select-group" onchange= {{action 'chooseRep' value="target.value"}}>
+                                                            <option selected value={{hosp.representative.id}}>{{hosp.representative.rep_name}}</option>
+                                                                {{#each totalRep as |rep|}}
+                                                                    {{#if (not-eq hosp.representative.id rep.repInfo.id)}}
+                                                                        <option value={{rep.repInfo.id}}>{{rep.repInfo.rep_name}}</option>
+                                                                    {{/if}}
+                                                                {{/each}}
+                                                        </select>
                                                     </div>
                                                 </div>
                                             {{else}}
@@ -171,28 +143,45 @@
                                                     <img src="https://pharbers-images.oss-cn-beijing.aliyuncs.com/pharbers-tm-accordion-ember-addon/avatar.png" alt="头像" class="img-thumbnail" local-class="head-img">
 
                                                     <div class="btn-group">
-                                                        <select local-class="select-group">
-                                                      <option disabled selected>请选择人员</option>
-                                                      {{#each totalRep as |rep|}}
-                                                          <option>{{rep.rep_name}}</option>
-                                                      {{/each}}
+                                                        <select local-class="select-group" onchange= {{action 'chooseRep' value="target.value"}}>
+                                                          <option disabled selected>请选择人员</option>
+                                                          {{#each totalRep as |rep|}}
+                                                              <option value={{rep.repInfo.id}}>{{rep.repInfo.rep_name}}</option>
+                                                          {{/each}}
                                                     </select>
                                                     </div>
                                                 </div>
                                             {{/if}}
 
                                             <div local-class="part-input" class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                                {{!-- {{#each initHospInput as |ho|}}
+                                                    {{#if (eq ho.hosp_id hosp.hospital.id)}}
+                                                        {{#each ho.medicines as |me|}}
+                                                            {{#if (eq me.medic_id medic.id)}}
+                                                                {{#each me.rep.inputarea as |tb|}}
+                                                                    <div local-class="input-line input-group">
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon" id="basic-addon2">{{tb.title}}</span>
+                                                                            {{input type="text" class="form-control" aria-describedby="basic-addon2" value=tb.value}}
+                                                                            <span class="input-group-addon" id="basic-addon2">天</span>
+                                                                        </div>
+                                                                    </div>
+                                                                {{/each}}
+                                                            {{/if}}
+                                                        {{/each}}
+                                                    {{/if}}
+                                                {{/each}} --}}
                                                 <div local-class="input-line input-group">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon" id="basic-addon2">&nbsp;&nbsp;&nbsp;&nbsp;分配&nbsp;&nbsp;&nbsp;</span>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                        <span class="input-group-addon" id="basic-addon2">&nbsp;&nbsp;&nbsp;&nbsp;分配&nbsp;&nbsp;&nbsp;</span>{{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
+                                                        {{input type="text" key-up=(action 'hospInput' hosp.hospital.id) class="form-control" aria-describedby="basic-addon2" value=hosp.asignday}}
                                                         <span class="input-group-addon" id="basic-addon2">天</span>
                                                     </div>
                                                 </div>
                                                 <div local-class="input-line input-group">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon" id="basic-addon2">经理陪同</span>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon2">
+                                                        <span class="input-group-addon" id="basic-addon2">经理陪同</span>{{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
+                                                        {{input type="text" key-up=(action 'hospInput' hosp.hospital.id) class="form-control" aria-describedby="basic-addon2" value=hosp.managerwith}}
                                                         <span class="input-group-addon" id="basic-addon2">天</span>
                                                     </div>
                                                 </div>
