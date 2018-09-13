@@ -15,7 +15,13 @@
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
 			{{#if (eq componentName.componentName 'manager-decision')}}
-				{{component.component getMandNs=(action 'getMandNs') getHospCardInfo=(action 'getHospCardInfo') getInputCard=(action 'getInputCard')}}
+				{{component.component
+					getMandNs=(action 'getMandNs')
+					getHospCardInfo=(action 'getHospCardInfo')
+					getInputCard=(action 'getInputCard')
+					repInput=(action 'repInput')
+					getManagerTime=(action 'getManagerTime')
+					}}
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}
@@ -23,7 +29,13 @@
 	{{#each data as |item|}}
 		{{#mapping-components item as |componentName component|}}
 			{{#if (eq componentName.componentName 'hospital-decision')}}
-				{{component.component getMedicNotices=(action 'getMedicNotices') getHospInfo=(action 'getHospInfo') getRepBudget=(action 'getRepBudget')}}
+				{{component.component
+					getMedicNotices=(action 'getMedicNotices')
+					getHospInfo=(action 'getHospInfo')
+					getRepBudget=(action 'getRepBudget')
+					hospInput=(action 'hospInput')
+					chooseRep=(action 'chooseRep')
+				changeHospInput=(action 'changeHospInput')}}
 			{{/if}}
 		{{/mapping-components}}
 	{{/each}}

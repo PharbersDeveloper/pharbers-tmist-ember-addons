@@ -12,21 +12,25 @@
 					<div local-class="input-con">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon2">脱岗产品培训</span>
-							<input type="text" class="form-control" aria-describedby="basic-addon2">
+							{{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
+							{{input type="text"  key-up=(action 'repInput' item.id) class="form-control" aria-describedby="basic-addon2" value=item.product_train}}
+
 							<span class="input-group-addon" id="basic-addon2">天</span>
 						</div>
 					</div>
 					<div local-class="input-con">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon2">1V1能力辅导</span>
-							<input type="text" class="form-control" aria-describedby="basic-addon2">
+							{{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
+							{{input type="text" key-up=(action 'repInput' item.id) class="form-control" aria-describedby="basic-addon2" value=item.sales_train}}
 							<span class="input-group-addon" id="basic-addon2">天</span>
 						</div>
 					</div>
 					<div local-class="input-con">
 						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon2">总时间分配时间</span>
-							<input type="text" class="form-control" disabled aria-describedby="basic-addon2">
+							<span class="input-group-addon" id="basic-addon2">总分配时间</span>
+							{{!-- <input type="text" class="form-control" disabled aria-describedby="basic-addon2"> --}}
+							{{input  type="text" class="form-control" disabled=true aria-describedby="basic-addon2" value=item.total_used_days}}
 							<span class="input-group-addon" id="basic-addon2">天</span>
 						</div>
 					</div>

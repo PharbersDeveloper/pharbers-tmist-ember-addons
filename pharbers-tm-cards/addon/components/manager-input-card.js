@@ -5,5 +5,9 @@ import styles from '../styles/manager-input-card';
 export default Component.extend({
 	layout,
 	styles,
-	tagName: ''
+	tagName: '',
+	init() {
+		this._super(...arguments);
+		this.sendAction('getManagerTime', this);
+	},
 });
