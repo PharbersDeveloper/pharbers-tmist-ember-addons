@@ -31,6 +31,9 @@ export default Component.extend({
         getInputCard(component) {
             this.sendAction('getInputCard', component);
         },
+        getManagerTime(component) {
+            this.sendAction('getManagerTime', component);
+        },
         hospInput(id) {
             this.sendAction('hospInput', id);
         },
@@ -39,6 +42,9 @@ export default Component.extend({
         },
         chooseRep(repid) {
             this.sendAction('chooseRep', repid);
+        },
+        repInput(rid) {
+            this.sendAction('repInput', rid)
         },
         runCalc() {
             this.sendAction('runCalc');

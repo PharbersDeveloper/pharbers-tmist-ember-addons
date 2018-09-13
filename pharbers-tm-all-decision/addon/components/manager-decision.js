@@ -16,6 +16,12 @@ export default Component.extend({
         },
         getInputCard(component) {
             this.sendAction('getInputCard', component);
+        },
+        getManagerTime(component) {
+            this.sendAction('getManagerTime', component);
+        },
+        repInput(rid) {
+            this.sendAction('repInput', rid)
         }
     }
 }).reopenClass({

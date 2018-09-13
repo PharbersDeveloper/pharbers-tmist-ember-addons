@@ -10,9 +10,9 @@
 <div local-class="column right">
     <div local-class="inside">
             <h2 local-class="title">时间分配</h2>
-            {{manager-input-card }}
+            {{manager-input-card getManagerTime=(action 'getManagerTime')}}
 
-            {{rep-input-card getInputCard=(action 'getInputCard')}}
+            {{rep-input-card getInputCard=(action 'getInputCard') repInput=(action 'repInput')}}
     </div>
 </div>
 {{!-- {{yield}} --}}

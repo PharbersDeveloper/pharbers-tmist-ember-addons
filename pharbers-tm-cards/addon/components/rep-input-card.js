@@ -9,4 +9,9 @@ export default Component.extend({
 		this._super(...arguments);
 		this.sendAction('getInputCard', this);
 	},
+	actions: {
+		repInput(rid) {
+			this.sendAction("repInput", rid);
+		}
+	}
 });
