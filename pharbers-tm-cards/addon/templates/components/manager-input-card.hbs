@@ -4,15 +4,15 @@
     <div local-class="manager-list" class="row">
         <div local-class="input-container" class="col-md-8">
             <div local-class="text">
-                <p>总时间：120 天</p>
-                <p>分配时间：100 天</p>
+                <p>总时间：{{mdata.total_day}} 天</p>
+                <p>分配时间：{{mdata.used_day}}天</p>
             </div>
             <div local-class="input-line" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <div local-class="input-con">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">KPI分析</span>
                         {{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=managerTimeAsign.kpi_analysis}}
+                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=mdata.kpi_analysis}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">团建/例会</span>
                         {{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=managerTimeAsign.team_meet}}
+                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=mdata.team_meet}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">行政事务</span>
                         {{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=managerTimeAsign.admin_work}}
+                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=mdata.admin_work}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">1V1能力辅导</span>
                         {{!-- <input type="text" disabled class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=managerTimeAsign.sales_train}}
+                        {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=mdata.sales_train}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">协助拜访</span>
                         {{!-- <input type="text" disabled class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=managerTimeAsign.field_work}}
+                        {{input type="text" disabled=true class="form-control" aria-describedby="basic-addon2" value=mdata.field_work}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
