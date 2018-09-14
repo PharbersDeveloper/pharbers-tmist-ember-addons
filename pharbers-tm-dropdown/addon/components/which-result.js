@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/which-result';
 import styles from '../styles/which-result';
+
 export default Component.extend({
     layout,
     styles,
@@ -10,6 +11,7 @@ export default Component.extend({
         this._super(...arguments);
         this.sendAction('getDropdawnData', this);
     },
+
     actions: {
         onclick(type, id) {
             this.sendAction('onclick', type, id)

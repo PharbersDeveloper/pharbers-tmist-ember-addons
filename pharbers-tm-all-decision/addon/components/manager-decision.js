@@ -20,6 +20,9 @@ export default Component.extend({
         getManagerTime(component) {
             this.sendAction('getManagerTime', component);
         },
+        managerInput(mid) {
+            this.sendAction('managerInput', mid);
+        },
         repInput(rid) {
             this.sendAction('repInput', rid)
         }

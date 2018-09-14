@@ -10,4 +10,9 @@ export default Component.extend({
 		this._super(...arguments);
 		this.sendAction('getManagerTime', this);
 	},
+	actions: {
+		managerInput(mid) {
+			this.sendAction("managerInput", mid);
+		}
+	}
 });

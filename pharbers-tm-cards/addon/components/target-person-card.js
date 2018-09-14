@@ -8,13 +8,13 @@ export default Component.extend({
 	styles,
 	tagName: '',
 	totalUsedDays: 0,
-	managerTotalDay: observer('data', function() {
-		let day = 0;
-		if (this.get('data') != undefined) {
-			this.get('data').map((rep) => {
-				day = rep.total_days;
-			})
-		}
-		this.set('totalDays', day);
-	}),
+	// managerTotalDay: observer('data', function() {
+	// 	let day = 0;
+	// 	if (this.get('data') != undefined) {
+	// 		this.get('data').map((rep) => {
+	// 			day = rep.total_days;
+	// 		})
+	// 	}
+	// 	this.set('totalDays', day);
+	// }),
 });

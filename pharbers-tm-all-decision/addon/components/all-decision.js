@@ -34,6 +34,9 @@ export default Component.extend({
         getManagerTime(component) {
             this.sendAction('getManagerTime', component);
         },
+        managerInput(mid) {
+            this.sendAction('managerInput', mid);
+        },
         hospInput(id) {
             this.sendAction('hospInput', id);
         },
