@@ -4,15 +4,21 @@
 </div>
 <div local-class="column center">
     <div local-class="inside">
-        {{target-hospital-info-card getHospCardInfo=(action 'getHospCardInfo')}}
+        {{#each data as |item|}}
+            {{target-hospital-info-card hospItem=item}}
+        {{else}}
+            <h4>暂无数据</h4>
+        {{/each}}
     </div>
 </div>
 <div local-class="column right">
     <div local-class="inside">
             <h2 local-class="title">时间分配</h2>
-            {{manager-input-card getManagerTime=(action 'getManagerTime') managerInput=(action 'managerInput')}}
+            {{manager-input-card mdata=mdata}}
 
-            {{rep-input-card getInputCard=(action 'getInputCard') repInput=(action 'repInput')}}
+            {{#each repList as |item|}}
+                {{rep-input-card repItem=item uuid=uuid}}
+            {{/each}}
+            
     </div>
 </div>
-{{!-- {{yield}} --}}

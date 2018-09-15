@@ -18,6 +18,9 @@ export default Component.extend({
             getRepBudget(component) {
                 this.sendAction('getRepBudget', component);
             },
+            totalBugdetRatio(component) {
+                this.sendAction('totalBugdetRatio', component)
+            },
             hospInput(id) {
                 this.sendAction('hospInput', id);
             },

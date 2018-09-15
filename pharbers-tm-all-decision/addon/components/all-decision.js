@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/all-decision';
 import styles from '../styles/all-decision';
-import { computed } from '@ember/object';
 
 export default Component.extend({
     layout,
@@ -10,7 +9,6 @@ export default Component.extend({
     whichpag: 'hospital',
     init() {
         this._super(...arguments);
-        // this.sendAction('queryDecision', this);
     },
     actions: {
         getMandNs(component) {
@@ -24,6 +22,9 @@ export default Component.extend({
         },
         getRepBudget(component) {
             this.sendAction('getRepBudget', component);
+        },
+        totalBugdetRatio(component) {
+            this.sendAction('totalBugdetRatio', component);
         },
         getHospCardInfo(component) {
             this.sendAction('getHospCardInfo', component);
