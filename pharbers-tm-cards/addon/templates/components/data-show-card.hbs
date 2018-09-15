@@ -4,11 +4,11 @@
 	{{#each data as |itemData|}}
 		<div local-class="block">
 			<p local-class="head">{{itemData.title}}</p>
-			{{#if (eq itemData.type 'sales')}}
+			{{#if (eq itemData.form 'sales')}}
 				<p local-class="data">{{number-format itemData.value}}</p>
 			{{/if}}
 
-			{{#if (eq itemData.type 'percent')}}
+			{{#if (eq itemData.form 'percent')}}
 				<p local-class="data">
 					{{#if (eq itemData.ext.change 'up')}}
 						<span class="glyphicon glyphicon-triangle-top" local-class="up icon"></span>
@@ -18,10 +18,10 @@
 					{{/if}}
 					<span local-class="value">{{number-to-percent itemData.value}}%</span></p>
 			{{/if}}
-			{{#if (eq itemData.type 'info')}}
+			{{#if (eq itemData.form 'info')}}
 				<p local-class="center">{{itemData.value}}</p>
 				<div local-class="tab">
-					{{#if (eq itemData.ext.sub.type 'title')}}
+					{{#if (eq itemData.ext.sub.form 'title')}}
 						<p local-class="share">
 							{{number-format itemData.ext.sub.value}}
 						</p>
@@ -32,15 +32,15 @@
 							{{#if (eq itemData.ext.sub.ext.change 'down')}}
 								<span class="glyphicon glyphicon-triangle-bottom" local-class="down"></span>
 							{{/if}}
-							{{#if (eq itemData.ext.sub.ext.type 'sales')}}
+							{{#if (eq itemData.ext.sub.ext.form 'sales')}}
 								{{number-format itemData.ext.sub.ext.value}}
 							{{/if}}
-							{{#if (eq itemData.ext.sub.ext.type 'percent')}}
+							{{#if (eq itemData.ext.sub.ext.form 'percent')}}
 								{{number-to-percent  itemData.ext.sub.ext.value}}%
 							{{/if}}
 						</p>
 					{{/if}}
-					{{#if (eq itemData.ext.sub.type 'percent')}}
+					{{#if (eq itemData.ext.sub.form 'percent')}}
 						<p local-class="share">
 							{{itemData.ext.sub.title}} {{number-to-percent  itemData.ext.sub.value}}%
 						</p>
@@ -51,10 +51,10 @@
 							{{#if (eq itemData.ext.sub.ext.change 'down')}}
 								<span class="glyphicon glyphicon-triangle-bottom" local-class="down"></span>
 							{{/if}}
-							{{#if (eq itemData.ext.sub.ext.type 'sales')}}
+							{{#if (eq itemData.ext.sub.ext.form 'sales')}}
 								{{number-format itemData.ext.sub.ext.value}}
 							{{/if}}
-							{{#if (eq itemData.ext.sub.ext.type 'percent')}}
+							{{#if (eq itemData.ext.sub.ext.form 'percent')}}
 								{{number-to-percent  itemData.ext.sub.ext.value}}%
 							{{/if}}
 						</p>

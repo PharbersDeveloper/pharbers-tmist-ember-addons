@@ -12,7 +12,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">KPI分析</span>
                         {{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=mdata.kpi_analysis}}
+                        {{input type="text" key-up=(action 'managerInput' mdata.id) class="form-control" aria-describedby="basic-addon2" value=mdata.kpi_analysis}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">团建/例会</span>
                         {{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=mdata.team_meet}}
+                        {{input type="text" key-up=(action 'managerInput' mdata.id) class="form-control" aria-describedby="basic-addon2" value=mdata.team_meet}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2">行政事务</span>
                         {{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-                        {{input type="text" class="form-control" aria-describedby="basic-addon2" value=mdata.admin_work}}
+                        {{input type="text" key-up=(action 'managerInput' mdata.id) class="form-control" aria-describedby="basic-addon2" value=mdata.admin_work}}
                         <span class="input-group-addon" id="basic-addon2">天</span>
                     </div>
                 </div>
