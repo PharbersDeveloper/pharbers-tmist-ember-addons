@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/manager-decision';
 import styles from '../styles/manager-decision';
-import { computed, observer} from '@ember/object';
+import { computed, observer } from '@ember/object';
 import { on } from '@ember/object/evented';
 
 export default Component.extend({
@@ -19,16 +19,15 @@ export default Component.extend({
         this._super(...arguments);
         this.sendAction('getHospCardInfo', this);
         this.sendAction('getInputCard', this);
-        this.sendAction('getManagerTime', this);
 
         this.get('repList').forEach(elem => {
             let cache = localStorage.getItem('repinfo_' + this.get('uuid') + "_" + elem.id);
-            if(cache) {
+            if (cache) {
                 this.get('getStore').pushPayload(JSON.parse(cache))
             }
         });
-        
-        this.set('mdata', this.get('getStore').peekAll('managerinputinfo').firstObject)        
+
+        this.set('mdata', this.get('getStore').peekAll('managerinputinfo').firstObject)
     },
     getStore: computed('data', function() {
         return this.get('data').firstObject.store

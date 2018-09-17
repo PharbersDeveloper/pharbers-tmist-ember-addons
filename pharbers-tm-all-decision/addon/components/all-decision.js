@@ -32,24 +32,11 @@ export default Component.extend({
         getInputCard(component) {
             this.sendAction('getInputCard', component);
         },
-        getManagerTime(component) {
-            this.sendAction('getManagerTime', component);
-        },
+
         managerInput(mid) {
             this.sendAction('managerInput', mid);
         },
-        hospInput(id) {
-            this.sendAction('hospInput', id);
-        },
-        changeHospInput(hospid) {
-            this.sendAction('changeHospInput', hospid);
-        },
-        chooseRep(repid) {
-            this.sendAction('chooseRep', repid);
-        },
-        repInput(rid) {
-            this.sendAction('repInput', rid)
-        },
+
         runCalc() {
             this.sendAction('runCalc');
         }

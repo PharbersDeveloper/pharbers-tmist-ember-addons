@@ -9,15 +9,15 @@ export default Component.extend({
     styles,
     integerIndex: 0,
     currentHospitalId: 0,
-    getStore: computed('data', function () {
+    getStore: computed('data', function() {
         return this.get('data').firstObject.store
     }),
-    watching: observer('data.@each.target', 'data.@each.budget', 'data.@each.asignday', 'data.@each.managerwith', 'data.@each.representative', function () {
+    watching: observer('data.@each.target', 'data.@each.budget', 'data.@each.asignday', 'data.@each.managerwith', 'data.@each.representative', function() {
         once(this, 'execute')
     }),
     execute() {
         function groupBy(objectArray, property) {
-            return objectArray.reduce(function (acc, obj) {
+            return objectArray.reduce(function(acc, obj) {
                 var key = obj[property];
                 if (!acc[key]) {
                     acc[key] = [];
@@ -33,7 +33,7 @@ export default Component.extend({
                 return { allot_data: Number(elem.asignday) || 0, representative: elem.representative.id || "", budget: Number(elem.budget), managerwith: Number(elem.managerwith) }
             }
         }).filter(elem => elem !== undefined);
-        
+
         let gval = groupBy(cache, 'representative');
 
         Object.keys(gval).forEach(elem => {
@@ -47,14 +47,14 @@ export default Component.extend({
         this.sendAction('totalBugdetRatio', budget)
 
         //协助拜访sum
-        let managerwith = cache.reduce((acc, cur) => acc + cur.managerwith, 0); 
+        let managerwith = cache.reduce((acc, cur) => acc + cur.managerwith, 0);
         this.get('getStore').peekAll('managerinputinfo').firstObject.set('field_work', managerwith);
 
         // 初始化加载经理分配时间
         let managerinputcache = localStorage.getItem('managerinput');
-		if(managerinputcache) {
-			this.get('getStore').pushPayload(JSON.parse(managerinputcache));
-		}
+        if (managerinputcache) {
+            this.get('getStore').pushPayload(JSON.parse(managerinputcache));
+        }
     },
     init() {
         this._super(...arguments);
@@ -77,11 +77,9 @@ export default Component.extend({
         },
         hospInput() {
             this.setInput()
-            // this.sendAction('hospInput', id);
         },
         chooseRep(repid) {
             this.setInput(repid)
-            // this.sendAction('chooseRep', repid);
         }
     }
 });

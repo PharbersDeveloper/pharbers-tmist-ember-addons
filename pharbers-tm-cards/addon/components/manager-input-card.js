@@ -12,11 +12,6 @@ export default Component.extend({
 
 	init() {
 		this._super(...arguments);
-		// let cache = localStorage.getItem('managerinput');
-		// if(cache) {
-		// 	this.get('getStore').pushPayload(JSON.parse(cache));
-		// 	this.allotTeamMeet();
-		// }
 	},
 
 	allotTeamMeet() {
@@ -25,12 +20,12 @@ export default Component.extend({
 		});
 	},
 
-	getStore: computed('mdata', function () {
-        return this.get('mdata').store;
-    }),
-	
-	watching: observer('mdata.kpi_analysis', 'mdata.admin_work', 'mdata.team_meet', 'mdata.field_work', 'mdata.sales_train', function () {
-        once(this, 'execute');
+	getStore: computed('mdata', function() {
+		return this.get('mdata').store;
+	}),
+
+	watching: observer('mdata.kpi_analysis', 'mdata.admin_work', 'mdata.team_meet', 'mdata.field_work', 'mdata.sales_train', function() {
+		once(this, 'execute');
 	}),
 
 	execute() {
