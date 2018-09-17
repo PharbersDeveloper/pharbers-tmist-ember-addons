@@ -1,0 +1,8 @@
+.capability-line {
+    :global(.echarts-chart) {
+        width: 1200px;
+        height: 600px;
+        // left: 50%;
+        // transform: translateX(-50%);
+    }
+}
