@@ -16,7 +16,6 @@ export function stringToArray(params /*, hash*/ ) {
 			return arr;
 		}
 	}
-
 }
 
 export default helper(stringToArray);

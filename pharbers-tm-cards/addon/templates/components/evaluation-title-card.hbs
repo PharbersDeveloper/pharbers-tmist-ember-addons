@@ -1,5 +1,7 @@
-<div local-class="evaluation-title">
-    <p local-class="title">{{data.title}}</p>
-    <p local-class="content">{{data.content}}</p>
-    {{ability-card data=data.ability}}
-</div>
+{{#each data as |item|}}
+	<div local-class="evaluation-title">
+		<p local-class="title">{{item.title}}</p>
+		<p local-class="content">{{item.content}}</p>
+		{{ability-card data=item.ability}}
+	</div>
+{{/each}}

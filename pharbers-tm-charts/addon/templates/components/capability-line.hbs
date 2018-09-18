@@ -1,7 +1,5 @@
 
-{{echarts-chart
-  option=options
-}}
-{{#each data as |sum|}}
+{{echarts-chart  option=optionResult}}
+{{#each data.intor as |sum|}}
     {{evaluation-summary-card data=sum}}
 {{/each}}

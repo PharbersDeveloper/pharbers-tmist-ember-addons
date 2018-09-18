@@ -1,4 +1,16 @@
-{{yield}}
-{{#mapping-components evaluationCard.component_data as |componentName component|}}
+{{!-- {{#mapping-components evaluationCard.component_data as |componentName component|}}
     {{component.component}}
-{{/mapping-components}}
+{{/mapping-components}}--}}
+{{#each data as |item|}}
+    {{#mapping-components item as |componentName component|}}
+        {{#if (eq componentName.componentName 'capability-radar')}}
+            {{component.component data=radarData}}
+        {{/if}}
+        {{#if (eq componentName.componentName 'evaluation-title-card')}}
+            {{component.component data=cardData}}
+        {{/if}}
+        {{#if (eq componentName.componentName 'capability-line')}}
+            {{component.component data=lineData}}
+        {{/if}}
+    {{/mapping-components}}
+{{/each}}
