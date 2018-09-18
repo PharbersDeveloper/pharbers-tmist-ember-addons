@@ -18,15 +18,9 @@ export default Component.extend({
             getRepBudget(component) {
                 this.sendAction('getRepBudget', component);
             },
-            hospInput(id) {
-                this.sendAction('hospInput', id);
+            totalBugdetRatio(budget, defaultBudget) {
+                this.sendAction('totalBugdetRatio', budget, defaultBudget)
             },
-            changeHospInput(hospid) {
-                this.sendAction('changeHospInput', hospid);
-            },
-            chooseRep(repid) {
-                this.sendAction('chooseRep', repid);
-            }
         },
     })
     .reopenClass({

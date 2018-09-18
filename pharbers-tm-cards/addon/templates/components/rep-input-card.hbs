@@ -1,19 +1,15 @@
-{{yield}}
-
-{{#each data as |item|}}
-	<div local-class="rep-input">
-		<p local-class="title">{{item.repInfo.rep_name}}</p>
+<div local-class="rep-input">
+		<p local-class="title">{{repItem.repInfo.rep_name}}</p>
 		<div local-class="text">
-			<p>总时间：{{item.total_days}}天</p>
-			<p>分配时间：{{item.used_days}} 天</p>
+			<p>总时间：{{repItem.total_days}}天</p>
+			<p>分配时间：{{repItem.used_days}} 天</p>
 		</div>
 		<div local-class="input-container" class="row">
 			<div local-class="input-line" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 					<div local-class="input-con">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon2">脱岗产品培训</span>
-							{{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-							{{input type="text"  key-up=(action 'repInput' item.id) class="form-control" aria-describedby="basic-addon2" value=item.product_train}}
+							{{input type="text"  key-up=(action 'repInput' repItem.id) class="form-control" aria-describedby="basic-addon2" value=repItem.product_train}}
 
 							<span class="input-group-addon" id="basic-addon2">天</span>
 						</div>
@@ -21,23 +17,21 @@
 					<div local-class="input-con">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon2">1V1能力辅导</span>
-							{{!-- <input type="text" class="form-control" aria-describedby="basic-addon2"> --}}
-							{{input type="text" key-up=(action 'repInput' item.id) class="form-control" aria-describedby="basic-addon2" value=item.sales_train}}
+							{{input type="text" key-up=(action 'repInput' repItem.id) class="form-control" aria-describedby="basic-addon2" value=repItem.sales_train}}
 							<span class="input-group-addon" id="basic-addon2">天</span>
 						</div>
 					</div>
 					<div local-class="input-con">
 						<div class="input-group">
 							<span class="input-group-addon" id="basic-addon2">总分配时间</span>
-							{{!-- <input type="text" class="form-control" disabled aria-describedby="basic-addon2"> --}}
-							{{input  type="text" class="form-control" disabled=true aria-describedby="basic-addon2" value=item.total_used_days}}
+							{{input  type="text" class="form-control" disabled=true aria-describedby="basic-addon2" value=repItem.total_used_days}}
 							<span class="input-group-addon" id="basic-addon2">天</span>
 						</div>
 					</div>
 			</div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 				<div local-class="person-radio">
-					{{person-radio data=item.repInfo}}
+					{{person-radio data=repItem.repInfo}}
 				</div>
             </div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -45,11 +39,10 @@
 					<div class="panel panel-info" local-class="panel">
 					  <div class="panel-footer">员工信息</div>
 					  <div class="panel-body">
-						  {{item.repInfo.rep_describe}}
+						  {{repItem.repInfo.rep_describe}}
 					  </div>
 					</div>
                 </div>
             </div>
 		</div>
 	</div>
-{{/each}}

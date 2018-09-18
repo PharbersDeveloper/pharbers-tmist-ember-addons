@@ -1,16 +1,16 @@
 import Component from '@ember/component';
 import layout from '../templates/components/all-decision';
 import styles from '../styles/all-decision';
-import { computed } from '@ember/object';
 
 export default Component.extend({
     layout,
     styles,
     tagName: "",
     whichpag: 'hospital',
+    hintContent: "填写内容",
+    hintClass: "alert alert-danger",
     init() {
         this._super(...arguments);
-        // this.sendAction('queryDecision', this);
     },
     actions: {
         getMandNs(component) {
@@ -25,32 +25,22 @@ export default Component.extend({
         getRepBudget(component) {
             this.sendAction('getRepBudget', component);
         },
+        totalBugdetRatio(budget, defaultBudget) {
+            this.sendAction('totalBugdetRatio', budget, defaultBudget);
+        },
         getHospCardInfo(component) {
             this.sendAction('getHospCardInfo', component);
         },
         getInputCard(component) {
             this.sendAction('getInputCard', component);
         },
-        getManagerTime(component) {
-            this.sendAction('getManagerTime', component);
-        },
+
         managerInput(mid) {
             this.sendAction('managerInput', mid);
         },
-        hospInput(id) {
-            this.sendAction('hospInput', id);
-        },
-        changeHospInput(hospid) {
-            this.sendAction('changeHospInput', hospid);
-        },
-        chooseRep(repid) {
-            this.sendAction('chooseRep', repid);
-        },
-        repInput(rid) {
-            this.sendAction('repInput', rid)
-        },
+
         runCalc() {
-            this.sendAction('runCalc');
+            this.sendAction('runCalc', this);
         }
     }
 }).reopenClass({

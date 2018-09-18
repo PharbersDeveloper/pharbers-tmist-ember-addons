@@ -1,19 +1,29 @@
-.evaluation-title {
-	width: 1060px;
-	margin-bottom: 25px;
+.ability-card-container {
+	margin: 20px auto;
+	padding: 30px 30px 10px;
+	max-width: 1200px;
+	min-width: 1200px;
+	background: #FFFFFF;
+	box-shadow: 0 4px 6px 0 rgba(48,48,48,0.50);
+	border-radius: 5px;
 
-	.title {
-		height: 28px;
-		line-height: 28px;
-		font-size: 20px;
-		letter-spacing: 3px;
-		color: #4A90E2;
-	}
+	.evaluation-title {
+		width: 1060px;
+		margin-bottom: 25px;
 
-	.content {
-		line-height: 25px;
-		font-size: 14px;
-		letter-spacing: 2px;
-		color: #767A80;
+		.title {
+			height: 28px;
+			line-height: 28px;
+			font-size: 20px;
+			letter-spacing: 3px;
+			color: #4A90E2;
+		}
+
+		.content {
+			line-height: 25px;
+			font-size: 14px;
+			letter-spacing: 2px;
+			color: #767A80;
+		}
 	}
 }

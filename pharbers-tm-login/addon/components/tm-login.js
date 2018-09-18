@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/tm-login';
 import styles from '../styles/tm-login';
 import { computed } from '@ember/object';
+import { isEmpty } from '@ember/utils';
 
 export default Component.extend({
 		layout,
@@ -13,8 +14,10 @@ export default Component.extend({
 				let token = result["token"];
 				this.cookies.write('token', token);
 				let cookiesForToken = this.cookies.read('token');
-				if (cookiesForToken != "" && cookiesForToken != null && cookiesForToken != undefined) {
+				if (!isEmpty(cookiesForToken)) {
 					return { state: "success" };
+				} else {
+					return { state: "error" };
 				}
 			});
 		}),

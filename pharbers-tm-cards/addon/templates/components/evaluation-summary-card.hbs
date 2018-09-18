@@ -1,15 +1,14 @@
-{{yield}}
-{{#each data as |summary|}}
+{{!-- {{#each data as |summary|}} --}}
 	<div local-class="summary-card">
 		<div local-class="s-inside title">
-			<p>{{summary.title}}</p>
+			<p>{{data.title}}</p>
 		</div>
 		<div local-class="s-inside desc">
 			<ul local-class="sum-desc">
-				{{#each summary.desc as |desc|}}
+				{{#each data.desc as |desc|}}
 					<li local-class="content">{{desc}}</li>
 				{{/each}}
 			</ul>
 		</div>
 	</div>
-{{/each}}
+{{!-- {{/each}} --}}

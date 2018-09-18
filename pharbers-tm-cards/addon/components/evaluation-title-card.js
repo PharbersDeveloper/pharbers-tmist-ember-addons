@@ -5,5 +5,5 @@ import styles from '../styles/evaluation-title-card';
 export default Component.extend({
 	layout,
 	styles,
-	tagName: '',
+	localClassNames: "ability-card-container"
 });
