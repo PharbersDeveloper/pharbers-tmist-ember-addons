@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/accordion-hospital';
 import styles from '../styles/accordion-hospital';
 import { computed, observer } from '@ember/object';
-import { once } from '@ember/runloop';
+import { once, later } from '@ember/runloop';
 
 export default Component.extend({
     layout,
@@ -45,6 +45,8 @@ export default Component.extend({
         //预设budget 总值
         let medic = this.get('getStore').peekAll('hospitalbaseinfo').firstObject.hospmedicinfos.firstObject;
         let defaultBudget = medic.total_budget;
+        console.log('in accordion ')
+
         //预算sum
         let budget = cache.reduce((acc, cur) => acc + cur.budget, 0);
         this.sendAction('totalBugdetRatio', budget, defaultBudget);
@@ -62,6 +64,25 @@ export default Component.extend({
     init() {
         this._super(...arguments);
         this.sendAction('getHospInfo', this);
+
+        // 临时解决，明天把getStore变成Promise或者组件层级重写
+        later(this, function() {
+            let cache = this.get('getStore').peekAll('hospitalbaseinfo').map(elem => {
+                if (elem.representative !== null && elem.budget !== undefined) {
+                    return { budget: Number(elem.budget) }
+                }
+            }).filter(elem => elem !== undefined);
+
+            //预设budget 总值
+            let medic = this.get('getStore').peekAll('hospitalbaseinfo').firstObject.hospmedicinfos.firstObject;
+            let defaultBudget = medic.total_budget;
+            console.log('in accordion ')
+
+            //预算sum
+            let budget = cache.reduce((acc, cur) => acc + cur.budget, 0);
+            this.sendAction('totalBugdetRatio', budget, defaultBudget);
+
+        }, 5000)
     },
     //这块儿逻辑写错了，应该是观察model然后set，不应该是在键盘Event上，首先需要想一下，有关系属性改变数值时如何做到同步更新关系
     setInput(repId) {
