@@ -18,8 +18,8 @@ export default Component.extend({
             getRepBudget(component) {
                 this.sendAction('getRepBudget', component);
             },
-            totalBugdetRatio(component) {
-                this.sendAction('totalBugdetRatio', component)
+            totalBugdetRatio(budget, defaultBudget) {
+                this.sendAction('totalBugdetRatio', budget, defaultBudget)
             },
         },
     })

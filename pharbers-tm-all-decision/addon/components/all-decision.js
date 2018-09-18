@@ -7,6 +7,8 @@ export default Component.extend({
     styles,
     tagName: "",
     whichpag: 'hospital',
+    hintContent: "填写内容",
+    hintClass: "alert alert-danger",
     init() {
         this._super(...arguments);
     },
@@ -23,8 +25,8 @@ export default Component.extend({
         getRepBudget(component) {
             this.sendAction('getRepBudget', component);
         },
-        totalBugdetRatio(component) {
-            this.sendAction('totalBugdetRatio', component);
+        totalBugdetRatio(budget, defaultBudget) {
+            this.sendAction('totalBugdetRatio', budget, defaultBudget);
         },
         getHospCardInfo(component) {
             this.sendAction('getHospCardInfo', component);
@@ -38,7 +40,7 @@ export default Component.extend({
         },
 
         runCalc() {
-            this.sendAction('runCalc');
+            this.sendAction('runCalc', this);
         }
     }
 }).reopenClass({

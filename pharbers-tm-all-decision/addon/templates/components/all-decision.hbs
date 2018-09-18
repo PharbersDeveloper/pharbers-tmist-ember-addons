@@ -40,8 +40,11 @@
 {{/if}}
 
 <div local-class="footer navbar">
-	<div class="alert alert-success" role="alert" local-class="footer-tab">
-		<p>This is a success alert—check it out!</p>
+	<div class= {{hintClass}} role="alert" local-class="footer-tab">
+		<p>{{hintContent}}</p>
 		<button type="button" name="button" local-class="footer-button" {{action 'runCalc'}}>执行计算</button>
 	</div>
+	{{!-- {{#bs-alert type=type}}
+		<strong>Well done!</strong> You successfully read this important alert message.
+	{{/bs-alert}} --}}
 </div>

@@ -12,12 +12,12 @@ export default Component.extend({
         this._super(...arguments);
         this.sendAction('getRandB', this);
     },
-    // TODO 为毛是写死的
     calcBudget: computed('budget', function() {
+        let total = this.get('total');
         let totalBudget = {};
         totalBudget.used = this.get('budget');
-        totalBudget.total = 800000;
-        totalBudget.percent = (this.get('budget') / 800000).toFixed(2);
+        totalBudget.total = total;
+        totalBudget.percent = (this.get('budget') * 100 / total).toFixed(2);
         return totalBudget;
     }),
 });

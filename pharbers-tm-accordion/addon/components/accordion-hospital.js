@@ -42,9 +42,12 @@ export default Component.extend({
             model.set('used_days', sum)
         });
 
+        //预设budget 总值
+        let medic = this.get('getStore').peekAll('hospitalbaseinfo').firstObject.hospmedicinfos.firstObject;
+        let defaultBudget = medic.total_budget;
         //预算sum
         let budget = cache.reduce((acc, cur) => acc + cur.budget, 0);
-        this.sendAction('totalBugdetRatio', budget)
+        this.sendAction('totalBugdetRatio', budget, defaultBudget);
 
         //协助拜访sum
         let managerwith = cache.reduce((acc, cur) => acc + cur.managerwith, 0);
