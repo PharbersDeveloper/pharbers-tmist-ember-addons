@@ -7,7 +7,9 @@
 
         {{#tab.pane local-class="progress inside" elementId="budgetprogress" title="Tab 2" }}
             <h2>预算进度</h2>
-            <p local-class="human-text"> <span>预算</span> <span>{{number-format calcBudget.used}}/{{number-format calcBudget.total}}元</span> <span>{{calcBudget.percent}}%</span> </p>
+            <p local-class="human-text">
+                <span>预算</span>
+                <span>{{number-format calcBudget.used}}/{{number-format calcBudget.total}}元</span> <span>{{calcBudget.percent}}%</span> </p>
             <div local-class="self-progress" class="progress">
                 {{#bs-progress as |p|}}
                     {{p.bar value=calcBudget.percent local-class="self-progress-bar"}}
