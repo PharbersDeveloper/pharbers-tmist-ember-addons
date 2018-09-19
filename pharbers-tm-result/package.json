@@ -1,13 +1,13 @@
 {
     "name": "pharbers-tm-result",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "This addon is used to show represents result.",
     "keywords": [
         "ember-addon"
     ],
     "repository": "",
     "license": "MIT",
-    "author": "",
+    "author": "Frank",
     "directories": {
         "doc": "doc",
         "test": "tests"

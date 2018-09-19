@@ -3,12 +3,12 @@
     {{!-- <span>通知</span> --}}
     {{!-- <span>信息库</span> --}}
     {{!-- <span {{action "onclick"}}>团队培养</span> --}}
-    {{#each navs as |tool|}}
+    {{!-- {{#each navs as |tool|}}
         <span {{action "onclick" tool.id}}>{{tool.text}}</span>
-    {{/each}}
+    {{/each}} --}}
 </div>
 <div local-class="menu menu-right">
-    {{#bs-dropdown onShow=(action 'reCalc') tagName="span" local-class="budget" as |bb|}}
+    {{!-- {{#bs-dropdown onShow=(action 'reCalc') tagName="span" local-class="budget" as |bb|}}
         {{#bb.toggle}}预算 <span class="caret"></span>{{/bb.toggle}}
         {{#bb.menu local-class='tips-container' as |menu|}}
             {{#menu.item local-class='budget-tip' }}
@@ -42,8 +42,9 @@
                 </div>
             {{/menu.item}}
         {{/dd.menu}}
-    {{/bs-dropdown}}
-    <span local-class="btn-submit" {{action "submit" data.text}}>{{data.text}}
+    {{/bs-dropdown}} --}}
+    <span local-class="btn-submit" {{action "submit"}}>
+            测评报告
             <span class="glyphicon glyphicon-menu-right"></span>
     </span>
 </div>

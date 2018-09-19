@@ -1,1 +1,0 @@
-export { default } from 'pharbers-tm-allrep/components/all-rep';

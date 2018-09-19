@@ -1,13 +1,13 @@
 {
 	"name": "pharbers-tm-login",
-	"version": "1.0.0",
-	"description": "The default blueprint for ember-cli addons.",
+	"version": "1.0.1",
+	"description": "Just For TMIST project.",
 	"keywords": [
 		"ember-addon"
 	],
 	"repository": "",
 	"license": "MIT",
-	"author": "",
+	"author": "Frank",
 	"directories": {
 		"doc": "doc",
 		"test": "tests"

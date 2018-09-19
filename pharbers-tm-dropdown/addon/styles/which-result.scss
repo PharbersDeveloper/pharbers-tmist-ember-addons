@@ -20,7 +20,9 @@
             color: #fff;
         }
 
-        .ull {
+        :global(.dropdown-menu) {
+            top: 5px;
+            left: -30px;
             height: auto !important;
             padding-bottom: 0;
             text-align: center;
@@ -29,6 +31,7 @@
             :global(.divider):last-child {
                 margin-bottom: 0;
             }
+
             span {
                 padding: 15px 20px;
             }
