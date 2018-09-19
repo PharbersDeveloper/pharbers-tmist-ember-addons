@@ -45,7 +45,6 @@ export default Component.extend({
         //预设budget 总值
         let medic = this.get('getStore').peekAll('hospitalbaseinfo').firstObject.hospmedicinfos.firstObject;
         let defaultBudget = medic.total_budget;
-        console.log('in accordion ')
 
         //预算sum
         let budget = cache.reduce((acc, cur) => acc + cur.budget, 0);
@@ -66,6 +65,7 @@ export default Component.extend({
         this.sendAction('getHospInfo', this);
 
         // 临时解决，明天把getStore变成Promise或者组件层级重写
+
         later(this, function() {
             let cache = this.get('getStore').peekAll('hospitalbaseinfo').map(elem => {
                 if (elem.representative !== null && elem.budget !== undefined) {
@@ -76,7 +76,6 @@ export default Component.extend({
             //预设budget 总值
             let medic = this.get('getStore').peekAll('hospitalbaseinfo').firstObject.hospmedicinfos.firstObject;
             let defaultBudget = medic.total_budget;
-            console.log('in accordion ')
 
             //预算sum
             let budget = cache.reduce((acc, cur) => acc + cur.budget, 0);

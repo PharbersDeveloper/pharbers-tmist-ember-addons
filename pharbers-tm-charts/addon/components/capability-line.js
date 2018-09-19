@@ -8,9 +8,6 @@ export default Component.extend({
     layout,
     styles,
     localClassNames: 'capability-line',
-    init() {
-        this._super(...arguments);
-    },
     optionResult: computed('data', function() {
         let data = this.get('data');
 
@@ -35,8 +32,7 @@ export default Component.extend({
                         color: '#4A90E2',
                         letterSpacing: 2,
                     },
-                    top: -5,
-                    // padding: [5, 30]
+                    top: -2,
                 },
                 xAxis: {
                     type: 'category',

@@ -28,13 +28,13 @@ export default Component.extend({
             wordValue.push(data.talent_train_val);
             let numberValue = wordValue.map((word) => {
                 if (word == 'A') {
-                    return 1;
+                    return 4;
                 } else if (word == 'B') {
-                    return 2
-                } else if (word == 'C') {
                     return 3
+                } else if (word == 'C') {
+                    return 2
                 } else if (word == 'D') {
-                    return 4
+                    return 1
                 } else {
                     return 5
                 }
@@ -50,7 +50,7 @@ export default Component.extend({
                     padding: [5, 30]
                 },
                 tooltip: {
-                    trigger: 'item'
+                    show: false
                 },
 
                 radar: {
