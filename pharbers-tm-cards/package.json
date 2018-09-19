@@ -1,7 +1,7 @@
 {
 	"name": "pharbers-tm-cards",
-	"version": "1.0.0",
-	"description": "The default blueprint for ember-cli addons.",
+	"version": "1.0.1",
+	"description": "For TMIST project.",
 	"keywords": [
 		"ember-addon",
 		"target-card"

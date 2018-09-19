@@ -1,6 +1,6 @@
 {
   "name": "pharbers-tm-nav",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This addon include nav-title and nav-tool,there're used to be nav.",
   "keywords": [
     "ember-addon"

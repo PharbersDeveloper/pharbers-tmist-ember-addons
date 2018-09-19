@@ -1,6 +1,6 @@
 {
     "name": "pharbers-tm-evaluation",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "This addon is just for show some evaluation reports info.",
     "keywords": [
         "ember-addon"

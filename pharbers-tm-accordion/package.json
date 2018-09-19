@@ -1,7 +1,7 @@
 {
     "name": "pharbers-tm-accordion",
-    "version": "1.0.0",
-    "description": "Accordion Function is this addon",
+    "version": "1.0.1",
+    "description": "Accordion function is this addon",
     "keywords": [
         "ember-addon"
     ],
