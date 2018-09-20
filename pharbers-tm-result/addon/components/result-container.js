@@ -6,8 +6,8 @@ export default Component.extend({
     layout,
     styles,
     actions: {
-        onclick(type, id) {
-            this.sendAction('onclick', type, id);
+        changeReportPage(type, id) {
+            this.sendAction('changeReportPage', type, id);
         },
         getDropdawnData(component) {
             this.sendAction('getDropdawnData', component);

@@ -1,6 +1,6 @@
 {
 	"name": "pharbers-tm-cards",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "For TMIST project.",
 	"keywords": [
 		"ember-addon",
