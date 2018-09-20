@@ -25,6 +25,9 @@ export default Component.extend({
                 return [index, item]
             });
             return {
+                grid: {
+                    top: 80
+                },
                 title: {
                     text: "态势与发展分析",
                     textStyle: {
@@ -32,7 +35,7 @@ export default Component.extend({
                         color: '#4A90E2',
                         letterSpacing: 2,
                     },
-                    top: -2,
+                    top: 0,
                 },
                 xAxis: {
                     type: 'category',
@@ -102,6 +105,82 @@ export default Component.extend({
                     symbolSize: 15,
                 }]
             }
+        } else {
+            return {
+                title: {
+                    text: "态势与发展分析",
+                    textStyle: {
+                        fontSize: 20,
+                        color: '#4A90E2',
+                        letterSpacing: 2,
+                    },
+                    top: -2,
+                },
+                xAxis: {
+                    type: 'category',
+                    position: 'top',
+                    data: ['报表分析与决策', '公司战略执行力', '市场洞察力', '目标分级', '销售计划部署', '资源分配与优化', '领导力'],
+                    show: true,
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        interval: false,
+                        margin: 0,
+                        textStyle: {
+                            color: '',
+                            fontSize: '16',
+                        },
+                        axisLine: {
+                            show: false
+                        },
+                        rich: {
+                            shadow: {
+                                backgroundColor: '#8F9CC3',
+                                fontSize: 14,
+                                height: 30,
+                                width: 120,
+                                padding: 5,
+                                color: '#fff',
+                                // shadowBlur: 5,
+                                // shadowColor: '#666',
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0
+                            },
+                        },
+                    },
+                    splitLine: {
+                        show: true,
+                    }
+                },
+                yAxis: {
+                    data: ['D', 'C', 'B', 'A', 'S'],
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false,
+                    },
+                    type: 'category',
+                    splitLine: {
+                        show: true,
+                    }
+                },
+                series: [{
+                    data: [],
+                    color: ['#A8C1FD'],
+                    width: 3,
+                    type: 'line',
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                width: 4, //折线宽度
+                            }
+                        }
+                    },
+                    symbolSize: 15,
+                }]
+            } 
         }
     }),
 
