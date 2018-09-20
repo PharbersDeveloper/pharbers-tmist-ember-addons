@@ -1,0 +1,19 @@
+
+<div class="btn-group">
+	<button type="button" class="btn btn-default dropdown-toggle"  local-class="title" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		{{#each data as |selected|}}
+			{{#if (eq currentRoute selected.whichpage)}}
+				{{selected.text}}
+			{{/if}}
+		{{/each}}
+		<span class="caret"></span>
+  </button>
+	<ul class="dropdown-menu" local-class="show-section">
+		{{#each data as |selected|}}
+			{{#if (not-eq currentRoute selected.whichpage)}}
+				<li><span {{action 'changeReportPage' selected.whichpage selected.id}}>{{selected.text}}</span></li>
+				<li role="separator" class="divider"></li>
+			{{/if}}
+		{{/each}}
+	</ul>
+</div>

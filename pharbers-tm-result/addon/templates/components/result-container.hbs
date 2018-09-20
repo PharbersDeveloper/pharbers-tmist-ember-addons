@@ -7,7 +7,7 @@
 		{{#each data as |item|}}
 			{{#mapping-components item as |componentName component|}}
 				{{#if (eq componentName.componentName 'which-result')}}
-					{{component.component getDropdawnData=(action 'getDropdawnData') onclick=(action 'onclick')}}
+					{{component.component getDropdawnData=(action 'getDropdawnData') changeReportPage=(action 'changeReportPage')}}
 				{{/if}}
 				{{#if (eq componentName.componentName 'data-show-card')}}
 					{{component.component getShowCard=(action 'getShowCard')}}

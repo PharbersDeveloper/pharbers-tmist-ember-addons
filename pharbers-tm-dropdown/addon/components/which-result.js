@@ -13,8 +13,8 @@ export default Component.extend({
     },
 
     actions: {
-        onclick(type, id) {
-            this.sendAction('onclick', type, id)
+        changeReportPage(type, id) {
+            this.sendAction('changeReportPage', type, id)
         }
     }
 });

@@ -21,7 +21,7 @@
         {{#each data as |selected|}}
             {{#if (not-eq currentRoute selected.whichpage)}}
                 {{#menu.item}}
-                    <span {{action 'onclick' selected.whichpage selected.id}}>{{selected.text}}</span>
+                    <span {{action 'changeReportPage' selected.whichpage selected.id}}>{{selected.text}}</span>
                 {{/menu.item}}
                 {{menu.divider}}
             {{/if}}
